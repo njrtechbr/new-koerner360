@@ -280,7 +280,7 @@ export interface ErroValidacao {
   codigo: string;
 }
 
-export interface ResultadoValidacao<T = any> {
+export interface ResultadoValidacao<T = unknown> {
   sucesso: boolean;
   dados?: T;
   erros?: ErroValidacao[];
