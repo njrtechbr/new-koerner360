@@ -1,0 +1,255 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id                        String      @id @default(cuid())
+  email                     String      @unique
+  nome                      String
+  senha                     String
+  userType                  TipoUsuario
+  ativo                     Boolean     @default(true)
+  criadoEm                  DateTime    @default(now())
+  atualizadoEm              DateTime    @updatedAt
+  expiracaoTokenRecuperacao DateTime?
+  tokenRecuperacao          String?
+  atendente                 Atendente?
+
+  @@index([userType])
+  @@index([ativo])
+  @@index([criadoEm])
+  @@map("usuarios")
+}
+
+model Atendente {
+  id                  String                        @id @default(cuid())
+  usuarioId           String                        @unique
+  cpf                 String                        @unique
+  telefone            String
+  endereco            String?
+  dataAdmissao        DateTime
+  cargo               String
+  setor               String
+  salario             Decimal?                      @db.Decimal(10, 2)
+  status              StatusAtendente               @default(ATIVO)
+  observacoes         String?
+  criadoEm            DateTime                      @default(now())
+  atualizadoEm        DateTime                      @updatedAt
+  celular             String?
+  cep                 String?
+  cidade              String?
+  dataNascimento      DateTime?
+  departamento        String?
+  estado              String?
+  foto                String?
+  rg                  String?
+  usuario             Usuario                       @relation(fields: [usuarioId], references: [id], onDelete: Cascade)
+  avaliacoes          Avaliacao[]
+  conquistasObtidas   ConquistaAtendente[]
+  documentos          DocumentoAtendente[]
+  gamificacao         GamificacaoAtendente?
+  historicoAlteracoes HistoricoAlteracaoAtendente[]
+
+  @@index([status])
+  @@index([setor])
+  @@index([cargo])
+  @@index([departamento])
+  @@index([dataAdmissao])
+  @@index([cpf])
+  @@map("atendentes")
+}
+
+model Avaliacao {
+  id            String    @id @default(cuid())
+  atendenteId   String
+  nota          Int
+  comentario    String?
+  periodo       String
+  dataAvaliacao DateTime  @default(now())
+  avaliadorId   String?
+  criadoEm      DateTime  @default(now())
+  atualizadoEm  DateTime  @updatedAt
+  atendente     Atendente @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+
+  @@unique([atendenteId, periodo])
+  @@index([atendenteId])
+  @@index([periodo])
+  @@index([dataAvaliacao])
+  @@map("avaliacoes")
+}
+
+model Feedback {
+  id            String             @id @default(cuid())
+  tipo          TipoFeedback
+  status        StatusFeedback     @default(PENDENTE)
+  prioridade    PrioridadeFeedback @default(MEDIA)
+  titulo        String
+  conteudo      String
+  autorId       String?
+  responsavelId String?
+  resolucao     String?
+  dataResolucao DateTime?
+  criadoEm      DateTime           @default(now())
+  atualizadoEm  DateTime           @updatedAt
+
+  @@index([status])
+  @@index([tipo])
+  @@index([prioridade])
+  @@index([autorId])
+  @@index([responsavelId])
+  @@index([criadoEm])
+  @@map("feedbacks")
+}
+
+model GamificacaoAtendente {
+  id           String    @id @default(cuid())
+  atendenteId  String    @unique
+  pontos       Int       @default(0)
+  nivel        Int       @default(1)
+  experiencia  Int       @default(0)
+  criadoEm     DateTime  @default(now())
+  atualizadoEm DateTime  @updatedAt
+  atendente    Atendente @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+
+  @@map("gamificacao_atendentes")
+}
+
+model Conquista {
+  id                     String               @id @default(cuid())
+  nome                   String               @unique
+  descricao              String
+  requisitos             String
+  pontos                 Int
+  icone                  String?
+  ativa                  Boolean              @default(true)
+  criadoEm               DateTime             @default(now())
+  atualizadoEm           DateTime             @updatedAt
+  atendentesQueObtiveram ConquistaAtendente[]
+
+  @@map("conquistas")
+}
+
+model ConquistaAtendente {
+  id           String    @id @default(cuid())
+  conquistaId  String
+  atendenteId  String
+  dataObtencao DateTime  @default(now())
+  atendente    Atendente @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+  conquista    Conquista @relation(fields: [conquistaId], references: [id], onDelete: Cascade)
+
+  @@unique([conquistaId, atendenteId])
+  @@map("conquistas_atendentes")
+}
+
+model DocumentoAtendente {
+  id           String        @id @default(cuid())
+  atendenteId  String
+  tipo         TipoDocumento
+  nome         String
+  descricao    String?
+  arquivo      String
+  tamanho      Int?
+  mimeType     String?
+  versao       Int           @default(1)
+  ativo        Boolean       @default(true)
+  criadoEm     DateTime      @default(now())
+  atualizadoEm DateTime      @updatedAt
+  criadoPorId  String?
+  atendente    Atendente     @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+
+  @@index([atendenteId])
+  @@index([tipo])
+  @@index([ativo])
+  @@index([criadoEm])
+  @@map("documentos_atendentes")
+}
+
+model HistoricoAlteracaoAtendente {
+  id            String        @id @default(cuid())
+  atendenteId   String
+  tipo          TipoAlteracao
+  campo         String?
+  valorAnterior String?
+  valorNovo     String?
+  descricao     String
+  criadoEm      DateTime      @default(now())
+  criadoPorId   String?
+  ip            String?
+  userAgent     String?
+  atendente     Atendente     @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+
+  @@index([atendenteId])
+  @@index([tipo])
+  @@index([campo])
+  @@index([criadoEm])
+  @@index([criadoPorId])
+  @@map("historico_alteracoes_atendentes")
+}
+
+enum TipoUsuario {
+  ADMIN
+  GESTOR
+  ATENDENTE
+}
+
+enum StatusAtendente {
+  ATIVO
+  INATIVO
+  SUSPENSO
+  TREINAMENTO
+  FERIAS
+  AFASTADO
+  LICENCA_MEDICA
+  LICENCA_MATERNIDADE
+}
+
+enum TipoFeedback {
+  SUGESTAO
+  RECLAMACAO
+  ELOGIO
+  MELHORIA
+}
+
+enum StatusFeedback {
+  PENDENTE
+  EM_ANALISE
+  RESOLVIDO
+  REJEITADO
+}
+
+enum PrioridadeFeedback {
+  BAIXA
+  MEDIA
+  ALTA
+  CRITICA
+}
+
+enum TipoDocumento {
+  RG
+  CPF
+  CNH
+  CARTEIRA_TRABALHO
+  TITULO_ELEITOR
+  COMPROVANTE_RESIDENCIA
+  DIPLOMA
+  CERTIFICADO
+  CONTRATO
+  OUTROS
+}
+
+enum TipoAlteracao {
+  CRIACAO
+  ATUALIZACAO
+  EXCLUSAO
+  ATIVACAO
+  DESATIVACAO
+  MUDANCA_STATUS
+  UPLOAD_DOCUMENTO
+  REMOCAO_DOCUMENTO
+}

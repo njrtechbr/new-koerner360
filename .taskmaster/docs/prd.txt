@@ -1,0 +1,468 @@
+# Overview
+
+O Koerner 360 é um sistema completo de gestão de feedback e avaliações 360° que permite às organizações coletar, analisar e gerenciar avaliações de desempenho de forma estruturada e gamificada. O sistema resolve o problema da falta de transparência e estruturação no processo de avaliação de desempenho organizacional, oferecendo uma plataforma robusta para gestão de usuários, coleta de feedback, análise de performance e engajamento através de gamificação.
+
+O produto é destinado a organizações que buscam modernizar seus processos de avaliação de desempenho, especialmente empresas que valorizam feedback contínuo e engajamento dos colaboradores. O valor principal está na capacidade de transformar avaliações tradicionais em um processo dinâmico, transparente e motivador através de métricas claras e elementos de gamificação.
+
+# Core Features
+
+## Sistema de Autenticação e Autorização
+- **Funcionalidade**: Autenticação segura com Auth.js v5, controle de acesso por perfis (Admin, Supervisor, Atendente, Consultor)
+- **Importância**: Garante segurança e controle granular de acesso às funcionalidades
+- **Funcionamento**: Login com email/senha, middleware de proteção de rotas, hash de senhas com bcryptjs
+
+## Gestão de Usuários e Atendentes
+- **Funcionalidade**: CRUD completo de usuários e atendentes com dados pessoais, profissionais e documentos
+- **Importância**: Base fundamental para todo o sistema de avaliações
+- **Funcionamento**: Interface paginada com filtros, busca, upload de fotos, controle de status
+
+## Sistema de Avaliações 360°
+- **Funcionalidade**: Coleta de avaliações por período com notas de 1-5 e comentários opcionais
+- **Importância**: Core do produto, permite feedback estruturado entre colaboradores
+- **Funcionamento**: Relacionamento avaliador/avaliado, prevenção de duplicatas, cálculo de métricas
+
+## Sistema de Feedback Estruturado
+- **Funcionalidade**: Gestão de feedbacks categorizados (Elogio, Sugestão, Reclamação, Melhoria)
+- **Importância**: Complementa as avaliações com feedback qualitativo
+- **Funcionamento**: Prioridades, status de resolução, histórico de alterações
+
+## Sistema de Gamificação
+- **Funcionalidade**: Pontos, níveis, conquistas e rankings baseados em performance
+- **Importância**: Aumenta engajamento e motivação dos colaboradores
+- **Funcionamento**: Sistema de pontos baseado em avaliações, conquistas por categorias, rankings comparativos
+
+## Dashboard e Relatórios
+- **Funcionalidade**: Dashboards personalizados por perfil com métricas e gráficos interativos
+- **Importância**: Fornece insights visuais para tomada de decisão
+- **Funcionamento**: Gráficos com Recharts, métricas em tempo real, exportação de dados
+
+# User Experience
+
+## User Personas
+
+### Administrador
+- **Perfil**: Gestor de RH ou TI responsável pela configuração do sistema
+- **Necessidades**: Controle total, configuração de usuários, visão geral das métricas
+- **Comportamento**: Acesso esporádico para configurações e relatórios executivos
+
+### Supervisor
+- **Perfil**: Gerente ou coordenador responsável por equipes
+- **Necessidades**: Acompanhar performance da equipe, gerenciar avaliações
+- **Comportamento**: Uso regular para monitoramento e feedback
+
+### Atendente
+- **Perfil**: Colaborador que recebe e dá avaliações
+- **Necessidades**: Visualizar próprias avaliações, acompanhar evolução, conquistar achievements
+- **Comportamento**: Uso frequente para consultar performance e rankings
+
+### Consultor
+- **Perfil**: Analista ou consultor interno/externo
+- **Necessidades**: Acesso a métricas e rankings para análise
+- **Comportamento**: Acesso pontual para extração de relatórios
+
+## Key User Flows
+
+### Fluxo de Avaliação
+1. Login no sistema
+2. Acesso à lista de avaliações pendentes
+3. Seleção do avaliado
+4. Preenchimento da nota (1-5) e comentários
+5. Submissão da avaliação
+6. Confirmação e atualização de métricas
+
+### Fluxo de Consulta de Performance
+1. Login como atendente
+2. Acesso ao dashboard pessoal
+3. Visualização de métricas, ranking e conquistas
+4. Análise de evolução temporal
+5. Comparação com pares
+
+## UI/UX Considerations
+- **Design System**: shadcn/ui com variante new-york para consistência
+- **Responsividade**: Mobile-first com Tailwind CSS
+- **Acessibilidade**: Componentes Radix UI com suporte a screen readers
+- **Performance**: Carregamento < 3 segundos, lazy loading de componentes
+- **Feedback Visual**: Notificações com Sonner, estados de loading claros
+
+# Technical Architecture
+
+## System Components
+
+### Frontend
+- **Framework**: Next.js 15.4.6 com App Router
+- **Language**: TypeScript 5.x em modo strict
+- **Styling**: Tailwind CSS 4.x com CSS Variables
+- **Components**: shadcn/ui + Radix UI primitives
+- **State Management**: React 19.1.0 com hooks nativos
+- **Forms**: React Hook Form 7.62.0 + Zod validation
+
+### Backend
+- **Runtime**: Node.js com Turbopack
+- **Database**: PostgreSQL 15+
+- **ORM**: Prisma 6.14.0
+- **Authentication**: Auth.js v5.0.0-beta.29
+- **API**: Next.js Route Handlers
+
+### Infrastructure
+- **Containerization**: Docker com docker-compose
+- **CI/CD**: GitHub Actions
+- **Monitoring**: Build info automático
+- **Testing**: Jest + Testing Library + Playwright
+
+## Data Models
+
+### Core Entities
+- **Usuario**: id, email, nome, senha, userType, ativo
+- **Atendente**: dados pessoais, profissionais, documentos, status
+- **Avaliacao**: nota, comentário, período, relacionamentos
+- **Feedback**: tipo, status, prioridade, conteúdo
+- **GamificacaoAtendente**: pontos, nível, experiência
+- **Conquista**: nome, descrição, requisitos, pontos
+
+## APIs and Integrations
+- **Authentication API**: /api/auth/* (Auth.js)
+- **Users API**: /api/usuarios/* (CRUD operations)
+- **Attendants API**: /api/atendentes/* (CRUD operations)
+- **Evaluations API**: /api/avaliacoes/* (CRUD + metrics)
+- **Feedback API**: /api/feedbacks/* (CRUD + status management)
+- **Gamification API**: /api/gamificacao/* (points, achievements)
+- **Reports API**: /api/relatorios/* (metrics and exports)
+
+## Infrastructure Requirements
+- **Minimum**: 2GB RAM, 10GB storage
+- **Recommended**: 4GB RAM, 50GB storage
+- **Database**: PostgreSQL 15+ with connection pooling
+- **Node.js**: v22.18.0+
+- **Environment**: Production-ready with SSL
+
+# Development Roadmap
+
+## Phase 1: Core MVP Foundation (Priority: Critical)
+### Authentication & User Management
+- Implement Auth.js v5 with secure login
+- Create user CRUD with role-based access
+- Set up middleware for route protection
+- Implement password hashing and temporary passwords
+
+### Basic Data Management
+- Set up PostgreSQL database with Prisma
+- Create core data models (Usuario, Atendente)
+- Implement basic CRUD operations
+- Set up data validation with Zod
+
+### Essential UI Framework
+- Configure Next.js 15 with App Router
+- Set up Tailwind CSS and shadcn/ui
+- Create base layout components
+- Implement responsive design system
+
+## Phase 2: Evaluation System (Priority: High)
+### Evaluation Engine
+- Create evaluation data models
+- Implement evaluation CRUD operations
+- Set up evaluation period management
+- Create evaluation submission interface
+
+### Basic Metrics
+- Implement rating calculations (1-5 scale)
+- Create basic performance metrics
+- Set up temporal analysis
+- Build simple reporting dashboard
+
+### Attendant Management
+- Complete attendant data model
+- Implement attendant CRUD interface
+- Set up status management (Active, Vacation, etc.)
+- Create attendant-user relationship
+
+## Phase 3: Feedback & Gamification (Priority: Medium)
+### Feedback System
+- Implement feedback data models
+- Create feedback categorization (Praise, Suggestion, etc.)
+- Set up priority and status management
+- Build feedback management interface
+
+### Gamification Engine
+- Create points and levels system
+- Implement achievement system
+- Set up ranking calculations
+- Build gamification dashboard
+
+### Advanced Dashboards
+- Create role-specific dashboards
+- Implement interactive charts with Recharts
+- Set up real-time metrics updates
+- Build consultant dashboard with read-only access
+
+## Phase 4: Advanced Features (Priority: Low)
+### Reporting & Analytics
+- Advanced reporting system
+- Data export functionality
+- Trend analysis and predictions
+- Executive dashboard
+
+### System Enhancements
+- Automated changelog system
+- Audit logging
+- Real-time notifications
+- Mobile app companion
+
+### Integrations
+- Public API for third-party integrations
+- AI-powered feedback analysis
+- Advanced data visualization
+- Performance optimization
+
+# Logical Dependency Chain
+
+## Foundation Layer (Must be built first)
+1. **Database Setup**: PostgreSQL + Prisma configuration
+2. **Authentication System**: Auth.js implementation with secure login
+3. **Base UI Framework**: Next.js + Tailwind + shadcn/ui setup
+4. **User Management**: Core user CRUD with role-based access
+
+## Core Functionality Layer (Build upon foundation)
+5. **Attendant Management**: Complete attendant system with status control
+6. **Evaluation System**: Core evaluation engine with rating system
+7. **Basic Dashboard**: Simple metrics and data visualization
+8. **Data Validation**: Comprehensive Zod schemas for all forms
+
+## Enhanced Features Layer (Requires core functionality)
+9. **Feedback System**: Structured feedback with categorization
+10. **Gamification Engine**: Points, levels, and achievements
+11. **Advanced Dashboards**: Role-specific interfaces with rich metrics
+12. **Reporting System**: Export and analysis capabilities
+
+## Optimization Layer (Final enhancements)
+13. **Performance Optimization**: Caching, lazy loading, optimization
+14. **Advanced Security**: Audit logs, enhanced protection
+15. **System Automation**: Changelog, notifications, monitoring
+16. **Future Integrations**: API, mobile app, AI features
+
+## Getting to Usable Frontend Quickly
+- **Week 1**: Authentication + basic user interface
+- **Week 2**: Attendant management with functional CRUD
+- **Week 3**: Simple evaluation submission and viewing
+- **Week 4**: Basic dashboard with essential metrics
+
+This approach ensures a working, demonstrable system within 4 weeks while building a solid foundation for advanced features.
+
+## Atomic Feature Scoping
+Each feature is designed to be:
+- **Self-contained**: Can be developed and tested independently
+- **Incrementally valuable**: Adds immediate value to users
+- **Extensible**: Can be enhanced without breaking existing functionality
+- **Testable**: Has clear acceptance criteria and test cases
+
+# Risks and Mitigations
+
+## Technical Challenges
+
+### Risk: Complex Gamification Logic
+- **Impact**: High complexity in points calculation and achievement tracking
+- **Probability**: Medium
+- **Mitigation**: Start with simple point system, iterate based on user feedback
+- **Contingency**: Implement basic ranking first, add complex achievements later
+
+### Risk: Performance with Large Datasets
+- **Impact**: Slow dashboard loading with many evaluations
+- **Probability**: High
+- **Mitigation**: Implement pagination, caching, and database indexing from start
+- **Contingency**: Use data aggregation tables for metrics
+
+### Risk: Auth.js v5 Beta Stability
+- **Impact**: Authentication issues in production
+- **Probability**: Low
+- **Mitigation**: Thorough testing, fallback to stable Auth.js v4 if needed
+- **Contingency**: Custom authentication implementation
+
+## MVP Definition and Scope
+
+### Risk: Feature Creep
+- **Impact**: Delayed MVP delivery
+- **Probability**: High
+- **Mitigation**: Strict adherence to defined MVP scope, regular scope reviews
+- **Contingency**: Feature freeze 2 weeks before target delivery
+
+### Risk: Unclear MVP Requirements
+- **Impact**: Building wrong features
+- **Probability**: Medium
+- **Mitigation**: Regular stakeholder reviews, user story validation
+- **Contingency**: Rapid prototyping for validation
+
+### Risk: Over-engineering
+- **Impact**: Unnecessary complexity delaying delivery
+- **Probability**: Medium
+- **Mitigation**: Focus on simplest working solution first
+- **Contingency**: Technical debt review and refactoring sprints
+
+## Resource Constraints
+
+### Risk: Single Developer Bottleneck
+- **Impact**: Development delays if key developer unavailable
+- **Probability**: Medium
+- **Mitigation**: Comprehensive documentation, code reviews, knowledge sharing
+- **Contingency**: Modular architecture allowing parallel development
+
+### Risk: Database Design Changes
+- **Impact**: Major refactoring if data model needs changes
+- **Probability**: Medium
+- **Mitigation**: Thorough data modeling upfront, Prisma migrations
+- **Contingency**: Database versioning strategy
+
+### Risk: Third-party Dependencies
+- **Impact**: Breaking changes in dependencies
+- **Probability**: Low
+- **Mitigation**: Pin dependency versions, regular security updates
+- **Contingency**: Alternative library evaluation
+
+## User Adoption Risks
+
+### Risk: Poor User Experience
+- **Impact**: Low adoption rates
+- **Probability**: Medium
+- **Mitigation**: User testing, responsive design, intuitive interfaces
+- **Contingency**: UX iteration based on user feedback
+
+### Risk: Resistance to Gamification
+- **Impact**: Users ignoring gamification features
+- **Probability**: Medium
+- **Mitigation**: Optional gamification, focus on value over novelty
+- **Contingency**: Traditional metrics-only view option
+
+# Appendix
+
+## Research Findings
+
+### Market Analysis
+- 360-degree feedback systems show 25% improvement in employee engagement
+- Gamification increases user engagement by 30-40% in enterprise applications
+- Mobile-responsive design is critical for adoption (70% of users access via mobile)
+
+### Technology Decisions
+
+#### Why Next.js 15?
+- App Router provides better performance and developer experience
+- Built-in optimization features (Turbopack, Image optimization)
+- Strong TypeScript support and ecosystem
+
+#### Why PostgreSQL?
+- ACID compliance for critical evaluation data
+- Strong JSON support for flexible data structures
+- Excellent performance with proper indexing
+
+#### Why Prisma?
+- Type-safe database access
+- Excellent migration system
+- Strong Next.js integration
+
+## Technical Specifications
+
+### Database Schema Highlights
+```sql
+-- Core user table
+CREATE TABLE Usuario (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  nome VARCHAR(255) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  userType UserType NOT NULL,
+  ativo BOOLEAN DEFAULT true
+);
+
+-- Evaluation table with constraints
+CREATE TABLE Avaliacao (
+  id SERIAL PRIMARY KEY,
+  nota INTEGER CHECK (nota >= 1 AND nota <= 5),
+  comentario TEXT,
+  periodo DATE NOT NULL,
+  avaliadoId INTEGER REFERENCES Atendente(id),
+  avaliadorId INTEGER REFERENCES Usuario(id),
+  UNIQUE(avaliadoId, avaliadorId, periodo)
+);
+```
+
+### API Response Formats
+```typescript
+// Standard API response
+interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+  message?: string;
+}
+
+// Evaluation response
+interface EvaluationResponse {
+  id: number;
+  nota: number;
+  comentario?: string;
+  periodo: string;
+  avaliado: {
+    id: number;
+    nome: string;
+  };
+  avaliador: {
+    id: number;
+    nome: string;
+  };
+}
+```
+
+### Performance Targets
+- **Page Load Time**: < 3 seconds on 3G connection
+- **API Response Time**: < 500ms for CRUD operations
+- **Database Query Time**: < 100ms for simple queries
+- **Concurrent Users**: Support for 100+ simultaneous users
+
+### Security Specifications
+- **Password Policy**: Minimum 8 characters, mixed case, numbers
+- **Session Management**: JWT tokens with 24-hour expiration
+- **Data Encryption**: bcryptjs for passwords, HTTPS for all communications
+- **Input Validation**: Zod schemas for all user inputs
+- **SQL Injection Prevention**: Prisma ORM with parameterized queries
+
+### Deployment Configuration
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db:5432/koerner360
+      - NEXTAUTH_SECRET=your-secret-key
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=koerner360
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+```
+
+## Success Metrics
+
+### Technical Metrics
+- **Code Coverage**: > 80% for critical paths
+- **Build Success Rate**: > 95%
+- **Deployment Time**: < 10 minutes
+- **Error Rate**: < 1% of requests
+
+### Business Metrics
+- **User Adoption**: 80% of target users active monthly
+- **Evaluation Completion**: 90% of assigned evaluations completed
+- **User Satisfaction**: NPS > 70
+- **System Uptime**: 99.5% availability
+
+### Gamification Metrics
+- **Achievement Unlock Rate**: 70% of users unlock at least one achievement
+- **Ranking Engagement**: 60% of users check rankings monthly
+- **Point Accumulation**: Average 100+ points per user per month
+- **Level Progression**: 50% of users reach level 2 within 3 months

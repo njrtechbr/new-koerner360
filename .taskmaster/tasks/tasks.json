@@ -1,0 +1,589 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Criar um arquivo README.md básico para o projeto",
+        "description": "Criar um arquivo README.md na raiz do projeto que forneça informações básicas sobre o projeto, sua finalidade, como configurá-lo e utilizá-lo.",
+        "details": "Para implementar esta tarefa, siga os passos abaixo:\n\n1. Crie um arquivo chamado README.md na pasta raiz do projeto\n2. Estruture o README com as seguintes seções:\n   - Título do projeto\n   - Descrição breve do projeto\n   - Pré-requisitos para instalação\n   - Instruções de instalação\n   - Como executar o projeto\n   - Estrutura básica do projeto\n   - Tecnologias utilizadas\n   - Contribuição (opcional)\n   - Licença (opcional)\n\nExemplo de estrutura:\n```markdown\n# Nome do Projeto\n\n## Descrição\nUma breve descrição sobre o que o projeto faz.\n\n## Pré-requisitos\nListe aqui os pré-requisitos necessários para executar o projeto.\n- Node.js (versão X.X.X)\n- npm ou yarn\n- etc.\n\n## Instalação\n```bash\n# Clone o repositório\ngit clone https://github.com/usuario/nome-do-projeto.git\n\n# Entre no diretório\ncd nome-do-projeto\n\n# Instale as dependências\nnpm install\n```\n\n## Como usar\n```bash\n# Execute o projeto\nnpm start\n```\n\n## Estrutura do projeto\nDescreva brevemente a estrutura de pastas do projeto.\n\n## Tecnologias\n- Tecnologia 1\n- Tecnologia 2\n- etc.\n\n## Licença\nEste projeto está licenciado sob a licença XYZ.\n```\n\nCertifique-se de personalizar o conteúdo de acordo com as especificidades do projeto. O README deve ser claro, conciso e fornecer todas as informações necessárias para que um novo desenvolvedor entenda rapidamente o projeto.",
+        "testStrategy": "Para verificar se o README.md foi criado corretamente:\n\n1. Verifique se o arquivo README.md existe na raiz do projeto.\n2. Confirme se o arquivo contém todas as seções necessárias:\n   - Título do projeto\n   - Descrição\n   - Pré-requisitos\n   - Instalação\n   - Como usar\n   - Estrutura do projeto\n   - Tecnologias\n   \n3. Verifique se o conteúdo está formatado corretamente em Markdown:\n   - Títulos usando # (hashtags)\n   - Listas usando - ou *\n   - Blocos de código usando ```\n   \n4. Teste a visualização do README:\n   - Se estiver usando GitHub, faça um commit e push do arquivo para visualizar como ele aparece no repositório\n   - Alternativamente, use uma ferramenta de preview de Markdown como o plugin do VS Code ou ferramentas online\n   \n5. Peça a um colega para revisar o README e verificar se as instruções são claras e suficientes para entender e configurar o projeto.",
+        "status": "done",
+        "dependencies": [],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Configuração do Banco de Dados PostgreSQL e Prisma",
+        "description": "Configurar o banco de dados PostgreSQL e integrar com Prisma ORM para gerenciar os modelos de dados do sistema.",
+        "details": "1. Instalar PostgreSQL 15+ e configurar um novo banco de dados\n2. Instalar Prisma 6.14.0 como dependência de desenvolvimento\n3. Inicializar o Prisma com `npx prisma init`\n4. Configurar a string de conexão no arquivo .env\n5. Definir os modelos de dados no schema.prisma:\n   - Usuario (id, email, nome, senha, userType, ativo)\n   - Atendente (dados pessoais, profissionais, documentos, status)\n   - Avaliacao (nota, comentário, período, relacionamentos)\n   - Feedback (tipo, status, prioridade, conteúdo)\n   - GamificacaoAtendente (pontos, nível, experiência)\n   - Conquista (nome, descrição, requisitos, pontos)\n6. Implementar restrições e relacionamentos (ex: CHECK para notas entre 1-5)\n7. Configurar índices para otimização de consultas\n8. Gerar e executar a primeira migração com `npx prisma migrate dev`\n9. Configurar o cliente Prisma para uso no aplicativo\n10. Implementar connection pooling para melhor performance",
+        "testStrategy": "1. Verificar se a conexão com o banco de dados é estabelecida corretamente\n2. Testar a criação e migração do esquema\n3. Validar as restrições de integridade referencial\n4. Testar consultas básicas para cada modelo\n5. Verificar se os índices estão funcionando corretamente através de EXPLAIN ANALYZE\n6. Testar o pool de conexões sob carga",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Implementação do Sistema de Autenticação com Auth.js v5",
+        "description": "Configurar e implementar o sistema de autenticação seguro utilizando Auth.js v5 com suporte a diferentes perfis de usuário.",
+        "status": "done",
+        "dependencies": [2],
+        "priority": "high",
+        "details": "1. Instalar Auth.js v5.0.0-beta.29 e dependências necessárias\n2. Configurar o provedor de autenticação com credenciais (email/senha)\n3. Implementar o adapter do Prisma para Auth.js\n4. Configurar as páginas de autenticação (login, registro, recuperação de senha)\n5. Implementar o middleware de proteção de rotas baseado em perfis\n6. Configurar o hash de senhas com bcryptjs\n7. Implementar os callbacks de sessão para incluir dados do usuário\n8. Criar o sistema de senhas temporárias para novos usuários\n9. Implementar o controle de acesso baseado em perfis (Admin, Supervisor, Atendente, Consultor)\n10. Configurar o JWT com expiração de 24 horas\n11. Implementar a validação de entrada com Zod para formulários de autenticação\n12. Criar os hooks personalizados para uso do Auth.js no frontend",
+        "testStrategy": "1. Testar o fluxo completo de registro, login e logout\n2. Verificar se as senhas estão sendo armazenadas com hash\n3. Testar a proteção de rotas para diferentes perfis\n4. Verificar a expiração e renovação de tokens JWT\n5. Testar a recuperação de senha\n6. Validar o funcionamento das senhas temporárias\n7. Testar a persistência da sessão\n8. Verificar a segurança contra ataques de força bruta",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "",
+            "description": "Instalar Auth.js v5.0.0-beta.29 e dependências necessárias",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "",
+            "description": "Configurar o provedor de autenticação com credenciais (email/senha)",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "",
+            "description": "Implementar o adapter do Prisma para Auth.js",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "",
+            "description": "Implementar o middleware de proteção de rotas baseado em perfis",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "",
+            "description": "Configurar a página de login em /src/app/(auth)/login/page.tsx",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "",
+            "description": "Criar hooks personalizados para uso do Auth.js no frontend",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 7,
+            "title": "",
+            "description": "Implementar página de erro de autenticação",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 8,
+            "title": "",
+            "description": "Configurar o hash de senhas com bcryptjs",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 9,
+            "title": "",
+            "description": "Configurar JWT com callbacks para sessão",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 10,
+            "title": "",
+            "description": "Implementar página de registro em /src/app/(auth)/register/page.tsx com formulário de cadastro",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 11,
+            "title": "",
+            "description": "Criar API route para registro de novos usuários",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 12,
+            "title": "",
+            "description": "Implementar validação com Zod para o formulário de registro",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 13,
+            "title": "",
+            "description": "Configurar página de recuperação de senha",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 14,
+            "title": "",
+            "description": "Implementar sistema de senhas temporárias para novos usuários",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          },
+          {
+            "id": 15,
+            "title": "",
+            "description": "Finalizar controle de acesso baseado em perfis (Admin, Supervisor, Atendente, Consultor)",
+            "status": "done",
+            "dependencies": [],
+            "details": "",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Configuração do Framework Frontend com Next.js 15 e Tailwind CSS",
+        "description": "Configurar a estrutura base do frontend utilizando Next.js 15 com App Router, Tailwind CSS e shadcn/ui para criar uma interface consistente e responsiva.",
+        "details": "1. Inicializar um novo projeto Next.js 15.4.6 com TypeScript em modo strict\n2. Configurar o Tailwind CSS 4.x com variáveis CSS\n3. Instalar e configurar o shadcn/ui com variante new-york\n4. Configurar os componentes Radix UI para acessibilidade\n5. Implementar a estrutura de pastas seguindo o App Router:\n   - app/(auth) - páginas de autenticação\n   - app/(dashboard) - páginas protegidas\n   - app/api - route handlers\n   - components - componentes reutilizáveis\n   - lib - utilitários e hooks\n6. Configurar o Turbopack para desenvolvimento\n7. Implementar o layout base responsivo (mobile-first)\n8. Configurar o sistema de notificações com Sonner\n9. Implementar os componentes de loading state\n10. Configurar o sistema de temas claro/escuro\n11. Implementar os componentes base (Header, Sidebar, Footer, etc.)",
+        "testStrategy": "1. Testar a renderização correta em diferentes tamanhos de tela\n2. Verificar a acessibilidade com ferramentas como Lighthouse e axe\n3. Testar o tempo de carregamento inicial (<3 segundos)\n4. Verificar o funcionamento do sistema de temas\n5. Testar a navegação entre páginas\n6. Validar o funcionamento dos componentes base\n7. Verificar a compatibilidade cross-browser",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Inicialização do projeto Next.js 15 com TypeScript",
+            "description": "Criar um novo projeto Next.js 15.4.6 com TypeScript em modo strict, configurando as dependências iniciais e estrutura básica.",
+            "dependencies": [],
+            "details": "Executar `npx create-next-app@latest` e selecionar as opções: TypeScript (sim), ESLint (sim), Tailwind CSS (sim), src/ directory (não), App Router (sim), import alias (sim, configurar como '@/*'). Após a instalação, verificar o arquivo tsconfig.json para garantir que o modo strict esteja ativado e ajustar as configurações conforme necessário.",
+            "status": "done",
+            "testStrategy": "Verificar se o projeto inicia corretamente com `npm run dev` e se a página inicial é renderizada sem erros."
+          },
+          {
+            "id": 2,
+            "title": "Configuração do Tailwind CSS 4.x",
+            "description": "Configurar o Tailwind CSS 4.x com variáveis CSS personalizadas para o sistema de design da aplicação.",
+            "dependencies": ["4.1"],
+            "details": "Atualizar o Tailwind CSS para a versão 4.x com `npm install tailwindcss@latest postcss@latest autoprefixer@latest`. Criar arquivo tailwind.config.js com tema personalizado, definindo cores primárias, secundárias e neutras. Configurar as variáveis CSS no arquivo globals.css dentro da pasta app, incluindo variáveis para cores, espaçamentos, bordas e sombras.",
+            "status": "done",
+            "testStrategy": "Verificar se as classes do Tailwind estão funcionando corretamente e se as variáveis CSS personalizadas estão sendo aplicadas."
+          },
+          {
+            "id": 3,
+            "title": "Instalação e configuração do shadcn/ui",
+            "description": "Instalar e configurar a biblioteca shadcn/ui com a variante new-york para componentes de UI consistentes.",
+            "dependencies": ["4.2"],
+            "details": "Executar `npx shadcn-ui@latest init` e selecionar a variante new-york, estilo default, e base color slate. Configurar o arquivo components.json na raiz do projeto. Instalar os componentes base necessários com `npx shadcn-ui@latest add button card dialog dropdown-menu input form`. Criar um arquivo de tema personalizado em /lib/utils.ts para integrar as classes do Tailwind com o shadcn/ui.",
+            "status": "done",
+            "testStrategy": "Testar a renderização dos componentes básicos do shadcn/ui e verificar se estão seguindo o tema configurado."
+          },
+          {
+            "id": 4,
+            "title": "Configuração dos componentes Radix UI",
+            "description": "Configurar os componentes Radix UI para garantir acessibilidade em toda a aplicação.",
+            "dependencies": ["4.3"],
+            "details": "Instalar as dependências do Radix UI necessárias com `npm install @radix-ui/react-accessible-icon @radix-ui/react-accordion @radix-ui/react-dialog`. Criar wrappers personalizados para os componentes Radix em /components/ui/ seguindo as práticas de acessibilidade. Configurar os atributos ARIA apropriados e garantir que todos os componentes interativos sejam acessíveis por teclado.",
+            "status": "done",
+            "testStrategy": "Testar a acessibilidade dos componentes usando ferramentas como axe-core e verificar a navegação por teclado."
+          },
+          {
+            "id": 5,
+            "title": "Estruturação de pastas seguindo o App Router",
+            "description": "Implementar a estrutura de pastas seguindo as convenções do App Router do Next.js 15.",
+            "dependencies": ["4.1"],
+            "details": "Criar as seguintes pastas: app/(auth) para páginas de autenticação, app/(dashboard) para páginas protegidas, app/api para route handlers, components para componentes reutilizáveis, e lib para utilitários e hooks. Dentro de cada pasta, criar os arquivos iniciais necessários: page.tsx, layout.tsx e loading.tsx. Configurar os arquivos de roteamento e layouts para cada seção da aplicação.",
+            "status": "done",
+            "testStrategy": "Verificar se a navegação entre as diferentes seções da aplicação funciona corretamente e se os layouts são aplicados adequadamente."
+          },
+          {
+            "id": 6,
+            "title": "Configuração do Turbopack para desenvolvimento",
+            "description": "Configurar o Turbopack como bundler de desenvolvimento para melhorar a velocidade de compilação.",
+            "dependencies": ["4.1"],
+            "details": "Modificar o script de desenvolvimento no package.json para usar o Turbopack: `\"dev\": \"next dev --turbo\"`. Criar um arquivo next.config.mjs na raiz do projeto para configurar o Turbopack com otimizações específicas. Configurar o cache do Turbopack para melhorar o desempenho durante o desenvolvimento.",
+            "status": "done",
+            "testStrategy": "Comparar o tempo de inicialização e recarregamento com e sem o Turbopack para verificar a melhoria de desempenho."
+          },
+          {
+            "id": 7,
+            "title": "Implementação do layout base responsivo",
+            "description": "Criar um layout base responsivo seguindo a abordagem mobile-first para toda a aplicação.",
+            "dependencies": ["4.2", "4.3", "4.5"],
+            "details": "Criar um layout base em app/layout.tsx que inclua a estrutura HTML básica, metadados e providers necessários. Implementar um sistema de grid responsivo usando Tailwind CSS com breakpoints para mobile, tablet e desktop. Criar componentes de container que se adaptem aos diferentes tamanhos de tela. Implementar media queries personalizadas para casos específicos.",
+            "status": "done",
+            "testStrategy": "Testar o layout em diferentes tamanhos de tela (320px, 768px, 1024px, 1440px) e verificar se os elementos se adaptam corretamente."
+          },
+          {
+            "id": 8,
+            "title": "Configuração do sistema de notificações com Sonner",
+            "description": "Implementar um sistema de notificações usando a biblioteca Sonner para feedback ao usuário.",
+            "dependencies": ["4.3", "4.4"],
+            "details": "Instalar a biblioteca Sonner com `npm install sonner`. Criar um provider de notificações em components/providers/toast-provider.tsx que envolva a aplicação. Implementar hooks personalizados em lib/hooks/use-toast.ts para facilitar o uso das notificações. Estilizar as notificações para seguir o design system da aplicação usando Tailwind CSS.",
+            "status": "done",
+            "testStrategy": "Testar diferentes tipos de notificações (sucesso, erro, aviso, informação) e verificar se são exibidas corretamente em diferentes contextos."
+          },
+          {
+            "id": 9,
+            "title": "Implementação dos componentes de loading state",
+            "description": "Criar componentes de loading state para melhorar a experiência do usuário durante carregamentos.",
+            "dependencies": ["4.3", "4.5"],
+            "details": "Criar componentes de loading em components/ui/loading.tsx, incluindo spinners, skeletons e progress bars. Implementar o arquivo loading.tsx em cada pasta de rota para exibir estados de carregamento durante a navegação. Utilizar o hook useTransition do React para gerenciar estados de carregamento em ações do cliente.",
+            "status": "done",
+            "testStrategy": "Simular carregamentos lentos e verificar se os componentes de loading são exibidos corretamente e se a experiência do usuário é fluida."
+          },
+          {
+            "id": 10,
+            "title": "Configuração do sistema de temas claro/escuro",
+            "description": "Implementar um sistema de temas claro e escuro com persistência de preferência do usuário.",
+            "dependencies": ["4.2", "4.3"],
+            "details": "Criar um provider de tema em components/providers/theme-provider.tsx usando o next-themes. Implementar a detecção automática de preferência do sistema e persistência da escolha do usuário no localStorage. Definir variáveis CSS para ambos os temas no arquivo globals.css. Criar um componente de toggle de tema em components/theme-toggle.tsx para permitir que o usuário alterne entre os temas.",
+            "status": "done",
+            "testStrategy": "Testar a alternância entre temas, a persistência da preferência após recarregar a página e a detecção automática da preferência do sistema."
+          },
+          {
+            "id": 11,
+            "title": "Implementação do componente Header",
+            "description": "Criar o componente Header responsivo com navegação, busca e acesso a funcionalidades principais.",
+            "dependencies": ["4.3", "4.7", "4.10"],
+            "details": "Criar o componente Header em components/layout/header.tsx com logo, navegação principal, campo de busca e menu de usuário. Implementar versões responsivas para mobile e desktop. Adicionar funcionalidade de menu hamburguer para dispositivos móveis. Integrar o toggle de tema e indicador de notificações. Garantir que o header seja fixo no topo da página com animação de scroll.",
+            "status": "done",
+            "testStrategy": "Testar a responsividade do header em diferentes tamanhos de tela e verificar se todas as funcionalidades (navegação, busca, menu de usuário) funcionam corretamente."
+          },
+          {
+            "id": 12,
+            "title": "Implementação dos componentes Sidebar e Footer",
+            "description": "Criar os componentes Sidebar para navegação interna e Footer com informações institucionais.",
+            "dependencies": ["4.3", "4.7", "4.10"],
+            "details": "Criar o componente Sidebar em components/layout/sidebar.tsx com links de navegação, filtros e opções de configuração. Implementar estados de colapso para dispositivos móveis. Criar o componente Footer em components/layout/footer.tsx com links institucionais, informações de contato e copyright. Garantir que ambos os componentes sejam responsivos e acessíveis.",
+            "status": "done",
+            "testStrategy": "Testar a navegação através da sidebar, verificar o comportamento responsivo e garantir que todos os links no footer funcionem corretamente."
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Implementação do CRUD de Usuários",
+        "description": "Desenvolver o sistema completo de gerenciamento de usuários com controle de acesso baseado em perfis.",
+        "details": "1. Criar os endpoints da API para usuários:\n   - GET /api/usuarios - listar usuários com paginação e filtros\n   - GET /api/usuarios/:id - obter detalhes de um usuário\n   - POST /api/usuarios - criar novo usuário\n   - PUT /api/usuarios/:id - atualizar usuário\n   - DELETE /api/usuarios/:id - desativar usuário (soft delete)\n2. Implementar validação com Zod para todos os endpoints\n3. Criar os componentes de interface:\n   - Tabela de usuários com paginação e filtros\n   - Formulário de criação/edição\n   - Modal de confirmação para exclusão\n   - Componente de detalhes do usuário\n4. Implementar o controle de acesso baseado em perfis\n5. Criar os hooks personalizados para gerenciamento de estado\n6. Implementar a busca por nome, email ou tipo\n7. Adicionar funcionalidade de exportação de dados\n8. Implementar o sistema de alteração de senha\n9. Criar o componente de alteração de status (ativo/inativo)",
+        "testStrategy": "1. Testar todos os endpoints da API com diferentes perfis de usuário\n2. Verificar a validação de entrada em todos os formulários\n3. Testar a paginação e filtros\n4. Verificar o controle de acesso\n5. Testar a busca por diferentes critérios\n6. Verificar a exportação de dados\n7. Testar o sistema de alteração de senha\n8. Validar o funcionamento do soft delete",
+        "priority": "high",
+        "dependencies": [2, 3, 4],
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implementação dos endpoints da API para usuários",
+            "description": "Criar todos os endpoints da API RESTful para gerenciamento de usuários, incluindo listagem com paginação, obtenção de detalhes, criação, atualização e exclusão lógica.",
+            "dependencies": [],
+            "details": "1. Criar controller de usuários com os seguintes endpoints:\n   - GET /api/usuarios com suporte a paginação, ordenação e filtros\n   - GET /api/usuarios/:id para obter detalhes de um usuário específico\n   - POST /api/usuarios para criar um novo usuário\n   - PUT /api/usuarios/:id para atualizar dados de um usuário existente\n   - DELETE /api/usuarios/:id para realizar exclusão lógica (soft delete)\n2. Implementar lógica de negócio para cada operação\n3. Configurar respostas HTTP apropriadas (200, 201, 204, 400, 404, etc.)\n4. Documentar endpoints com comentários para geração automática de documentação",
+            "status": "done",
+            "testStrategy": "1. Criar testes unitários para cada endpoint\n2. Testar cenários de sucesso e erro para cada operação\n3. Verificar códigos de status HTTP corretos\n4. Testar paginação, ordenação e filtros\n5. Validar soft delete e recuperação de usuários"
+          },
+          {
+            "id": 2,
+            "title": "Implementação da validação de dados com Zod",
+            "description": "Criar schemas de validação com Zod para todos os endpoints de usuários, garantindo a integridade e consistência dos dados.",
+            "dependencies": ["5.1"],
+            "details": "1. Criar schema Zod para a entidade Usuario com validações para:\n   - Nome (obrigatório, min 3 caracteres)\n   - Email (obrigatório, formato válido, único)\n   - Senha (min 8 caracteres, com requisitos de complexidade)\n   - Perfil (enum de perfis válidos)\n   - Status (ativo/inativo)\n2. Implementar middleware de validação para cada endpoint\n3. Criar funções de transformação para sanitização de dados\n4. Configurar mensagens de erro personalizadas em português",
+            "status": "done",
+            "testStrategy": "1. Testar validações com dados válidos e inválidos\n2. Verificar mensagens de erro personalizadas\n3. Testar regras de negócio específicas (ex: unicidade de email)\n4. Validar sanitização de dados de entrada"
+          },
+          {
+            "id": 3,
+            "title": "Desenvolvimento da tabela de listagem de usuários",
+            "description": "Criar um componente de tabela para exibição de usuários com recursos de paginação, ordenação, filtros e ações.",
+            "dependencies": ["5.1", "5.2"],
+            "details": "1. Desenvolver componente de tabela responsiva usando a biblioteca de UI\n2. Implementar colunas para: nome, email, perfil, status e ações\n3. Adicionar paginação com controle de itens por página\n4. Implementar ordenação por colunas\n5. Adicionar filtros por nome, email, perfil e status\n6. Criar botões de ação para editar, visualizar e desativar/ativar usuários\n7. Implementar estados de loading e vazio\n8. Adicionar seleção de múltiplos usuários para ações em lote",
+            "status": "done",
+            "testStrategy": "1. Testar renderização correta dos dados\n2. Verificar funcionamento da paginação\n3. Testar ordenação por diferentes colunas\n4. Validar filtros e combinações de filtros\n5. Testar ações individuais e em lote\n6. Verificar estados de loading e vazio"
+          },
+          {
+            "id": 4,
+            "title": "Criação do formulário de cadastro e edição de usuários",
+            "description": "Desenvolver um formulário completo para criação e edição de usuários com validação em tempo real e feedback visual.",
+            "dependencies": ["5.2"],
+            "details": "1. Criar formulário usando React Hook Form integrado com Zod\n2. Implementar campos para todos os atributos do usuário\n3. Adicionar validação em tempo real com feedback visual\n4. Implementar lógica para diferenciar criação e edição\n5. Criar campo de senha com requisitos visuais de complexidade\n6. Adicionar seletor de perfil com base nas permissões do usuário logado\n7. Implementar toggle de status (ativo/inativo)\n8. Adicionar botões de salvar, cancelar e resetar formulário",
+            "status": "done",
+            "testStrategy": "1. Testar validação em tempo real\n2. Verificar comportamento em modo de criação e edição\n3. Testar feedback visual de erros\n4. Validar envio de dados corretos para a API\n5. Testar comportamento responsivo em diferentes tamanhos de tela"
+          },
+          {
+            "id": 5,
+            "title": "Implementação do controle de acesso baseado em perfis",
+            "description": "Desenvolver sistema de controle de acesso que restrinja funcionalidades com base no perfil do usuário logado.",
+            "dependencies": ["5.1", "5.2"],
+            "details": "1. Definir matriz de permissões por perfil (admin, gestor, operador, etc.)\n2. Implementar middleware de autorização no backend\n3. Criar hook personalizado useAuthorization para verificar permissões no frontend\n4. Implementar componente AuthGuard para proteger rotas\n5. Adicionar lógica para mostrar/esconder elementos da UI com base em permissões\n6. Implementar validação de permissões nos endpoints da API\n7. Criar sistema de auditoria para registrar acessos e tentativas não autorizadas",
+            "status": "done",
+            "testStrategy": "1. Testar acesso a rotas protegidas com diferentes perfis\n2. Verificar visibilidade de elementos da UI por perfil\n3. Testar bloqueio de ações não autorizadas na API\n4. Validar registro de auditoria para tentativas não autorizadas\n5. Testar comportamento com token expirado ou inválido"
+          },
+          {
+            "id": 6,
+            "title": "Desenvolvimento dos hooks personalizados para gerenciamento de estado",
+            "description": "Criar hooks React personalizados para gerenciar o estado e as operações relacionadas aos usuários de forma eficiente.",
+            "dependencies": ["5.1", "5.3", "5.4"],
+            "details": "1. Implementar hook useUsers para:\n   - Listar usuários com paginação e filtros\n   - Buscar detalhes de um usuário específico\n   - Criar, atualizar e excluir usuários\n   - Gerenciar estado de loading e erros\n2. Criar hook useUserForm para gerenciar formulário\n3. Implementar hook useUserSearch para busca avançada\n4. Desenvolver hook useUserExport para exportação de dados\n5. Criar hook useUserPassword para gerenciamento de senhas",
+            "status": "done",
+            "testStrategy": "1. Testar comportamento dos hooks em diferentes cenários\n2. Verificar gerenciamento correto de estados de loading e erro\n3. Testar integração com a API\n4. Validar reatividade e performance\n5. Testar casos de uso complexos como busca avançada e exportação"
+          },
+          {
+            "id": 7,
+            "title": "Implementação da busca avançada e exportação de dados",
+            "description": "Desenvolver funcionalidades de busca avançada por diferentes critérios e exportação de dados em múltiplos formatos.",
+            "dependencies": ["5.3", "5.6"],
+            "details": "1. Criar componente de busca avançada com:\n   - Campo de busca por texto (nome, email)\n   - Filtros por perfil e status\n   - Filtros por data de criação/atualização\n   - Opção para salvar buscas frequentes\n2. Implementar exportação de dados em formatos:\n   - CSV\n   - Excel\n   - PDF\n3. Adicionar opções de personalização da exportação\n4. Implementar geração de relatórios personalizados\n5. Criar histórico de exportações",
+            "status": "done",
+            "testStrategy": "1. Testar busca com diferentes combinações de filtros\n2. Verificar exportação em diferentes formatos\n3. Testar personalização de relatórios\n4. Validar desempenho com grandes volumes de dados\n5. Testar salvamento e recuperação de buscas frequentes"
+          },
+          {
+            "id": 8,
+            "title": "Implementação do sistema de alteração de senha e gerenciamento de status",
+            "description": "Desenvolver funcionalidades para alteração de senha pelos usuários e gerenciamento de status (ativo/inativo) pelos administradores.",
+            "dependencies": ["5.1", "5.4", "5.5"],
+            "details": "1. Criar endpoint para alteração de senha:\n   - Validação de senha atual\n   - Requisitos de complexidade para nova senha\n   - Confirmação de nova senha\n2. Implementar funcionalidade de redefinição de senha\n3. Criar componente modal para alteração de senha\n4. Desenvolver toggle de status com confirmação\n5. Implementar histórico de alterações de status\n6. Adicionar notificações por email para alterações de senha e status\n7. Criar página de primeiro acesso para definição de senha",
+            "status": "done",
+            "testStrategy": "1. Testar alteração de senha com credenciais válidas e inválidas\n2. Verificar redefinição de senha\n3. Testar requisitos de complexidade de senha\n4. Validar alteração de status e impacto no acesso\n5. Testar notificações por email\n6. Verificar fluxo de primeiro acesso"
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Implementação do CRUD de Atendentes",
+        "description": "Desenvolver o sistema completo de gerenciamento de atendentes com dados pessoais, profissionais e documentos.",
+        "details": "1. Criar os endpoints da API para atendentes:\n   - GET /api/atendentes - listar atendentes com paginação e filtros\n   - GET /api/atendentes/:id - obter detalhes de um atendente\n   - POST /api/atendentes - criar novo atendente\n   - PUT /api/atendentes/:id - atualizar atendente\n   - DELETE /api/atendentes/:id - desativar atendente (soft delete)\n2. Implementar validação com Zod para todos os endpoints\n3. Criar os componentes de interface:\n   - Tabela de atendentes com paginação e filtros\n   - Formulário multi-etapa para criação/edição\n   - Componente de upload de fotos\n   - Visualização detalhada do atendente\n4. Implementar o gerenciamento de status (Ativo, Férias, Afastado, etc.)\n5. Criar o sistema de upload e armazenamento de documentos\n6. Implementar o relacionamento atendente-usuário\n7. Adicionar funcionalidade de busca avançada\n8. Implementar histórico de alterações\n9. Criar componentes para visualização de métricas básicas do atendente",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar o upload e armazenamento de fotos e documentos\n3. Testar a validação de dados pessoais e profissionais\n4. Verificar o gerenciamento de status\n5. Testar o relacionamento com usuários\n6. Validar a busca avançada\n7. Testar o histórico de alterações\n8. Verificar a exibição de métricas",
+        "priority": "high",
+        "dependencies": [2, 3, 4, 5],
+        "status": "in-progress",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Modelagem de dados e criação do schema para Atendentes",
+            "description": "Definir o modelo de dados completo para atendentes, incluindo dados pessoais, profissionais, documentos e relacionamentos com outras entidades.",
+            "dependencies": [],
+            "details": "1. Criar o schema Prisma para a entidade Atendente com todos os campos necessários (dados pessoais, profissionais, status, etc.)\n2. Definir os relacionamentos com outras entidades (especialmente com Usuário)\n3. Implementar enums para status (Ativo, Férias, Afastado, etc.)\n4. Criar tabelas relacionadas para documentos e histórico de alterações\n5. Executar as migrações do banco de dados\n6. Documentar o modelo de dados",
+            "status": "done",
+            "testStrategy": "1. Verificar se todos os campos necessários estão presentes no schema\n2. Testar as restrições de integridade referencial\n3. Validar os tipos de dados e constraints"
+          },
+          {
+            "id": 2,
+            "title": "Implementação dos endpoints da API para Atendentes",
+            "description": "Desenvolver todos os endpoints REST para o CRUD de atendentes, incluindo listagem com paginação e filtros, obtenção de detalhes, criação, atualização e exclusão lógica.",
+            "dependencies": ["6.1"],
+            "details": "1. Criar o controller de Atendentes com os métodos:\n   - index (GET /api/atendentes) - com paginação, ordenação e filtros\n   - show (GET /api/atendentes/:id) - com carregamento de relacionamentos\n   - store (POST /api/atendentes) - para criação\n   - update (PUT /api/atendentes/:id) - para atualização\n   - destroy (DELETE /api/atendentes/:id) - para soft delete\n2. Implementar lógica de paginação e filtros avançados\n3. Adicionar tratamento de erros adequado\n4. Documentar a API com comentários claros",
+            "status": "done",
+            "testStrategy": "1. Testar cada endpoint com dados válidos e inválidos\n2. Verificar a paginação e filtros\n3. Testar o soft delete\n4. Validar as respostas de erro\n5. Testar a performance com grande volume de dados"
+          },
+          {
+            "id": 3,
+            "title": "Implementação da validação com Zod para endpoints de Atendentes",
+            "description": "Criar schemas de validação com Zod para todos os endpoints da API de atendentes, garantindo a integridade e consistência dos dados.",
+            "dependencies": ["6.2"],
+            "details": "1. Criar schemas Zod para:\n   - Criação de atendente (POST)\n   - Atualização de atendente (PUT)\n   - Filtros de listagem (GET)\n2. Implementar middleware de validação para cada rota\n3. Definir mensagens de erro personalizadas e traduzidas\n4. Implementar validações complexas de negócio (ex: CPF válido, email único)\n5. Integrar com o sistema de resposta de erros padronizado",
+            "status": "done",
+            "testStrategy": "1. Testar validações com dados válidos e inválidos\n2. Verificar mensagens de erro personalizadas\n3. Testar regras de negócio específicas\n4. Validar o formato das respostas de erro"
+          },
+          {
+            "id": 4,
+            "title": "Desenvolvimento do componente de tabela de Atendentes",
+            "description": "Criar o componente de tabela para listagem de atendentes com recursos de paginação, ordenação, filtros e ações rápidas.",
+            "dependencies": ["6.2", "6.3"],
+            "details": "1. Desenvolver o componente de tabela responsiva\n2. Implementar paginação no cliente\n3. Adicionar filtros por nome, status, departamento, etc.\n4. Criar componentes para ações rápidas (editar, visualizar, desativar)\n5. Implementar ordenação por diferentes colunas\n6. Adicionar funcionalidade de exportação de dados\n7. Garantir acessibilidade do componente",
+            "status": "done",
+            "testStrategy": "1. Testar a renderização correta dos dados\n2. Verificar a paginação e filtros\n3. Testar a ordenação por diferentes colunas\n4. Validar as ações rápidas\n5. Testar a responsividade em diferentes tamanhos de tela\n6. Verificar a acessibilidade"
+          },
+          {
+            "id": 5,
+            "title": "Implementação do formulário multi-etapa para Atendentes",
+            "description": "Desenvolver um formulário multi-etapa para criação e edição de atendentes, com validação em tempo real e upload de fotos.",
+            "dependencies": ["6.3"],
+            "details": "1. Criar formulário multi-etapa com React Hook Form e Zod:\n   - Etapa 1: Dados pessoais (nome, CPF, data nascimento, etc.)\n   - Etapa 2: Dados profissionais (cargo, departamento, etc.)\n   - Etapa 3: Documentos e foto\n   - Etapa 4: Configurações de acesso e status\n2. Implementar componente de upload de fotos com preview\n3. Adicionar validação em tempo real\n4. Implementar navegação entre etapas com persistência de dados\n5. Criar feedback visual para campos obrigatórios e erros",
+            "status": "done",
+            "testStrategy": "1. Testar a navegação entre etapas\n2. Verificar a validação em tempo real\n3. Testar o upload de fotos\n4. Validar a submissão do formulário completo\n5. Testar o carregamento de dados para edição"
+          },
+          {
+            "id": 6,
+            "title": "Sistema de upload e armazenamento de documentos",
+            "description": "Implementar o sistema completo para upload, armazenamento e gerenciamento de documentos dos atendentes.",
+            "dependencies": ["6.1", "6.2"],
+            "details": "1. Criar endpoints para upload de documentos:\n   - POST /api/atendentes/:id/documentos\n   - GET /api/atendentes/:id/documentos\n   - DELETE /api/atendentes/:id/documentos/:documentoId\n2. Implementar validação de tipos de arquivo e tamanho\n3. Configurar armazenamento seguro (local ou em nuvem)\n4. Criar componente de interface para upload e visualização de documentos\n5. Implementar controle de acesso aos documentos\n6. Adicionar funcionalidade de versionamento de documentos",
+            "status": "done",
+            "testStrategy": "1. Testar upload de diferentes tipos de arquivo\n2. Verificar a validação de tamanho e formato\n3. Testar o armazenamento e recuperação de documentos\n4. Validar o controle de acesso\n5. Testar a exclusão de documentos"
+          },
+          {
+            "id": 7,
+            "title": "Implementação do histórico de alterações de Atendentes",
+            "description": "Desenvolver o sistema de registro e visualização do histórico de alterações feitas nos dados dos atendentes.",
+            "dependencies": ["6.1", "6.2", "6.3"],
+            "details": "1. Criar tabela e modelo para histórico de alterações\n2. Implementar middleware/hooks para registro automático de alterações\n3. Desenvolver endpoint para consulta de histórico:\n   - GET /api/atendentes/:id/historico\n4. Criar componente de visualização de histórico com timeline\n5. Implementar filtros por data e tipo de alteração\n6. Adicionar detalhes sobre o usuário que realizou cada alteração",
+            "status": "in-progress",
+            "testStrategy": "1. Testar o registro automático de alterações\n2. Verificar a consulta de histórico\n3. Testar os filtros de histórico\n4. Validar a exibição correta das informações na timeline"
+          },
+          {
+            "id": 8,
+            "title": "Desenvolvimento de componentes para métricas e dashboard de Atendentes",
+            "description": "Criar componentes para visualização de métricas e indicadores de desempenho dos atendentes.",
+            "dependencies": ["6.2", "6.4"],
+            "details": "1. Desenvolver endpoints para métricas:\n   - GET /api/atendentes/:id/metricas\n   - GET /api/atendentes/dashboard\n2. Criar componentes visuais para métricas:\n   - Gráficos de desempenho\n   - Indicadores de produtividade\n   - Resumo de status\n3. Implementar filtros por período\n4. Adicionar exportação de relatórios\n5. Criar visualização comparativa entre atendentes\n6. Implementar atualização em tempo real das métricas",
+            "status": "in-progress",
+            "testStrategy": "1. Testar a geração correta das métricas\n2. Verificar a renderização dos gráficos e indicadores\n3. Testar os filtros por período\n4. Validar a exportação de relatórios\n5. Testar a responsividade dos componentes de dashboard"
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Implementação do Sistema de Avaliações 360°",
+        "description": "Desenvolver o sistema de avaliações 360° com notas de 1-5, comentários opcionais e períodos de avaliação.",
+        "details": "1. Criar os endpoints da API para avaliações:\n   - GET /api/avaliacoes - listar avaliações com filtros\n   - GET /api/avaliacoes/:id - obter detalhes de uma avaliação\n   - POST /api/avaliacoes - criar nova avaliação\n   - PUT /api/avaliacoes/:id - atualizar avaliação\n   - DELETE /api/avaliacoes/:id - excluir avaliação\n   - GET /api/avaliacoes/pendentes - listar avaliações pendentes\n2. Implementar validação com Zod para todos os endpoints\n3. Criar os componentes de interface:\n   - Lista de avaliações pendentes\n   - Formulário de avaliação com escala 1-5 e comentários\n   - Visualização de avaliações recebidas\n   - Histórico de avaliações\n4. Implementar o sistema de períodos de avaliação\n5. Criar a lógica para prevenção de duplicatas (um avaliador só pode avaliar um atendente uma vez por período)\n6. Implementar o cálculo de métricas (média, mediana, desvio padrão)\n7. Criar visualizações comparativas\n8. Implementar notificações para avaliações pendentes\n9. Adicionar funcionalidade de exportação de avaliações",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar a validação de notas (1-5)\n3. Testar a prevenção de duplicatas\n4. Verificar o cálculo correto de métricas\n5. Testar o sistema de períodos\n6. Validar as visualizações comparativas\n7. Testar as notificações\n8. Verificar a exportação de dados",
+        "priority": "high",
+        "dependencies": [2, 3, 4, 6],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Implementação do Sistema de Feedback Estruturado",
+        "description": "Desenvolver o sistema de feedback categorizado (Elogio, Sugestão, Reclamação, Melhoria) com prioridades e status de resolução.",
+        "details": "1. Criar os endpoints da API para feedbacks:\n   - GET /api/feedbacks - listar feedbacks com filtros\n   - GET /api/feedbacks/:id - obter detalhes de um feedback\n   - POST /api/feedbacks - criar novo feedback\n   - PUT /api/feedbacks/:id - atualizar feedback\n   - DELETE /api/feedbacks/:id - excluir feedback\n   - PUT /api/feedbacks/:id/status - atualizar status\n2. Implementar validação com Zod para todos os endpoints\n3. Criar os componentes de interface:\n   - Formulário de feedback com categorias\n   - Lista de feedbacks com filtros\n   - Visualização detalhada com histórico\n   - Componente de atualização de status\n4. Implementar o sistema de categorização (Elogio, Sugestão, Reclamação, Melhoria)\n5. Criar o sistema de prioridades (Baixa, Média, Alta, Crítica)\n6. Implementar o fluxo de status (Aberto, Em Análise, Em Andamento, Resolvido, Fechado)\n7. Criar o histórico de alterações\n8. Implementar notificações para atualizações de status\n9. Adicionar funcionalidade de comentários em feedbacks",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar a categorização correta\n3. Testar o sistema de prioridades\n4. Verificar o fluxo de status\n5. Testar o histórico de alterações\n6. Validar as notificações\n7. Testar os comentários em feedbacks\n8. Verificar a filtragem e busca",
+        "priority": "medium",
+        "dependencies": [2, 3, 4, 6],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Implementação do Sistema de Gamificação",
+        "description": "Desenvolver o sistema de gamificação com pontos, níveis, conquistas e rankings baseados em performance.",
+        "details": "1. Criar os endpoints da API para gamificação:\n   - GET /api/gamificacao/pontos/:atendenteId - obter pontos\n   - GET /api/gamificacao/nivel/:atendenteId - obter nível\n   - GET /api/gamificacao/conquistas/:atendenteId - listar conquistas\n   - GET /api/gamificacao/ranking - obter ranking geral\n   - POST /api/gamificacao/pontos - adicionar pontos\n2. Implementar o sistema de cálculo de pontos baseado em:\n   - Avaliações recebidas (notas altas = mais pontos)\n   - Feedbacks positivos recebidos\n   - Avaliações realizadas (participação)\n3. Criar o sistema de níveis com requisitos progressivos\n4. Implementar o sistema de conquistas por categorias:\n   - Conquistas de avaliação\n   - Conquistas de feedback\n   - Conquistas de participação\n   - Conquistas especiais\n5. Criar o sistema de rankings comparativos:\n   - Ranking geral\n   - Ranking por departamento\n   - Ranking por período\n6. Implementar notificações para novas conquistas e subida de nível\n7. Criar componentes visuais para exibição de badges e conquistas\n8. Implementar histórico de pontos e conquistas",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar o cálculo correto de pontos\n3. Testar a progressão de níveis\n4. Verificar o desbloqueio de conquistas\n5. Testar os rankings em diferentes contextos\n6. Validar as notificações\n7. Testar a exibição visual de badges e conquistas\n8. Verificar o histórico de pontos",
+        "priority": "medium",
+        "dependencies": [2, 3, 4, 6, 7],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Implementação de Dashboards Personalizados por Perfil",
+        "description": "Desenvolver dashboards personalizados para cada perfil de usuário com métricas e gráficos interativos.",
+        "details": "1. Criar os endpoints da API para métricas:\n   - GET /api/metricas/admin - métricas para administradores\n   - GET /api/metricas/supervisor - métricas para supervisores\n   - GET /api/metricas/atendente - métricas para atendentes\n   - GET /api/metricas/consultor - métricas para consultores\n2. Implementar os componentes de gráficos com Recharts:\n   - Gráficos de linha para evolução temporal\n   - Gráficos de barra para comparações\n   - Gráficos de radar para avaliações multidimensionais\n   - Gráficos de pizza para distribuição\n3. Criar o dashboard do Administrador:\n   - Visão geral do sistema\n   - Métricas de usuários e atendentes\n   - Estatísticas de avaliações\n   - Indicadores de engajamento\n4. Implementar o dashboard do Supervisor:\n   - Performance da equipe\n   - Avaliações pendentes\n   - Feedbacks não resolvidos\n   - Ranking da equipe\n5. Criar o dashboard do Atendente:\n   - Avaliações recebidas\n   - Evolução de pontos e nível\n   - Conquistas\n   - Comparação com pares\n6. Implementar o dashboard do Consultor:\n   - Métricas gerais\n   - Análises comparativas\n   - Exportação de dados\n   - Tendências e previsões\n7. Adicionar funcionalidade de personalização de dashboards\n8. Implementar exportação de relatórios em PDF e Excel",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar a renderização correta dos gráficos\n3. Testar a personalização de dashboards\n4. Verificar a exportação de relatórios\n5. Testar a responsividade em diferentes dispositivos\n6. Validar a exibição correta de dados para cada perfil\n7. Testar o desempenho com grandes volumes de dados\n8. Verificar a atualização em tempo real",
+        "priority": "medium",
+        "dependencies": [2, 3, 4, 7, 9],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Implementação do Sistema de Relatórios",
+        "description": "Desenvolver um sistema completo de relatórios com métricas avançadas, exportação de dados e análises personalizadas.",
+        "details": "1. Criar os endpoints da API para relatórios:\n   - GET /api/relatorios/avaliacoes - relatório de avaliações\n   - GET /api/relatorios/feedbacks - relatório de feedbacks\n   - GET /api/relatorios/gamificacao - relatório de gamificação\n   - GET /api/relatorios/atendentes - relatório de atendentes\n   - POST /api/relatorios/personalizado - relatório personalizado\n2. Implementar os formatos de exportação:\n   - Excel (.xlsx)\n   - CSV\n   - PDF\n   - JSON\n3. Criar o construtor de relatórios personalizados:\n   - Seleção de métricas\n   - Filtros avançados\n   - Agrupamentos\n   - Ordenação\n4. Implementar relatórios pré-configurados:\n   - Relatório de performance mensal\n   - Relatório de evolução trimestral\n   - Relatório de engajamento\n   - Relatório de feedbacks por categoria\n5. Criar visualizações avançadas para relatórios\n6. Implementar agendamento de relatórios recorrentes\n7. Adicionar funcionalidade de compartilhamento de relatórios\n8. Criar histórico de relatórios gerados",
+        "testStrategy": "1. Testar todos os endpoints da API\n2. Verificar a geração correta de arquivos em diferentes formatos\n3. Testar o construtor de relatórios personalizados\n4. Verificar os relatórios pré-configurados\n5. Testar o agendamento de relatórios\n6. Validar o compartilhamento\n7. Testar o histórico de relatórios\n8. Verificar a performance com relatórios complexos",
+        "priority": "medium",
+        "dependencies": [2, 3, 4, 7, 10],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Implementação de Validação de Dados com Zod",
+        "description": "Implementar um sistema completo de validação de dados com Zod para todos os formulários e APIs do sistema.",
+        "details": "1. Criar schemas Zod para todas as entidades:\n   - Usuario\n   - Atendente\n   - Avaliacao\n   - Feedback\n   - GamificacaoAtendente\n   - Conquista\n2. Implementar validação no cliente:\n   - Integrar Zod com React Hook Form 7.62.0\n   - Criar componentes de feedback de erro\n   - Implementar validação em tempo real\n3. Implementar validação no servidor:\n   - Validar todos os inputs de API\n   - Criar middleware de validação para route handlers\n   - Implementar respostas de erro padronizadas\n4. Criar schemas específicos para diferentes operações:\n   - Criação\n   - Atualização\n   - Filtros\n   - Relatórios\n5. Implementar validação de regras de negócio complexas\n6. Criar testes automatizados para validação\n7. Implementar internacionalização de mensagens de erro\n8. Documentar todos os schemas para referência",
+        "testStrategy": "1. Testar a validação em todos os formulários\n2. Verificar o comportamento com dados inválidos\n3. Testar regras de negócio complexas\n4. Verificar a internacionalização de mensagens\n5. Testar a integração com React Hook Form\n6. Validar o middleware de validação\n7. Testar a performance da validação\n8. Verificar a consistência das mensagens de erro",
+        "priority": "medium",
+        "dependencies": [2, 3, 4],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Implementação de Testes Automatizados",
+        "description": "Desenvolver uma suíte completa de testes automatizados para garantir a qualidade e estabilidade do sistema.",
+        "details": "1. Configurar o ambiente de testes:\n   - Jest para testes unitários\n   - Testing Library para testes de componentes\n   - Playwright para testes end-to-end\n   - Banco de dados de teste isolado\n2. Implementar testes unitários:\n   - Funções utilitárias\n   - Hooks personalizados\n   - Lógica de negócio\n   - Validadores Zod\n3. Criar testes de componentes:\n   - Renderização correta\n   - Interações do usuário\n   - Estados de loading e erro\n   - Acessibilidade\n4. Implementar testes de API:\n   - Endpoints de usuários\n   - Endpoints de atendentes\n   - Endpoints de avaliações\n   - Endpoints de feedback\n   - Endpoints de gamificação\n5. Criar testes end-to-end para fluxos críticos:\n   - Autenticação\n   - Criação de avaliação\n   - Dashboard\n   - Relatórios\n6. Implementar testes de performance\n7. Configurar integração contínua com GitHub Actions\n8. Criar relatórios de cobertura de testes",
+        "testStrategy": "1. Verificar a cobertura de código (>80% para caminhos críticos)\n2. Testar em diferentes navegadores\n3. Verificar a performance dos testes\n4. Testar em ambiente similar ao de produção\n5. Validar a integração contínua\n6. Testar com diferentes conjuntos de dados\n7. Verificar a isolação dos testes\n8. Testar casos de borda e exceções",
+        "priority": "medium",
+        "dependencies": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Implementação de Containerização com Docker",
+        "description": "Configurar a containerização da aplicação com Docker e docker-compose para facilitar o desenvolvimento e implantação.",
+        "details": "1. Criar o Dockerfile para a aplicação:\n   - Baseado em Node.js 22.18.0+\n   - Multi-stage build para otimização\n   - Configuração de variáveis de ambiente\n   - Otimização de camadas\n2. Configurar o docker-compose.yml:\n   - Serviço da aplicação\n   - Serviço do banco de dados PostgreSQL\n   - Volumes para persistência\n   - Redes para comunicação\n3. Implementar scripts de inicialização:\n   - Verificação de conexão com o banco\n   - Execução de migrações\n   - Seed de dados iniciais\n4. Configurar ambientes distintos:\n   - Desenvolvimento\n   - Teste\n   - Produção\n5. Implementar otimizações de performance:\n   - Caching de node_modules\n   - Otimização de imagens\n   - Compressão de assets\n6. Criar documentação detalhada\n7. Implementar healthchecks\n8. Configurar logs centralizados",
+        "testStrategy": "1. Testar a construção da imagem\n2. Verificar o funcionamento com docker-compose\n3. Testar a persistência de dados\n4. Verificar os scripts de inicialização\n5. Testar em diferentes ambientes\n6. Validar os healthchecks\n7. Testar a performance da aplicação containerizada\n8. Verificar os logs",
+        "priority": "low",
+        "dependencies": [2, 3, 4],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Implementação de CI/CD com GitHub Actions",
+        "description": "Configurar pipelines de integração e entrega contínua com GitHub Actions para automatizar testes, build e deploy.",
+        "details": "1. Configurar o workflow de CI:\n   - Checkout do código\n   - Instalação de dependências\n   - Linting e formatação\n   - Execução de testes unitários\n   - Execução de testes de componentes\n   - Execução de testes end-to-end\n   - Geração de relatório de cobertura\n2. Implementar o workflow de CD:\n   - Build da aplicação\n   - Construção da imagem Docker\n   - Push para registry\n   - Deploy em ambiente de staging\n   - Testes de smoke\n   - Deploy em produção\n3. Configurar ambientes no GitHub:\n   - Development\n   - Staging\n   - Production\n4. Implementar proteções de branch:\n   - Require pull request reviews\n   - Require status checks\n   - Require branch to be up to date\n5. Configurar notificações de build\n6. Implementar cache de dependências\n7. Criar workflow para preview de PRs\n8. Configurar build info automático",
+        "testStrategy": "1. Testar o workflow de CI com diferentes cenários\n2. Verificar o workflow de CD\n3. Testar as proteções de branch\n4. Verificar as notificações\n5. Testar o cache de dependências\n6. Validar o preview de PRs\n7. Testar o build info\n8. Verificar a performance dos workflows",
+        "priority": "low",
+        "dependencies": [13, 14],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 16,
+        "title": "Implementação de Monitoramento e Logging",
+        "description": "Configurar um sistema completo de monitoramento e logging para acompanhar o desempenho e identificar problemas.",
+        "details": "1. Implementar logging estruturado:\n   - Configurar Winston para logging no servidor\n   - Implementar middleware de logging para requisições\n   - Configurar níveis de log (error, warn, info, debug)\n   - Implementar rotação de logs\n2. Configurar monitoramento de performance:\n   - Tempo de resposta de API\n   - Uso de memória\n   - Tempo de carregamento de página\n   - Queries de banco de dados\n3. Implementar alertas:\n   - Erros críticos\n   - Performance degradada\n   - Falhas de autenticação\n   - Uso elevado de recursos\n4. Criar dashboard de monitoramento\n5. Implementar rastreamento de erros no cliente\n6. Configurar métricas de negócio:\n   - Taxa de conclusão de avaliações\n   - Engajamento com gamificação\n   - Uso por perfil de usuário\n7. Implementar health checks\n8. Criar documentação de troubleshooting",
+        "testStrategy": "1. Testar a geração de logs em diferentes cenários\n2. Verificar o monitoramento de performance\n3. Testar os alertas\n4. Validar o dashboard de monitoramento\n5. Testar o rastreamento de erros\n6. Verificar as métricas de negócio\n7. Testar os health checks\n8. Verificar a documentação de troubleshooting",
+        "priority": "low",
+        "dependencies": [2, 3, 4, 14],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 17,
+        "title": "Inicialização de Projeto Next.js 15 com TypeScript",
+        "description": "Criar e configurar um novo projeto Next.js 15 com TypeScript, incluindo a instalação das dependências básicas e definição da estrutura inicial de pastas.",
+        "details": "1. Criar um novo projeto Next.js 15 com TypeScript:\n   - Executar `npx create-next-app@latest` no terminal\n   - Selecionar as seguintes opções durante a instalação:\n     * TypeScript: Sim\n     * ESLint: Sim\n     * Tailwind CSS: Sim (conforme Task 4)\n     * src/ directory: Sim\n     * App Router: Sim\n     * Import alias: Sim (@/* como padrão)\n\n2. Instalar dependências adicionais de desenvolvimento:\n   - TypeScript: `npm install -D typescript@latest @types/node@latest @types/react@latest @types/react-dom@latest`\n   - ESLint e Prettier: `npm install -D eslint-config-prettier prettier`\n   - Husky e lint-staged: `npm install -D husky lint-staged`\n\n3. Configurar arquivos de TypeScript:\n   - Ajustar o tsconfig.json para modo strict\n   - Configurar paths e aliases adicionais se necessário\n   - Adicionar tipos personalizados em @types/\n\n4. Configurar ESLint e Prettier:\n   - Criar arquivo .prettierrc com regras de formatação\n   - Atualizar .eslintrc.js para integrar com Prettier\n   - Adicionar scripts no package.json para lint e format\n\n5. Configurar Husky para pre-commit hooks:\n   - Executar `npx husky install`\n   - Adicionar hook para lint-staged\n   - Configurar lint-staged no package.json\n\n6. Estruturar pastas do projeto conforme App Router:\n   - app/ - Rotas e páginas da aplicação\n     * app/(auth)/ - Páginas de autenticação\n     * app/(dashboard)/ - Páginas protegidas\n     * app/api/ - Route handlers\n   - components/ - Componentes reutilizáveis\n     * components/ui/ - Componentes de interface\n     * components/forms/ - Componentes de formulário\n   - lib/ - Utilitários, hooks e funções auxiliares\n   - styles/ - Estilos globais e variáveis CSS\n   - public/ - Arquivos estáticos\n\n7. Configurar arquivos iniciais:\n   - Criar layout.tsx na raiz do app\n   - Configurar page.tsx inicial\n   - Adicionar arquivo globals.css para estilos globais\n   - Configurar arquivo de metadados\n\n8. Adicionar scripts úteis no package.json:\n   - dev: `next dev`\n   - build: `next build`\n   - start: `next start`\n   - lint: `next lint`\n   - format: `prettier --write .`\n\n9. Inicializar repositório Git:\n   - Configurar .gitignore adequado\n   - Fazer commit inicial",
+        "testStrategy": "1. Verificar se o projeto foi criado corretamente:\n   - Executar `npm run dev` e confirmar que o servidor inicia sem erros\n   - Acessar http://localhost:3000 e verificar se a página inicial é exibida corretamente\n\n2. Testar a configuração do TypeScript:\n   - Verificar se o TypeScript está compilando sem erros (`npm run build`)\n   - Testar a detecção de erros de tipo introduzindo um erro proposital\n   - Confirmar que os aliases de importação funcionam corretamente\n\n3. Validar a configuração do ESLint e Prettier:\n   - Executar `npm run lint` e verificar se não há erros\n   - Executar `npm run format` e confirmar que os arquivos são formatados corretamente\n   - Testar o pre-commit hook fazendo uma alteração e tentando commit\n\n4. Testar a estrutura de pastas:\n   - Criar uma página de teste em cada diretório principal\n   - Verificar se a navegação entre páginas funciona corretamente\n   - Testar a criação de um componente e sua importação em uma página\n\n5. Verificar a compatibilidade com navegadores:\n   - Testar o projeto em diferentes navegadores (Chrome, Firefox, Safari)\n   - Confirmar que não há erros de console\n\n6. Validar a performance inicial:\n   - Executar Lighthouse para verificar métricas de performance\n   - Confirmar que o First Contentful Paint está abaixo de 1.8 segundos\n\n7. Testar a integração com Git:\n   - Verificar se os arquivos corretos estão sendo ignorados pelo .gitignore\n   - Confirmar que o commit inicial inclui todos os arquivos necessários",
+        "status": "done",
+        "dependencies": [4],
+        "priority": "high",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-01-20",
+      "updated": "2025-08-21T09:00:09.904Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
