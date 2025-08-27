@@ -1,0 +1,335 @@
+056a64090b32397df312a4912ac9f4da
+"use strict";
+
+/* istanbul ignore next */
+function cov_2i2xl5i6wz() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\app\\(dashboard)\\page.tsx";
+  var hash = "be7a46e278d376b879ed0d2742bd8285ffc8443e";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\app\\(dashboard)\\page.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 29
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 20
+        },
+        end: {
+          line: 11,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 12,
+          column: 14
+        },
+        end: {
+          line: 12,
+          column: 49
+        }
+      },
+      "5": {
+        start: {
+          line: 13,
+          column: 21
+        },
+        end: {
+          line: 13,
+          column: 44
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 4
+        },
+        end: {
+          line: 216,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 20
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      },
+      "1": {
+        name: "DashboardPage",
+        decl: {
+          start: {
+            line: 14,
+            column: 9
+          },
+          end: {
+            line: 14,
+            column: 22
+          }
+        },
+        loc: {
+          start: {
+            line: 14,
+            column: 25
+          },
+          end: {
+            line: 217,
+            column: 1
+          }
+        },
+        line: 14
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\app\\(dashboard)\\page.tsx"],
+      sourcesContent: ["import {\n  Card,\n  CardContent,\n  CardDescription,\n  CardHeader,\n  CardTitle,\n} from '@/components/ui/card';\nimport { BarChart3, MessageSquare, Trophy, Users } from 'lucide-react';\n\nexport default function DashboardPage() {\n  return (\n    <div className=\"space-y-6\">\n      <div>\n        <h1 className=\"text-3xl font-bold tracking-tight\">Dashboard</h1>\n        <p className=\"text-muted-foreground\">\n          Vis\xE3o geral do sistema de gest\xE3o de atendimento\n        </p>\n      </div>\n\n      <div className=\"grid gap-4 md:grid-cols-2 lg:grid-cols-4\">\n        <Card>\n          <CardHeader className=\"flex flex-row items-center justify-between space-y-0 pb-2\">\n            <CardTitle className=\"text-sm font-medium\">\n              Total de Atendentes\n            </CardTitle>\n            <Users className=\"h-4 w-4 text-muted-foreground\" />\n          </CardHeader>\n          <CardContent>\n            <div className=\"text-2xl font-bold\">0</div>\n            <p className=\"text-xs text-muted-foreground\">\n              Atendentes cadastrados\n            </p>\n          </CardContent>\n        </Card>\n\n        <Card>\n          <CardHeader className=\"flex flex-row items-center justify-between space-y-0 pb-2\">\n            <CardTitle className=\"text-sm font-medium\">\n              Feedbacks Recebidos\n            </CardTitle>\n            <MessageSquare className=\"h-4 w-4 text-muted-foreground\" />\n          </CardHeader>\n          <CardContent>\n            <div className=\"text-2xl font-bold\">0</div>\n            <p className=\"text-xs text-muted-foreground\">Feedbacks este m\xEAs</p>\n          </CardContent>\n        </Card>\n\n        <Card>\n          <CardHeader className=\"flex flex-row items-center justify-between space-y-0 pb-2\">\n            <CardTitle className=\"text-sm font-medium\">\n              Pontua\xE7\xE3o M\xE9dia\n            </CardTitle>\n            <BarChart3 className=\"h-4 w-4 text-muted-foreground\" />\n          </CardHeader>\n          <CardContent>\n            <div className=\"text-2xl font-bold\">0.0</div>\n            <p className=\"text-xs text-muted-foreground\">Avalia\xE7\xE3o geral</p>\n          </CardContent>\n        </Card>\n\n        <Card>\n          <CardHeader className=\"flex flex-row items-center justify-between space-y-0 pb-2\">\n            <CardTitle className=\"text-sm font-medium\">\n              Conquistas Desbloqueadas\n            </CardTitle>\n            <Trophy className=\"h-4 w-4 text-muted-foreground\" />\n          </CardHeader>\n          <CardContent>\n            <div className=\"text-2xl font-bold\">0</div>\n            <p className=\"text-xs text-muted-foreground\">Total de conquistas</p>\n          </CardContent>\n        </Card>\n      </div>\n\n      <div className=\"grid gap-4 md:grid-cols-2 lg:grid-cols-7\">\n        <Card className=\"col-span-4\">\n          <CardHeader>\n            <CardTitle>Vis\xE3o Geral</CardTitle>\n            <CardDescription>\n              Estat\xEDsticas de performance dos atendentes\n            </CardDescription>\n          </CardHeader>\n          <CardContent className=\"pl-2\">\n            <div className=\"flex h-[200px] items-center justify-center text-muted-foreground\">\n              Gr\xE1fico de performance ser\xE1 implementado aqui\n            </div>\n          </CardContent>\n        </Card>\n\n        <Card className=\"col-span-3\">\n          <CardHeader>\n            <CardTitle>Atividade Recente</CardTitle>\n            <CardDescription>\xDAltimas atividades do sistema</CardDescription>\n          </CardHeader>\n          <CardContent>\n            <div className=\"space-y-4\">\n              <div className=\"flex items-center space-x-4\">\n                <div className=\"h-2 w-2 rounded-full bg-blue-500\" />\n                <div className=\"space-y-1\">\n                  <p className=\"text-sm font-medium leading-none\">\n                    Sistema inicializado\n                  </p>\n                  <p className=\"text-sm text-muted-foreground\">\n                    Configura\xE7\xE3o inicial conclu\xEDda\n                  </p>\n                </div>\n              </div>\n            </div>\n          </CardContent>\n        </Card>\n      </div>\n    </div>\n  );\n}\n"],
+      names: ["DashboardPage", "div", "className", "h1", "p", "Card", "CardHeader", "CardTitle", "Users", "CardContent", "MessageSquare", "BarChart3", "Trophy", "CardDescription"],
+      mappings: ";;;;+BASA;;;eAAwBA;;;;sBAHjB;6BACiD;AAEzC,SAASA;IACtB,qBACE,sBAACC;QAAIC,WAAU;;0BACb,sBAACD;;kCACC,qBAACE;wBAAGD,WAAU;kCAAoC;;kCAClD,qBAACE;wBAAEF,WAAU;kCAAwB;;;;0BAKvC,sBAACD;gBAAIC,WAAU;;kCACb,sBAACG,UAAI;;0CACH,sBAACC,gBAAU;gCAACJ,WAAU;;kDACpB,qBAACK,eAAS;wCAACL,WAAU;kDAAsB;;kDAG3C,qBAACM,kBAAK;wCAACN,WAAU;;;;0CAEnB,sBAACO,iBAAW;;kDACV,qBAACR;wCAAIC,WAAU;kDAAqB;;kDACpC,qBAACE;wCAAEF,WAAU;kDAAgC;;;;;;kCAMjD,sBAACG,UAAI;;0CACH,sBAACC,gBAAU;gCAACJ,WAAU;;kDACpB,qBAACK,eAAS;wCAACL,WAAU;kDAAsB;;kDAG3C,qBAACQ,0BAAa;wCAACR,WAAU;;;;0CAE3B,sBAACO,iBAAW;;kDACV,qBAACR;wCAAIC,WAAU;kDAAqB;;kDACpC,qBAACE;wCAAEF,WAAU;kDAAgC;;;;;;kCAIjD,sBAACG,UAAI;;0CACH,sBAACC,gBAAU;gCAACJ,WAAU;;kDACpB,qBAACK,eAAS;wCAACL,WAAU;kDAAsB;;kDAG3C,qBAACS,sBAAS;wCAACT,WAAU;;;;0CAEvB,sBAACO,iBAAW;;kDACV,qBAACR;wCAAIC,WAAU;kDAAqB;;kDACpC,qBAACE;wCAAEF,WAAU;kDAAgC;;;;;;kCAIjD,sBAACG,UAAI;;0CACH,sBAACC,gBAAU;gCAACJ,WAAU;;kDACpB,qBAACK,eAAS;wCAACL,WAAU;kDAAsB;;kDAG3C,qBAACU,mBAAM;wCAACV,WAAU;;;;0CAEpB,sBAACO,iBAAW;;kDACV,qBAACR;wCAAIC,WAAU;kDAAqB;;kDACpC,qBAACE;wCAAEF,WAAU;kDAAgC;;;;;;;;0BAKnD,sBAACD;gBAAIC,WAAU;;kCACb,sBAACG,UAAI;wBAACH,WAAU;;0CACd,sBAACI,gBAAU;;kDACT,qBAACC,eAAS;kDAAC;;kDACX,qBAACM,qBAAe;kDAAC;;;;0CAInB,qBAACJ,iBAAW;gCAACP,WAAU;0CACrB,cAAA,qBAACD;oCAAIC,WAAU;8CAAmE;;;;;kCAMtF,sBAACG,UAAI;wBAACH,WAAU;;0CACd,sBAACI,gBAAU;;kDACT,qBAACC,eAAS;kDAAC;;kDACX,qBAACM,qBAAe;kDAAC;;;;0CAEnB,qBAACJ,iBAAW;0CACV,cAAA,qBAACR;oCAAIC,WAAU;8CACb,cAAA,sBAACD;wCAAIC,WAAU;;0DACb,qBAACD;gDAAIC,WAAU;;0DACf,sBAACD;gDAAIC,WAAU;;kEACb,qBAACE;wDAAEF,WAAU;kEAAmC;;kEAGhD,qBAACE;wDAAEF,WAAU;kEAAgC;;;;;;;;;;;;;;AAW/D"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "be7a46e278d376b879ed0d2742bd8285ffc8443e"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2i2xl5i6wz = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2i2xl5i6wz();
+cov_2i2xl5i6wz().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_2i2xl5i6wz().s[1]++;
+Object.defineProperty(exports, "default", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_2i2xl5i6wz().f[0]++;
+    cov_2i2xl5i6wz().s[2]++;
+    return DashboardPage;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_2i2xl5i6wz().s[3]++, require("react/jsx-runtime"));
+const _card =
+/* istanbul ignore next */
+(cov_2i2xl5i6wz().s[4]++, require("../../components/ui/card"));
+const _lucidereact =
+/* istanbul ignore next */
+(cov_2i2xl5i6wz().s[5]++, require("lucide-react"));
+function DashboardPage() {
+  /* istanbul ignore next */
+  cov_2i2xl5i6wz().f[1]++;
+  cov_2i2xl5i6wz().s[6]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+    className: "space-y-6",
+    children: [/*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("h1", {
+        className: "text-3xl font-bold tracking-tight",
+        children: "Dashboard"
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+        className: "text-muted-foreground",
+        children: "Vis\xe3o geral do sistema de gest\xe3o de atendimento"
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "grid gap-4 md:grid-cols-2 lg:grid-cols-4",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          className: "flex flex-row items-center justify-between space-y-0 pb-2",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            className: "text-sm font-medium",
+            children: "Total de Atendentes"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Users, {
+            className: "h-4 w-4 text-muted-foreground"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardContent, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "text-2xl font-bold",
+            children: "0"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-xs text-muted-foreground",
+            children: "Atendentes cadastrados"
+          })]
+        })]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          className: "flex flex-row items-center justify-between space-y-0 pb-2",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            className: "text-sm font-medium",
+            children: "Feedbacks Recebidos"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.MessageSquare, {
+            className: "h-4 w-4 text-muted-foreground"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardContent, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "text-2xl font-bold",
+            children: "0"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-xs text-muted-foreground",
+            children: "Feedbacks este m\xeas"
+          })]
+        })]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          className: "flex flex-row items-center justify-between space-y-0 pb-2",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            className: "text-sm font-medium",
+            children: "Pontua\xe7\xe3o M\xe9dia"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.BarChart3, {
+            className: "h-4 w-4 text-muted-foreground"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardContent, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "text-2xl font-bold",
+            children: "0.0"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-xs text-muted-foreground",
+            children: "Avalia\xe7\xe3o geral"
+          })]
+        })]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          className: "flex flex-row items-center justify-between space-y-0 pb-2",
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            className: "text-sm font-medium",
+            children: "Conquistas Desbloqueadas"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_lucidereact.Trophy, {
+            className: "h-4 w-4 text-muted-foreground"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardContent, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "text-2xl font-bold",
+            children: "0"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+            className: "text-xs text-muted-foreground",
+            children: "Total de conquistas"
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "grid gap-4 md:grid-cols-2 lg:grid-cols-7",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        className: "col-span-4",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            children: "Vis\xe3o Geral"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+            children: "Estat\xedsticas de performance dos atendentes"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+          className: "pl-2",
+          children: /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "flex h-[200px] items-center justify-center text-muted-foreground",
+            children: "Gr\xe1fico de performance ser\xe1 implementado aqui"
+          })
+        })]
+      }), /*#__PURE__*/(0, _jsxruntime.jsxs)(_card.Card, {
+        className: "col-span-3",
+        children: [/*#__PURE__*/(0, _jsxruntime.jsxs)(_card.CardHeader, {
+          children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardTitle, {
+            children: "Atividade Recente"
+          }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardDescription, {
+            children: "\xdaltimas atividades do sistema"
+          })]
+        }), /*#__PURE__*/(0, _jsxruntime.jsx)(_card.CardContent, {
+          children: /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+            className: "space-y-4",
+            children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+              className: "flex items-center space-x-4",
+              children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+                className: "h-2 w-2 rounded-full bg-blue-500"
+              }), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+                className: "space-y-1",
+                children: [/*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm font-medium leading-none",
+                  children: "Sistema inicializado"
+                }), /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+                  className: "text-sm text-muted-foreground",
+                  children: "Configura\xe7\xe3o inicial conclu\xedda"
+                })]
+              })]
+            })
+          })
+        })]
+      })]
+    })]
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMmkyeGw1aTZ3eiIsImFjdHVhbENvdmVyYWdlIiwicyIsIkRhc2hib2FyZFBhZ2UiLCJmIiwiX2pzeHJ1bnRpbWUiLCJqc3hzIiwiY2xhc3NOYW1lIiwianN4IiwiX2NhcmQiLCJDYXJkIiwiQ2FyZEhlYWRlciIsIkNhcmRUaXRsZSIsIl9sdWNpZGVyZWFjdCIsIlVzZXJzIiwiQ2FyZENvbnRlbnQiLCJNZXNzYWdlU3F1YXJlIiwiQmFyQ2hhcnQzIiwiVHJvcGh5IiwiQ2FyZERlc2NyaXB0aW9uIl0sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxOZXJldSBKclxcRG9jdW1lbnRzXFxEZXZcXG5ld1xcc3JjXFxhcHBcXChkYXNoYm9hcmQpXFxwYWdlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1xuICBDYXJkLFxuICBDYXJkQ29udGVudCxcbiAgQ2FyZERlc2NyaXB0aW9uLFxuICBDYXJkSGVhZGVyLFxuICBDYXJkVGl0bGUsXG59IGZyb20gJ0AvY29tcG9uZW50cy91aS9jYXJkJztcbmltcG9ydCB7IEJhckNoYXJ0MywgTWVzc2FnZVNxdWFyZSwgVHJvcGh5LCBVc2VycyB9IGZyb20gJ2x1Y2lkZS1yZWFjdCc7XG5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIERhc2hib2FyZFBhZ2UoKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTZcIj5cbiAgICAgIDxkaXY+XG4gICAgICAgIDxoMSBjbGFzc05hbWU9XCJ0ZXh0LTN4bCBmb250LWJvbGQgdHJhY2tpbmctdGlnaHRcIj5EYXNoYm9hcmQ8L2gxPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LW11dGVkLWZvcmVncm91bmRcIj5cbiAgICAgICAgICBWaXPDo28gZ2VyYWwgZG8gc2lzdGVtYSBkZSBnZXN0w6NvIGRlIGF0ZW5kaW1lbnRvXG4gICAgICAgIDwvcD5cbiAgICAgIDwvZGl2PlxuXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ2FwLTQgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTRcIj5cbiAgICAgICAgPENhcmQ+XG4gICAgICAgICAgPENhcmRIZWFkZXIgY2xhc3NOYW1lPVwiZmxleCBmbGV4LXJvdyBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHNwYWNlLXktMCBwYi0yXCI+XG4gICAgICAgICAgICA8Q2FyZFRpdGxlIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgICAgVG90YWwgZGUgQXRlbmRlbnRlc1xuICAgICAgICAgICAgPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICA8VXNlcnMgY2xhc3NOYW1lPVwiaC00IHctNCB0ZXh0LW11dGVkLWZvcmVncm91bmRcIiAvPlxuICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICA8Q2FyZENvbnRlbnQ+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQtMnhsIGZvbnQtYm9sZFwiPjA8L2Rpdj5cbiAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgIEF0ZW5kZW50ZXMgY2FkYXN0cmFkb3NcbiAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgPENhcmQ+XG4gICAgICAgICAgPENhcmRIZWFkZXIgY2xhc3NOYW1lPVwiZmxleCBmbGV4LXJvdyBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHNwYWNlLXktMCBwYi0yXCI+XG4gICAgICAgICAgICA8Q2FyZFRpdGxlIGNsYXNzTmFtZT1cInRleHQtc20gZm9udC1tZWRpdW1cIj5cbiAgICAgICAgICAgICAgRmVlZGJhY2tzIFJlY2ViaWRvc1xuICAgICAgICAgICAgPC9DYXJkVGl0bGU+XG4gICAgICAgICAgICA8TWVzc2FnZVNxdWFyZSBjbGFzc05hbWU9XCJoLTQgdy00IHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiIC8+XG4gICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkXCI+MDwvZGl2PlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LW11dGVkLWZvcmVncm91bmRcIj5GZWVkYmFja3MgZXN0ZSBtw6pzPC9wPlxuICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgIDwvQ2FyZD5cblxuICAgICAgICA8Q2FyZD5cbiAgICAgICAgICA8Q2FyZEhlYWRlciBjbGFzc05hbWU9XCJmbGV4IGZsZXgtcm93IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gc3BhY2UteS0wIHBiLTJcIj5cbiAgICAgICAgICAgIDxDYXJkVGl0bGUgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgICBQb250dWHDp8OjbyBNw6lkaWFcbiAgICAgICAgICAgIDwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgPEJhckNoYXJ0MyBjbGFzc05hbWU9XCJoLTQgdy00IHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiIC8+XG4gICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkXCI+MC4wPC9kaXY+XG4gICAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXhzIHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiPkF2YWxpYcOnw6NvIGdlcmFsPC9wPlxuICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgIDwvQ2FyZD5cblxuICAgICAgICA8Q2FyZD5cbiAgICAgICAgICA8Q2FyZEhlYWRlciBjbGFzc05hbWU9XCJmbGV4IGZsZXgtcm93IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gc3BhY2UteS0wIHBiLTJcIj5cbiAgICAgICAgICAgIDxDYXJkVGl0bGUgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bVwiPlxuICAgICAgICAgICAgICBDb25xdWlzdGFzIERlc2Jsb3F1ZWFkYXNcbiAgICAgICAgICAgIDwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgPFRyb3BoeSBjbGFzc05hbWU9XCJoLTQgdy00IHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiIC8+XG4gICAgICAgICAgPC9DYXJkSGVhZGVyPlxuICAgICAgICAgIDxDYXJkQ29udGVudD5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC0yeGwgZm9udC1ib2xkXCI+MDwvZGl2PlxuICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyB0ZXh0LW11dGVkLWZvcmVncm91bmRcIj5Ub3RhbCBkZSBjb25xdWlzdGFzPC9wPlxuICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgIDwvQ2FyZD5cbiAgICAgIDwvZGl2PlxuXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ2FwLTQgbWQ6Z3JpZC1jb2xzLTIgbGc6Z3JpZC1jb2xzLTdcIj5cbiAgICAgICAgPENhcmQgY2xhc3NOYW1lPVwiY29sLXNwYW4tNFwiPlxuICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRUaXRsZT5WaXPDo28gR2VyYWw8L0NhcmRUaXRsZT5cbiAgICAgICAgICAgIDxDYXJkRGVzY3JpcHRpb24+XG4gICAgICAgICAgICAgIEVzdGF0w61zdGljYXMgZGUgcGVyZm9ybWFuY2UgZG9zIGF0ZW5kZW50ZXNcbiAgICAgICAgICAgIDwvQ2FyZERlc2NyaXB0aW9uPlxuICAgICAgICAgIDwvQ2FyZEhlYWRlcj5cbiAgICAgICAgICA8Q2FyZENvbnRlbnQgY2xhc3NOYW1lPVwicGwtMlwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGgtWzIwMHB4XSBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXIgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgIEdyw6FmaWNvIGRlIHBlcmZvcm1hbmNlIHNlcsOhIGltcGxlbWVudGFkbyBhcXVpXG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L0NhcmRDb250ZW50PlxuICAgICAgICA8L0NhcmQ+XG5cbiAgICAgICAgPENhcmQgY2xhc3NOYW1lPVwiY29sLXNwYW4tM1wiPlxuICAgICAgICAgIDxDYXJkSGVhZGVyPlxuICAgICAgICAgICAgPENhcmRUaXRsZT5BdGl2aWRhZGUgUmVjZW50ZTwvQ2FyZFRpdGxlPlxuICAgICAgICAgICAgPENhcmREZXNjcmlwdGlvbj7Dmmx0aW1hcyBhdGl2aWRhZGVzIGRvIHNpc3RlbWE8L0NhcmREZXNjcmlwdGlvbj5cbiAgICAgICAgICA8L0NhcmRIZWFkZXI+XG4gICAgICAgICAgPENhcmRDb250ZW50PlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBzcGFjZS14LTRcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtMiB3LTIgcm91bmRlZC1mdWxsIGJnLWJsdWUtNTAwXCIgLz5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMVwiPlxuICAgICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LW1lZGl1bSBsZWFkaW5nLW5vbmVcIj5cbiAgICAgICAgICAgICAgICAgICAgU2lzdGVtYSBpbmljaWFsaXphZG9cbiAgICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gdGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgICAgICAgIENvbmZpZ3VyYcOnw6NvIGluaWNpYWwgY29uY2x1w61kYVxuICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgICAgIDwvQ2FyZD5cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0lBV1M7SUFBQUEsY0FBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsY0FBQTtBQUFBQSxjQUFBLEdBQUFFLENBQUE7Ozs7OzsrQkFGVDs7Ozs7O1dBQXdCQyxhQUFBOzs7Ozs7OztrQ0FIakI7OztrQ0FDaUQ7QUFFekMsU0FBU0EsY0FBQTtFQUFBO0VBQUFILGNBQUEsR0FBQUksQ0FBQTtFQUFBSixjQUFBLEdBQUFFLENBQUE7RUFDdEIsb0JBQ0UsSUFBQUcsV0FBQSxDQUFBQyxJQUFBLEVBQUM7SUFBSUMsU0FBQSxFQUFVOzRCQUNiLElBQUFGLFdBQUEsQ0FBQUMsSUFBQSxFQUFDOzhCQUNDLElBQUFELFdBQUEsQ0FBQUcsR0FBQSxFQUFDO1FBQUdELFNBQUEsRUFBVTtrQkFBb0M7dUJBQ2xELElBQUFGLFdBQUEsQ0FBQUcsR0FBQSxFQUFDO1FBQUVELFNBQUEsRUFBVTtrQkFBd0I7O3FCQUt2QyxJQUFBRixXQUFBLENBQUFDLElBQUEsRUFBQztNQUFJQyxTQUFBLEVBQVU7OEJBQ2IsSUFBQUYsV0FBQSxDQUFBQyxJQUFBLEVBQUNHLEtBQUEsQ0FBQUMsSUFBSTtnQ0FDSCxJQUFBTCxXQUFBLENBQUFDLElBQUEsRUFBQ0csS0FBQSxDQUFBRSxVQUFV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

@@ -1,0 +1,60 @@
+1d13beaf20393c0ea57fba139f42aada
+// Tipos gerados pelo Prisma
+"use strict";
+
+/* istanbul ignore next */
+function cov_2kdg4koiqf() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types.ts";
+  var hash = "89ab355970635190fff2dee33dbe9cbd55e24a45";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types.ts"],
+      sourcesContent: ["// Tipos gerados pelo Prisma\nexport type {\n  Usuario,\n  Atendente,\n  Avaliacao,\n  Feedback,\n  GamificacaoAtendente,\n  Conquista,\n  ConquistaAtendente,\n  TipoUsuario,\n  StatusAtendente,\n  TipoFeedback,\n  StatusFeedback,\n  PrioridadeFeedback,\n} from '../generated/prisma';\n\n// Tipos personalizados para opera\xE7\xF5es espec\xEDficas\nexport interface UsuarioComAtendente {\n  id: string;\n  email: string;\n  nome: string;\n  userType: TipoUsuario;\n  ativo: boolean;\n  criadoEm: Date;\n  atualizadoEm: Date;\n  atendente?: Atendente | null;\n}\n\nexport interface AtendenteComUsuario {\n  id: string;\n  usuarioId: string;\n  cpf: string;\n  telefone: string;\n  endereco?: string | null;\n  dataAdmissao: Date;\n  cargo: string;\n  setor: string;\n  salario?: number | null;\n  status: StatusAtendente;\n  observacoes?: string | null;\n  criadoEm: Date;\n  atualizadoEm: Date;\n  usuario: Usuario;\n}\n\nexport interface AvaliacaoCompleta {\n  id: string;\n  atendenteId: string;\n  nota: number;\n  comentario?: string | null;\n  periodo: string;\n  dataAvaliacao: Date;\n  avaliadorId?: string | null;\n  criadoEm: Date;\n  atualizadoEm: Date;\n  atendente: AtendenteComUsuario;\n}\n\nexport interface FeedbackCompleto {\n  id: string;\n  tipo: TipoFeedback;\n  status: StatusFeedback;\n  prioridade: PrioridadeFeedback;\n  titulo: string;\n  conteudo: string;\n  autorId?: string | null;\n  responsavelId?: string | null;\n  resolucao?: string | null;\n  dataResolucao?: Date | null;\n  criadoEm: Date;\n  atualizadoEm: Date;\n}\n\n// Tipos para cria\xE7\xE3o de registros (sem campos auto-gerados)\nexport interface CriarUsuario {\n  email: string;\n  nome: string;\n  senha: string;\n  userType: TipoUsuario;\n  ativo?: boolean;\n}\n\nexport interface CriarAtendente {\n  usuarioId: string;\n  cpf: string;\n  telefone: string;\n  endereco?: string;\n  dataAdmissao: Date;\n  cargo: string;\n  setor: string;\n  salario?: number;\n  status?: StatusAtendente;\n  observacoes?: string;\n}\n\nexport interface CriarAvaliacao {\n  atendenteId: string;\n  nota: number;\n  comentario?: string;\n  periodo: string;\n  avaliadorId?: string;\n}\n\nexport interface CriarFeedback {\n  tipo: TipoFeedback;\n  prioridade?: PrioridadeFeedback;\n  titulo: string;\n  conteudo: string;\n  autorId?: string;\n  responsavelId?: string;\n}\n\n// Tipos para atualiza\xE7\xE3o de registros\nexport interface AtualizarUsuario {\n  email?: string;\n  nome?: string;\n  senha?: string;\n  userType?: TipoUsuario;\n  ativo?: boolean;\n}\n\nexport interface AtualizarAtendente {\n  cpf?: string;\n  telefone?: string;\n  endereco?: string;\n  cargo?: string;\n  setor?: string;\n  salario?: number;\n  status?: StatusAtendente;\n  observacoes?: string;\n}\n\nexport interface AtualizarFeedback {\n  status?: StatusFeedback;\n  prioridade?: PrioridadeFeedback;\n  titulo?: string;\n  conteudo?: string;\n  responsavelId?: string;\n  resolucao?: string;\n  dataResolucao?: Date;\n}\n\n// Tipos para filtros e consultas\nexport interface FiltroUsuarios {\n  userType?: TipoUsuario;\n  ativo?: boolean;\n  email?: string;\n  nome?: string;\n}\n\nexport interface FiltroAtendentes {\n  status?: StatusAtendente;\n  setor?: string;\n  cargo?: string;\n  dataAdmissaoInicio?: Date;\n  dataAdmissaoFim?: Date;\n}\n\nexport interface FiltroFeedbacks {\n  tipo?: TipoFeedback;\n  status?: StatusFeedback;\n  prioridade?: PrioridadeFeedback;\n  autorId?: string;\n  responsavelId?: string;\n  dataInicio?: Date;\n  dataFim?: Date;\n}\n\n// Tipos para pagina\xE7\xE3o\nexport interface ParametrosPaginacao {\n  pagina?: number;\n  limite?: number;\n  ordenarPor?: string;\n  ordem?: 'asc' | 'desc';\n}\n\nexport interface ResultadoPaginado<T> {\n  dados: T[];\n  total: number;\n  pagina: number;\n  limite: number;\n  totalPaginas: number;\n}\n"],
+      names: [],
+      mappings: "AAAA,4BAA4B"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "89ab355970635190fff2dee33dbe9cbd55e24a45"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2kdg4koiqf = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2kdg4koiqf();
+cov_2kdg4koiqf().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxOZXJldSBKclxcRG9jdW1lbnRzXFxEZXZcXG5ld1xcc3JjXFxsaWJcXHR5cGVzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIFRpcG9zIGdlcmFkb3MgcGVsbyBQcmlzbWFcbmV4cG9ydCB0eXBlIHtcbiAgVXN1YXJpbyxcbiAgQXRlbmRlbnRlLFxuICBBdmFsaWFjYW8sXG4gIEZlZWRiYWNrLFxuICBHYW1pZmljYWNhb0F0ZW5kZW50ZSxcbiAgQ29ucXVpc3RhLFxuICBDb25xdWlzdGFBdGVuZGVudGUsXG4gIFRpcG9Vc3VhcmlvLFxuICBTdGF0dXNBdGVuZGVudGUsXG4gIFRpcG9GZWVkYmFjayxcbiAgU3RhdHVzRmVlZGJhY2ssXG4gIFByaW9yaWRhZGVGZWVkYmFjayxcbn0gZnJvbSAnLi4vZ2VuZXJhdGVkL3ByaXNtYSc7XG5cbi8vIFRpcG9zIHBlcnNvbmFsaXphZG9zIHBhcmEgb3BlcmHDp8O1ZXMgZXNwZWPDrWZpY2FzXG5leHBvcnQgaW50ZXJmYWNlIFVzdWFyaW9Db21BdGVuZGVudGUge1xuICBpZDogc3RyaW5nO1xuICBlbWFpbDogc3RyaW5nO1xuICBub21lOiBzdHJpbmc7XG4gIHVzZXJUeXBlOiBUaXBvVXN1YXJpbztcbiAgYXRpdm86IGJvb2xlYW47XG4gIGNyaWFkb0VtOiBEYXRlO1xuICBhdHVhbGl6YWRvRW06IERhdGU7XG4gIGF0ZW5kZW50ZT86IEF0ZW5kZW50ZSB8IG51bGw7XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgQXRlbmRlbnRlQ29tVXN1YXJpbyB7XG4gIGlkOiBzdHJpbmc7XG4gIHVzdWFyaW9JZDogc3RyaW5nO1xuICBjcGY6IHN0cmluZztcbiAgdGVsZWZvbmU6IHN0cmluZztcbiAgZW5kZXJlY28/OiBzdHJpbmcgfCBudWxsO1xuICBkYXRhQWRtaXNzYW86IERhdGU7XG4gIGNhcmdvOiBzdHJpbmc7XG4gIHNldG9yOiBzdHJpbmc7XG4gIHNhbGFyaW8/OiBudW1iZXIgfCBudWxsO1xuICBzdGF0dXM6IFN0YXR1c0F0ZW5kZW50ZTtcbiAgb2JzZXJ2YWNvZXM/OiBzdHJpbmcgfCBudWxsO1xuICBjcmlhZG9FbTogRGF0ZTtcbiAgYXR1YWxpemFkb0VtOiBEYXRlO1xuICB1c3VhcmlvOiBVc3VhcmlvO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEF2YWxpYWNhb0NvbXBsZXRhIHtcbiAgaWQ6IHN0cmluZztcbiAgYXRlbmRlbnRlSWQ6IHN0cmluZztcbiAgbm90YTogbnVtYmVyO1xuICBjb21lbnRhcmlvPzogc3RyaW5nIHwgbnVsbDtcbiAgcGVyaW9kbzogc3RyaW5nO1xuICBkYXRhQXZhbGlhY2FvOiBEYXRlO1xuICBhdmFsaWFkb3JJZD86IHN0cmluZyB8IG51bGw7XG4gIGNyaWFkb0VtOiBEYXRlO1xuICBhdHVhbGl6YWRvRW06IERhdGU7XG4gIGF0ZW5kZW50ZTogQXRlbmRlbnRlQ29tVXN1YXJpbztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBGZWVkYmFja0NvbXBsZXRvIHtcbiAgaWQ6IHN0cmluZztcbiAgdGlwbzogVGlwb0ZlZWRiYWNrO1xuICBzdGF0dXM6IFN0YXR1c0ZlZWRiYWNrO1xuICBwcmlvcmlkYWRlOiBQcmlvcmlkYWRlRmVlZGJhY2s7XG4gIHRpdHVsbzogc3RyaW5nO1xuICBjb250ZXVkbzogc3RyaW5nO1xuICBhdXRvcklkPzogc3RyaW5nIHwgbnVsbDtcbiAgcmVzcG9uc2F2ZWxJZD86IHN0cmluZyB8IG51bGw7XG4gIHJlc29sdWNhbz86IHN0cmluZyB8IG51bGw7XG4gIGRhdGFSZXNvbHVjYW8/OiBEYXRlIHwgbnVsbDtcbiAgY3JpYWRvRW06IERhdGU7XG4gIGF0dWFsaXphZG9FbTogRGF0ZTtcbn1cblxuLy8gVGlwb3MgcGFyYSBjcmlhw6fDo28gZGUgcmVnaXN0cm9zIChzZW0gY2FtcG9zIGF1dG8tZ2VyYWRvcylcbmV4cG9ydCBpbnRlcmZhY2UgQ3JpYXJVc3VhcmlvIHtcbiAgZW1haWw6IHN0cmluZztcbiAgbm9tZTogc3RyaW5nO1xuICBzZW5oYTogc3RyaW5nO1xuICB1c2VyVHlwZTogVGlwb1VzdWFyaW87XG4gIGF0aXZvPzogYm9vbGVhbjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDcmlhckF0ZW5kZW50ZSB7XG4gIHVzdWFyaW9JZDogc3RyaW5nO1xuICBjcGY6IHN0cmluZztcbiAgdGVsZWZvbmU6IHN0cmluZztcbiAgZW5kZXJlY28/OiBzdHJpbmc7XG4gIGRhdGFBZG1pc3NhbzogRGF0ZTtcbiAgY2FyZ286IHN0cmluZztcbiAgc2V0b3I6IHN0cmluZztcbiAgc2FsYXJpbz86IG51bWJlcjtcbiAgc3RhdHVzPzogU3RhdHVzQXRlbmRlbnRlO1xuICBvYnNlcnZhY29lcz86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDcmlhckF2YWxpYWNhbyB7XG4gIGF0ZW5kZW50ZUlkOiBzdHJpbmc7XG4gIG5vdGE6IG51bWJlcjtcbiAgY29tZW50YXJpbz86IHN0cmluZztcbiAgcGVyaW9kbzogc3RyaW5nO1xuICBhdmFsaWFkb3JJZD86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBDcmlhckZlZWRiYWNrIHtcbiAgdGlwbzogVGlwb0ZlZWRiYWNrO1xuICBwcmlvcmlkYWRlPzogUHJpb3JpZGFkZUZlZWRiYWNrO1xuICB0aXR1bG86IHN0cmluZztcbiAgY29udGV1ZG86IHN0cmluZztcbiAgYXV0b3JJZD86IHN0cmluZztcbiAgcmVzcG9uc2F2ZWxJZD86IHN0cmluZztcbn1cblxuLy8gVGlwb3MgcGFyYSBhdHVhbGl6YcOnw6NvIGRlIHJlZ2lzdHJvc1xuZXhwb3J0IGludGVyZmFjZSBBdHVhbGl6YXJVc3VhcmlvIHtcbiAgZW1haWw/OiBzdHJpbmc7XG4gIG5vbWU/OiBzdHJpbmc7XG4gIHNlbmhhPzogc3RyaW5nO1xuICB1c2VyVHlwZT86IFRpcG9Vc3VhcmlvO1xuICBhdGl2bz86IGJvb2xlYW47XG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgQXR1YWxpemFyQXRlbmRlbnRlIHtcbiAgY3BmPzogc3RyaW5nO1xuICB0ZWxlZm9uZT86IHN0cmluZztcbiAgZW5kZXJlY28/OiBzdHJpbmc7XG4gIGNhcmdvPzogc3RyaW5nO1xuICBzZXRvcj86IHN0cmluZztcbiAgc2FsYXJpbz86IG51bWJlcjtcbiAgc3RhdHVzPzogU3RhdHVzQXRlbmRlbnRlO1xuICBvYnNlcnZhY29lcz86IHN0cmluZztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBBdHVhbGl6YXJGZWVkYmFjayB7XG4gIHN0YXR1cz86IFN0YXR1c0ZlZWRiYWNrO1xuICBwcmlvcmlkYWRlPzogUHJpb3JpZGFkZUZlZWRiYWNrO1xuICB0aXR1bG8/OiBzdHJpbmc7XG4gIGNvbnRldWRvPzogc3RyaW5nO1xuICByZXNwb25zYXZlbElkPzogc3RyaW5nO1xuICByZXNvbHVjYW8/OiBzdHJpbmc7XG4gIGRhdGFSZXNvbHVjYW8/OiBEYXRlO1xufVxuXG4vLyBUaXBvcyBwYXJhIGZpbHRyb3MgZSBjb25zdWx0YXNcbmV4cG9ydCBpbnRlcmZhY2UgRmlsdHJvVXN1YXJpb3Mge1xuICB1c2VyVHlwZT86IFRpcG9Vc3VhcmlvO1xuICBhdGl2bz86IGJvb2xlYW47XG4gIGVtYWlsPzogc3RyaW5nO1xuICBub21lPzogc3RyaW5nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIEZpbHRyb0F0ZW5kZW50ZXMge1xuICBzdGF0dXM/OiBTdGF0dXNBdGVuZGVudGU7XG4gIHNldG9yPzogc3RyaW5nO1xuICBjYXJnbz86IHN0cmluZztcbiAgZGF0YUFkbWlzc2FvSW5pY2lvPzogRGF0ZTtcbiAgZGF0YUFkbWlzc2FvRmltPzogRGF0ZTtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBGaWx0cm9GZWVkYmFja3Mge1xuICB0aXBvPzogVGlwb0ZlZWRiYWNrO1xuICBzdGF0dXM/OiBTdGF0dXNGZWVkYmFjaztcbiAgcHJpb3JpZGFkZT86IFByaW9yaWRhZGVGZWVkYmFjaztcbiAgYXV0b3JJZD86IHN0cmluZztcbiAgcmVzcG9uc2F2ZWxJZD86IHN0cmluZztcbiAgZGF0YUluaWNpbz86IERhdGU7XG4gIGRhdGFGaW0/OiBEYXRlO1xufVxuXG4vLyBUaXBvcyBwYXJhIHBhZ2luYcOnw6NvXG5leHBvcnQgaW50ZXJmYWNlIFBhcmFtZXRyb3NQYWdpbmFjYW8ge1xuICBwYWdpbmE/OiBudW1iZXI7XG4gIGxpbWl0ZT86IG51bWJlcjtcbiAgb3JkZW5hclBvcj86IHN0cmluZztcbiAgb3JkZW0/OiAnYXNjJyB8ICdkZXNjJztcbn1cblxuZXhwb3J0IGludGVyZmFjZSBSZXN1bHRhZG9QYWdpbmFkbzxUPiB7XG4gIGRhZG9zOiBUW107XG4gIHRvdGFsOiBudW1iZXI7XG4gIHBhZ2luYTogbnVtYmVyO1xuICBsaW1pdGU6IG51bWJlcjtcbiAgdG90YWxQYWdpbmFzOiBudW1iZXI7XG59XG4iXSwibWFwcGluZ3MiOiJBQUFBIiwiaWdub3JlTGlzdCI6W119

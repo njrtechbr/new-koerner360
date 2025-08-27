@@ -21,32 +21,32 @@ const sidebarNavItems = [
   },
   {
     title: 'Atendentes',
-    href: '/dashboard/atendentes',
+    href: '/atendentes',
     icon: UserCheck,
   },
   {
     title: 'Usuários',
-    href: '/dashboard/usuarios',
+    href: '/usuarios',
     icon: Users,
   },
   {
     title: 'Feedbacks',
-    href: '/dashboard/feedbacks',
+    href: '/feedbacks',
     icon: MessageSquare,
   },
   {
     title: 'Relatórios',
-    href: '/dashboard/relatorios',
+    href: '/relatorios',
     icon: BarChart3,
   },
   {
     title: 'Gamificação',
-    href: '/dashboard/gamificacao',
+    href: '/gamificacao',
     icon: Trophy,
   },
   {
     title: 'Configurações',
-    href: '/dashboard/configuracoes',
+    href: '/configuracoes',
     icon: Settings,
   },
 ];

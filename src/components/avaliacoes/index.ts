@@ -1,0 +1,1 @@
+export { default as MetricasAvaliacoes } from './metricas-avaliacoes';

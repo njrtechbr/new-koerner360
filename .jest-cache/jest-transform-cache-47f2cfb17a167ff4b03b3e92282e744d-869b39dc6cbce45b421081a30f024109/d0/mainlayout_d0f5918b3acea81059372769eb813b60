@@ -1,0 +1,304 @@
+d61f81f389568cd53b66e83c76e68c33
+'use client';
+"use strict";
+
+/* istanbul ignore next */
+function cov_vh2vic7a9() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\main-layout.tsx";
+  var hash = "b752b8f68e4f1c0dedc74a0900f57b48d84ae898";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\main-layout.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 26
+        }
+      },
+      "3": {
+        start: {
+          line: 12,
+          column: 20
+        },
+        end: {
+          line: 12,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 16
+        },
+        end: {
+          line: 13,
+          column: 35
+        }
+      },
+      "5": {
+        start: {
+          line: 14,
+          column: 16
+        },
+        end: {
+          line: 14,
+          column: 35
+        }
+      },
+      "6": {
+        start: {
+          line: 15,
+          column: 17
+        },
+        end: {
+          line: 15,
+          column: 37
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 19
+        },
+        end: {
+          line: 16,
+          column: 52
+        }
+      },
+      "8": {
+        start: {
+          line: 18,
+          column: 21
+        },
+        end: {
+          line: 18,
+          column: 50
+        }
+      },
+      "9": {
+        start: {
+          line: 19,
+          column: 4
+        },
+        end: {
+          line: 41,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 8,
+            column: 9
+          },
+          end: {
+            line: 8,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "1": {
+        name: "MainLayout",
+        decl: {
+          start: {
+            line: 17,
+            column: 9
+          },
+          end: {
+            line: 17,
+            column: 19
+          }
+        },
+        loc: {
+          start: {
+            line: 17,
+            column: 34
+          },
+          end: {
+            line: 42,
+            column: 1
+          }
+        },
+        line: 17
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 26,
+            column: 20
+          },
+          end: {
+            line: 29,
+            column: 22
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 26,
+            column: 20
+          },
+          end: {
+            line: 26,
+            column: 29
+          }
+        }, {
+          start: {
+            line: 26,
+            column: 47
+          },
+          end: {
+            line: 29,
+            column: 22
+          }
+        }],
+        line: 26
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\main-layout.tsx"],
+      sourcesContent: ["'use client';\n\nimport { Header } from './header';\nimport { Footer } from './footer';\nimport { Sidebar } from './sidebar';\nimport { useIsMobile } from '@/hooks/use-mobile';\n\ninterface MainLayoutProps {\n  children: React.ReactNode;\n}\n\nexport function MainLayout({ children }: MainLayoutProps) {\n  const isMobile = useIsMobile();\n\n  return (\n    <div className=\"flex min-h-screen flex-col\">\n      <Header />\n      <div className=\"flex flex-1\">\n        {!isMobile && (\n          <aside className=\"hidden w-64 border-r bg-background md:block\">\n            <Sidebar />\n          </aside>\n        )}\n        <main className=\"flex-1\">\n          <div className=\"container mx-auto px-4 py-6 md:px-6\">{children}</div>\n        </main>\n      </div>\n      <Footer />\n    </div>\n  );\n}\n"],
+      names: ["MainLayout", "children", "isMobile", "useIsMobile", "div", "className", "Header", "aside", "Sidebar", "main", "Footer"],
+      mappings: "AAAA;;;;;+BAWgBA;;;eAAAA;;;;wBATO;wBACA;yBACC;2BACI;AAMrB,SAASA,WAAW,EAAEC,QAAQ,EAAmB;IACtD,MAAMC,WAAWC,IAAAA,sBAAW;IAE5B,qBACE,sBAACC;QAAIC,WAAU;;0BACb,qBAACC,cAAM;0BACP,sBAACF;gBAAIC,WAAU;;oBACZ,CAACH,0BACA,qBAACK;wBAAMF,WAAU;kCACf,cAAA,qBAACG,gBAAO;;kCAGZ,qBAACC;wBAAKJ,WAAU;kCACd,cAAA,qBAACD;4BAAIC,WAAU;sCAAuCJ;;;;;0BAG1D,qBAACS,cAAM;;;AAGb"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "b752b8f68e4f1c0dedc74a0900f57b48d84ae898"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_vh2vic7a9 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_vh2vic7a9();
+cov_vh2vic7a9().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_vh2vic7a9().s[1]++;
+Object.defineProperty(exports, "MainLayout", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_vh2vic7a9().f[0]++;
+    cov_vh2vic7a9().s[2]++;
+    return MainLayout;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_vh2vic7a9().s[3]++, require("react/jsx-runtime"));
+const _header =
+/* istanbul ignore next */
+(cov_vh2vic7a9().s[4]++, require("./header"));
+const _footer =
+/* istanbul ignore next */
+(cov_vh2vic7a9().s[5]++, require("./footer"));
+const _sidebar =
+/* istanbul ignore next */
+(cov_vh2vic7a9().s[6]++, require("./sidebar"));
+const _usemobile =
+/* istanbul ignore next */
+(cov_vh2vic7a9().s[7]++, require("../../hooks/use-mobile"));
+function MainLayout({
+  children
+}) {
+  /* istanbul ignore next */
+  cov_vh2vic7a9().f[1]++;
+  const isMobile =
+  /* istanbul ignore next */
+  (cov_vh2vic7a9().s[8]++, (0, _usemobile.useIsMobile)());
+  /* istanbul ignore next */
+  cov_vh2vic7a9().s[9]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+    className: "flex min-h-screen flex-col",
+    children: [/*#__PURE__*/(0, _jsxruntime.jsx)(_header.Header, {}), /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "flex flex-1",
+      children: [
+      /* istanbul ignore next */
+      (cov_vh2vic7a9().b[0][0]++, !isMobile) &&
+      /* istanbul ignore next */
+      (cov_vh2vic7a9().b[0][1]++, /*#__PURE__*/(0, _jsxruntime.jsx)("aside", {
+        className: "hidden w-64 border-r bg-background md:block",
+        children: /*#__PURE__*/(0, _jsxruntime.jsx)(_sidebar.Sidebar, {})
+      })), /*#__PURE__*/(0, _jsxruntime.jsx)("main", {
+        className: "flex-1",
+        children: /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+          className: "container mx-auto px-4 py-6 md:px-6",
+          children: children
+        })
+      })]
+    }), /*#__PURE__*/(0, _jsxruntime.jsx)(_footer.Footer, {})]
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJNYWluTGF5b3V0IiwiY2hpbGRyZW4iLCJjb3ZfdmgydmljN2E5IiwiZiIsImlzTW9iaWxlIiwicyIsIl91c2Vtb2JpbGUiLCJ1c2VJc01vYmlsZSIsIl9qc3hydW50aW1lIiwianN4cyIsImNsYXNzTmFtZSIsImpzeCIsIl9oZWFkZXIiLCJIZWFkZXIiLCJiIiwiX3NpZGViYXIiLCJTaWRlYmFyIiwiX2Zvb3RlciIsIkZvb3RlciJdLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcTmVyZXUgSnJcXERvY3VtZW50c1xcRGV2XFxuZXdcXHNyY1xcY29tcG9uZW50c1xcbGF5b3V0XFxtYWluLWxheW91dC50c3giXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5pbXBvcnQgeyBIZWFkZXIgfSBmcm9tICcuL2hlYWRlcic7XG5pbXBvcnQgeyBGb290ZXIgfSBmcm9tICcuL2Zvb3Rlcic7XG5pbXBvcnQgeyBTaWRlYmFyIH0gZnJvbSAnLi9zaWRlYmFyJztcbmltcG9ydCB7IHVzZUlzTW9iaWxlIH0gZnJvbSAnQC9ob29rcy91c2UtbW9iaWxlJztcblxuaW50ZXJmYWNlIE1haW5MYXlvdXRQcm9wcyB7XG4gIGNoaWxkcmVuOiBSZWFjdC5SZWFjdE5vZGU7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBNYWluTGF5b3V0KHsgY2hpbGRyZW4gfTogTWFpbkxheW91dFByb3BzKSB7XG4gIGNvbnN0IGlzTW9iaWxlID0gdXNlSXNNb2JpbGUoKTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBtaW4taC1zY3JlZW4gZmxleC1jb2xcIj5cbiAgICAgIDxIZWFkZXIgLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBmbGV4LTFcIj5cbiAgICAgICAgeyFpc01vYmlsZSAmJiAoXG4gICAgICAgICAgPGFzaWRlIGNsYXNzTmFtZT1cImhpZGRlbiB3LTY0IGJvcmRlci1yIGJnLWJhY2tncm91bmQgbWQ6YmxvY2tcIj5cbiAgICAgICAgICAgIDxTaWRlYmFyIC8+XG4gICAgICAgICAgPC9hc2lkZT5cbiAgICAgICAgKX1cbiAgICAgICAgPG1haW4gY2xhc3NOYW1lPVwiZmxleC0xXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXIgbXgtYXV0byBweC00IHB5LTYgbWQ6cHgtNlwiPntjaGlsZHJlbn08L2Rpdj5cbiAgICAgICAgPC9tYWluPlxuICAgICAgPC9kaXY+XG4gICAgICA8Rm9vdGVyIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG4iXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OytCQVdnQjs7Ozs7O1dBQUFBLFVBQUE7Ozs7Ozs7O2lDQVRPOzs7aUNBQ0E7OztpQ0FDQzs7O2lDQUNJO0FBTXJCLFNBQVNBLFdBQVc7RUFBRUM7QUFBUSxDQUFtQjtFQUFBO0VBQUFDLGFBQUEsR0FBQUMsQ0FBQTtFQUN0RCxNQUFNQyxRQUFBO0VBQUE7RUFBQSxDQUFBRixhQUFBLEdBQUFHLENBQUEsT0FBVyxJQUFBQyxVQUFBLENBQUFDLFdBQVc7RUFBQTtFQUFBTCxhQUFBLEdBQUFHLENBQUE7RUFFNUIsb0JBQ0UsSUFBQUcsV0FBQSxDQUFBQyxJQUFBLEVBQUM7SUFBSUMsU0FBQSxFQUFVOzRCQUNiLElBQUFGLFdBQUEsQ0FBQUcsR0FBQSxFQUFDQyxPQUFBLENBQUFDLE1BQU0sTyxhQUNQLElBQUFMLFdBQUEsQ0FBQUMsSUFBQSxFQUFDO01BQUlDLFNBQUEsRUFBVTs7TUFDWjtNQUFBLENBQUFSLGFBQUEsR0FBQVksQ0FBQSxXQUFDVixRQUFBO01BQUE7TUFBQSxDQUFBRixhQUFBLEdBQUFZLENBQUEsdUJBQ0EsSUFBQU4sV0FBQSxDQUFBRyxHQUFBLEVBQUM7UUFBTUQsU0FBQSxFQUFVO2tCQUNmLGlCQUFBRixXQUFBLENBQUFHLEdBQUEsRUFBQ0ksUUFBQSxDQUFBQyxPQUFPO3dCQUdaLElBQUFSLFdBQUEsQ0FBQUcsR0FBQSxFQUFDO1FBQUtELFNBQUEsRUFBVTtrQkFDZCxpQkFBQUYsV0FBQSxDQUFBRyxHQUFBLEVBQUM7VUFBSUQsU0FBQSxFQUFVO29CQUF1Q1Q7OztxQkFHMUQsSUFBQU8sV0FBQSxDQUFBRyxHQUFBLEVBQUNNLE9BQUEsQ0FBQUMsTUFBTTs7QUFHYiIsImlnbm9yZUxpc3QiOltdfQ==

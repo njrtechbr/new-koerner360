@@ -1,0 +1,193 @@
+15b45e5869966520f2e2f73747c82731
+"use strict";
+
+/* istanbul ignore next */
+function cov_2au001iq19() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\footer.tsx";
+  var hash = "2de062e8d35228fee1d15b28e9d0cf177362d63f";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\footer.tsx",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 22
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 20
+        },
+        end: {
+          line: 11,
+          column: 48
+        }
+      },
+      "4": {
+        start: {
+          line: 13,
+          column: 4
+        },
+        end: {
+          line: 34,
+          column: 7
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 20
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      },
+      "1": {
+        name: "Footer",
+        decl: {
+          start: {
+            line: 12,
+            column: 9
+          },
+          end: {
+            line: 12,
+            column: 15
+          }
+        },
+        loc: {
+          start: {
+            line: 12,
+            column: 18
+          },
+          end: {
+            line: 35,
+            column: 1
+          }
+        },
+        line: 12
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\components\\layout\\footer.tsx"],
+      sourcesContent: ["export function Footer() {\n  return (\n    <footer className=\"border-t bg-background\">\n      <div className=\"container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0\">\n        <div className=\"flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0\">\n          <p className=\"text-center text-sm leading-loose text-muted-foreground md:text-left\">\n            \xA9 2024 Koerner360. Todos os direitos reservados.\n          </p>\n        </div>\n        <div className=\"flex items-center space-x-4\">\n          <p className=\"text-sm text-muted-foreground\">\n            Sistema de Gest\xE3o de Atendimento\n          </p>\n        </div>\n      </div>\n    </footer>\n  );\n}\n"],
+      names: ["Footer", "footer", "className", "div", "p"],
+      mappings: ";;;;+BAAgBA;;;eAAAA;;;;AAAT,SAASA;IACd,qBACE,qBAACC;QAAOC,WAAU;kBAChB,cAAA,sBAACC;YAAID,WAAU;;8BACb,qBAACC;oBAAID,WAAU;8BACb,cAAA,qBAACE;wBAAEF,WAAU;kCAAuE;;;8BAItF,qBAACC;oBAAID,WAAU;8BACb,cAAA,qBAACE;wBAAEF,WAAU;kCAAgC;;;;;;AAOvD"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "2de062e8d35228fee1d15b28e9d0cf177362d63f"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2au001iq19 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_2au001iq19();
+cov_2au001iq19().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_2au001iq19().s[1]++;
+Object.defineProperty(exports, "Footer", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_2au001iq19().f[0]++;
+    cov_2au001iq19().s[2]++;
+    return Footer;
+  }
+});
+const _jsxruntime =
+/* istanbul ignore next */
+(cov_2au001iq19().s[3]++, require("react/jsx-runtime"));
+function Footer() {
+  /* istanbul ignore next */
+  cov_2au001iq19().f[1]++;
+  cov_2au001iq19().s[4]++;
+  return /*#__PURE__*/(0, _jsxruntime.jsx)("footer", {
+    className: "border-t bg-background",
+    children: /*#__PURE__*/(0, _jsxruntime.jsxs)("div", {
+      className: "container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0",
+      children: [/*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+        className: "flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0",
+        children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+          className: "text-center text-sm leading-loose text-muted-foreground md:text-left",
+          children: "\xa9 2024 Koerner360. Todos os direitos reservados."
+        })
+      }), /*#__PURE__*/(0, _jsxruntime.jsx)("div", {
+        className: "flex items-center space-x-4",
+        children: /*#__PURE__*/(0, _jsxruntime.jsx)("p", {
+          className: "text-sm text-muted-foreground",
+          children: "Sistema de Gest\xe3o de Atendimento"
+        })
+      })]
+    })
+  });
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfMmF1MDAxaXExOSIsImFjdHVhbENvdmVyYWdlIiwicyIsIkZvb3RlciIsImYiLCJfanN4cnVudGltZSIsImpzeCIsImNsYXNzTmFtZSIsImpzeHMiXSwic291cmNlcyI6WyJDOlxcVXNlcnNcXE5lcmV1IEpyXFxEb2N1bWVudHNcXERldlxcbmV3XFxzcmNcXGNvbXBvbmVudHNcXGxheW91dFxcZm9vdGVyLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZnVuY3Rpb24gRm9vdGVyKCkge1xuICByZXR1cm4gKFxuICAgIDxmb290ZXIgY2xhc3NOYW1lPVwiYm9yZGVyLXQgYmctYmFja2dyb3VuZFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJjb250YWluZXIgZmxleCBmbGV4LWNvbCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIGdhcC00IHB5LTEwIG1kOmgtMjQgbWQ6ZmxleC1yb3cgbWQ6cHktMFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggZmxleC1jb2wgaXRlbXMtY2VudGVyIGdhcC00IHB4LTggbWQ6ZmxleC1yb3cgbWQ6Z2FwLTIgbWQ6cHgtMFwiPlxuICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtY2VudGVyIHRleHQtc20gbGVhZGluZy1sb29zZSB0ZXh0LW11dGVkLWZvcmVncm91bmQgbWQ6dGV4dC1sZWZ0XCI+XG4gICAgICAgICAgICDCqSAyMDI0IEtvZXJuZXIzNjAuIFRvZG9zIG9zIGRpcmVpdG9zIHJlc2VydmFkb3MuXG4gICAgICAgICAgPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBzcGFjZS14LTRcIj5cbiAgICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiPlxuICAgICAgICAgICAgU2lzdGVtYSBkZSBHZXN0w6NvIGRlIEF0ZW5kaW1lbnRvXG4gICAgICAgICAgPC9wPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgIDwvZm9vdGVyPlxuICApO1xufVxuIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUFHVztJQUFBQSxjQUFBLFlBQUFBLENBQUE7TUFBQSxPQUFBQyxjQUFBO0lBQUE7RUFBQTtFQUFBLE9BQUFBLGNBQUE7QUFBQTtBQUFBRCxjQUFBO0FBQUFBLGNBQUEsR0FBQUUsQ0FBQTs7Ozs7OytCQUhLOzs7Ozs7V0FBQUMsTUFBQTs7Ozs7O0FBQVQsU0FBU0EsT0FBQTtFQUFBO0VBQUFILGNBQUEsR0FBQUksQ0FBQTtFQUFBSixjQUFBLEdBQUFFLENBQUE7RUFDZCxvQkFDRSxJQUFBRyxXQUFBLENBQUFDLEdBQUEsRUFBQztJQUFPQyxTQUFBLEVBQVU7Y0FDaEIsaUJBQUFGLFdBQUEsQ0FBQUcsSUFBQSxFQUFDO01BQUlELFNBQUEsRUFBVTs4QkFDYixJQUFBRixXQUFBLENBQUFDLEdBQUEsRUFBQztRQUFJQyxTQUFBLEVBQVU7a0JBQ2IsaUJBQUFGLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO1VBQUVDLFNBQUEsRUFBVTtvQkFBdUU7O3VCQUl0RixJQUFBRixXQUFBLENBQUFDLEdBQUEsRUFBQztRQUFJQyxTQUFBLEVBQVU7a0JBQ2IsaUJBQUFGLFdBQUEsQ0FBQUMsR0FBQSxFQUFDO1VBQUVDLFNBQUEsRUFBVTtvQkFBZ0M7Ozs7O0FBT3ZEIiwiaWdub3JlTGlzdCI6W119

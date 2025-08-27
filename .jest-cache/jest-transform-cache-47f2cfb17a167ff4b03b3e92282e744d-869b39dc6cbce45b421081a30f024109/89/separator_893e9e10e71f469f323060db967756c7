@@ -1,0 +1,68 @@
+31f1acec7d8eb0996778e41f8c439de3
+'use client';
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "Separator", {
+    enumerable: true,
+    get: function() {
+        return Separator;
+    }
+});
+const _jsxruntime = require("react/jsx-runtime");
+const _react = /*#__PURE__*/ _interop_require_wildcard(require("react"));
+const _reactseparator = /*#__PURE__*/ _interop_require_wildcard(require("@radix-ui/react-separator"));
+const _utils = require("../../lib/utils");
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+function Separator({ className, orientation = 'horizontal', decorative = true, ...props }) {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_reactseparator.Root, {
+        "data-slot": "separator",
+        decorative: decorative,
+        orientation: orientation,
+        className: (0, _utils.cn)('bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px', className),
+        ...props
+    });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcTmVyZXUgSnJcXERvY3VtZW50c1xcRGV2XFxuZXdcXHNyY1xcY29tcG9uZW50c1xcdWlcXHNlcGFyYXRvci50c3giXSwic291cmNlc0NvbnRlbnQiOlsiJ3VzZSBjbGllbnQnO1xuXG5pbXBvcnQgKiBhcyBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgKiBhcyBTZXBhcmF0b3JQcmltaXRpdmUgZnJvbSAnQHJhZGl4LXVpL3JlYWN0LXNlcGFyYXRvcic7XG5cbmltcG9ydCB7IGNuIH0gZnJvbSAnQC9saWIvdXRpbHMnO1xuXG5mdW5jdGlvbiBTZXBhcmF0b3Ioe1xuICBjbGFzc05hbWUsXG4gIG9yaWVudGF0aW9uID0gJ2hvcml6b250YWwnLFxuICBkZWNvcmF0aXZlID0gdHJ1ZSxcbiAgLi4ucHJvcHNcbn06IFJlYWN0LkNvbXBvbmVudFByb3BzPHR5cGVvZiBTZXBhcmF0b3JQcmltaXRpdmUuUm9vdD4pIHtcbiAgcmV0dXJuIChcbiAgICA8U2VwYXJhdG9yUHJpbWl0aXZlLlJvb3RcbiAgICAgIGRhdGEtc2xvdD1cInNlcGFyYXRvclwiXG4gICAgICBkZWNvcmF0aXZlPXtkZWNvcmF0aXZlfVxuICAgICAgb3JpZW50YXRpb249e29yaWVudGF0aW9ufVxuICAgICAgY2xhc3NOYW1lPXtjbihcbiAgICAgICAgJ2JnLWJvcmRlciBzaHJpbmstMCBkYXRhLVtvcmllbnRhdGlvbj1ob3Jpem9udGFsXTpoLXB4IGRhdGEtW29yaWVudGF0aW9uPWhvcml6b250YWxdOnctZnVsbCBkYXRhLVtvcmllbnRhdGlvbj12ZXJ0aWNhbF06aC1mdWxsIGRhdGEtW29yaWVudGF0aW9uPXZlcnRpY2FsXTp3LXB4JyxcbiAgICAgICAgY2xhc3NOYW1lXG4gICAgICApfVxuICAgICAgey4uLnByb3BzfVxuICAgIC8+XG4gICk7XG59XG5cbmV4cG9ydCB7IFNlcGFyYXRvciB9O1xuIl0sIm5hbWVzIjpbIlNlcGFyYXRvciIsImNsYXNzTmFtZSIsIm9yaWVudGF0aW9uIiwiZGVjb3JhdGl2ZSIsInByb3BzIiwiU2VwYXJhdG9yUHJpbWl0aXZlIiwiUm9vdCIsImRhdGEtc2xvdCIsImNuIl0sIm1hcHBpbmdzIjoiQUFBQTs7Ozs7K0JBMkJTQTs7O2VBQUFBOzs7OytEQXpCYzt3RUFDYTt1QkFFakI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUVuQixTQUFTQSxVQUFVLEVBQ2pCQyxTQUFTLEVBQ1RDLGNBQWMsWUFBWSxFQUMxQkMsYUFBYSxJQUFJLEVBQ2pCLEdBQUdDLE9BQ2tEO0lBQ3JELHFCQUNFLHFCQUFDQyxnQkFBbUJDLElBQUk7UUFDdEJDLGFBQVU7UUFDVkosWUFBWUE7UUFDWkQsYUFBYUE7UUFDYkQsV0FBV08sSUFBQUEsU0FBRSxFQUNYLGtLQUNBUDtRQUVELEdBQUdHLEtBQUs7O0FBR2YifQ==

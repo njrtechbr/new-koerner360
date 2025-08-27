@@ -1,0 +1,1 @@
+export { ConfiguracoesNotificacao } from './configuracoes-notificacao';

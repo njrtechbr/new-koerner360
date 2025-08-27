@@ -1,0 +1,60 @@
+b6ce2b06110e20367ec733e026ad84da
+// Tipos para o sistema de lembretes
+"use strict";
+
+/* istanbul ignore next */
+function cov_k4amlviek() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\lembrete.ts";
+  var hash = "1f253873cd43e57533d375237361acc3c21d8e00";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\lembrete.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 3
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\lembrete.ts"],
+      sourcesContent: ["// Tipos para o sistema de lembretes\n\nexport type TipoLembrete = 'aviso' | 'urgente' | 'critico' | 'lembrete' | 'vencimento';\n\nexport type StatusLembrete = 'pendente' | 'enviado' | 'falhou' | 'cancelado';\n\nexport interface ConfiguracaoLembrete {\n  diasAntecedencia: number;\n  horarioEnvio: string;\n  tipoNotificacao: 'email' | 'sistema' | 'ambos';\n  template: string;\n}\n\nexport interface MetadadosLembrete {\n  nomeUsuario: string;\n  emailUsuario: string;\n  tituloAvaliacao: string;\n  prazoAvaliacao: string;\n}\n\nexport interface LembreteBase {\n  id: string;\n  usuarioId: string;\n  avaliacaoId: string;\n  tipo: TipoLembrete;\n  status: StatusLembrete;\n  dataEnvio: string;\n  tentativas: number;\n  ultimaTentativa: string | null;\n  proximaTentativa: string | null;\n  configuracao: ConfiguracaoLembrete;\n  metadados: MetadadosLembrete;\n  criadoEm: string;\n  atualizadoEm: string;\n}"],
+      names: [],
+      mappings: "AAAA,oCAAoC"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "1f253873cd43e57533d375237361acc3c21d8e00"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_k4amlviek = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_k4amlviek();
+cov_k4amlviek().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxOZXJldSBKclxcRG9jdW1lbnRzXFxEZXZcXG5ld1xcc3JjXFxsaWJcXHR5cGVzXFxsZW1icmV0ZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBUaXBvcyBwYXJhIG8gc2lzdGVtYSBkZSBsZW1icmV0ZXNcblxuZXhwb3J0IHR5cGUgVGlwb0xlbWJyZXRlID0gJ2F2aXNvJyB8ICd1cmdlbnRlJyB8ICdjcml0aWNvJyB8ICdsZW1icmV0ZScgfCAndmVuY2ltZW50byc7XG5cbmV4cG9ydCB0eXBlIFN0YXR1c0xlbWJyZXRlID0gJ3BlbmRlbnRlJyB8ICdlbnZpYWRvJyB8ICdmYWxob3UnIHwgJ2NhbmNlbGFkbyc7XG5cbmV4cG9ydCBpbnRlcmZhY2UgQ29uZmlndXJhY2FvTGVtYnJldGUge1xuICBkaWFzQW50ZWNlZGVuY2lhOiBudW1iZXI7XG4gIGhvcmFyaW9FbnZpbzogc3RyaW5nO1xuICB0aXBvTm90aWZpY2FjYW86ICdlbWFpbCcgfCAnc2lzdGVtYScgfCAnYW1ib3MnO1xuICB0ZW1wbGF0ZTogc3RyaW5nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIE1ldGFkYWRvc0xlbWJyZXRlIHtcbiAgbm9tZVVzdWFyaW86IHN0cmluZztcbiAgZW1haWxVc3VhcmlvOiBzdHJpbmc7XG4gIHRpdHVsb0F2YWxpYWNhbzogc3RyaW5nO1xuICBwcmF6b0F2YWxpYWNhbzogc3RyaW5nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIExlbWJyZXRlQmFzZSB7XG4gIGlkOiBzdHJpbmc7XG4gIHVzdWFyaW9JZDogc3RyaW5nO1xuICBhdmFsaWFjYW9JZDogc3RyaW5nO1xuICB0aXBvOiBUaXBvTGVtYnJldGU7XG4gIHN0YXR1czogU3RhdHVzTGVtYnJldGU7XG4gIGRhdGFFbnZpbzogc3RyaW5nO1xuICB0ZW50YXRpdmFzOiBudW1iZXI7XG4gIHVsdGltYVRlbnRhdGl2YTogc3RyaW5nIHwgbnVsbDtcbiAgcHJveGltYVRlbnRhdGl2YTogc3RyaW5nIHwgbnVsbDtcbiAgY29uZmlndXJhY2FvOiBDb25maWd1cmFjYW9MZW1icmV0ZTtcbiAgbWV0YWRhZG9zOiBNZXRhZGFkb3NMZW1icmV0ZTtcbiAgY3JpYWRvRW06IHN0cmluZztcbiAgYXR1YWxpemFkb0VtOiBzdHJpbmc7XG59Il0sIm1hcHBpbmdzIjoiQUFBQSIsImlnbm9yZUxpc3QiOltdfQ==

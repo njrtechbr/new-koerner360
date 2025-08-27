@@ -1,0 +1,391 @@
+7c04ff4e19086066d158177c12277a7c
+'use client';
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+function _export(target, all) {
+    for(var name in all)Object.defineProperty(target, name, {
+        enumerable: true,
+        get: Object.getOwnPropertyDescriptor(all, name).get
+    });
+}
+_export(exports, {
+    get IndicadorStatusSimples () {
+        return IndicadorStatusSimples;
+    },
+    get StatusTempoReal () {
+        return StatusTempoReal;
+    },
+    get default () {
+        return _default;
+    }
+});
+const _jsxruntime = require("react/jsx-runtime");
+const _react = /*#__PURE__*/ _interop_require_default(require("react"));
+const _button = require("../ui/button");
+const _badge = require("../ui/badge");
+const _card = require("../ui/card");
+const _tooltip = require("../ui/tooltip");
+const _lucidereact = require("lucide-react");
+const _datefns = require("date-fns");
+const _locale = require("date-fns/locale");
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+function StatusTempoReal({ status, carregando = false, ativo = true, intervalo = 30000, onForcarAtualizacao, onReconectar, onToggleAtivo, className = '', compacto = false }) {
+    // Função para obter cor do status
+    const obterCorStatus = ()=>{
+        if (!ativo) return 'secondary';
+        if (carregando) return 'default';
+        if (status.conectado) return 'success';
+        if (status.erro) return 'destructive';
+        return 'warning';
+    };
+    // Função para obter ícone do status
+    const obterIconeStatus = ()=>{
+        if (!ativo) return /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Pause, {
+            className: "h-3 w-3"
+        });
+        if (carregando) return /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.RefreshCw, {
+            className: "h-3 w-3 animate-spin"
+        });
+        if (status.conectado) return /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Wifi, {
+            className: "h-3 w-3"
+        });
+        if (status.erro) return /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.WifiOff, {
+            className: "h-3 w-3"
+        });
+        return /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.AlertTriangle, {
+            className: "h-3 w-3"
+        });
+    };
+    // Função para obter texto do status
+    const obterTextoStatus = ()=>{
+        if (!ativo) return 'Pausado';
+        if (carregando) return 'Atualizando...';
+        if (status.conectado) return 'Conectado';
+        if (status.erro) return 'Desconectado';
+        return 'Aguardando...';
+    };
+    // Função para obter descrição detalhada
+    const obterDescricaoStatus = ()=>{
+        if (!ativo) {
+            return 'Atualização automática pausada';
+        }
+        if (carregando) {
+            return 'Buscando dados atualizados...';
+        }
+        if (status.conectado && status.ultimaAtualizacao) {
+            const tempoDecorrido = (0, _datefns.formatDistanceToNow)(status.ultimaAtualizacao, {
+                addSuffix: true,
+                locale: _locale.ptBR
+            });
+            return `Última atualização ${tempoDecorrido}`;
+        }
+        if (status.erro) {
+            return `Erro: ${status.erro}`;
+        }
+        return 'Aguardando primeira atualização';
+    };
+    // Função para formatar intervalo
+    const formatarIntervalo = (ms)=>{
+        const segundos = Math.floor(ms / 1000);
+        if (segundos < 60) return `${segundos}s`;
+        const minutos = Math.floor(segundos / 60);
+        return `${minutos}m`;
+    };
+    // Renderização compacta
+    if (compacto) {
+        return /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipProvider, {
+            children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                className: `flex items-center gap-2 ${className}`,
+                children: [
+                    /*#__PURE__*/ (0, _jsxruntime.jsxs)(_tooltip.Tooltip, {
+                        children: [
+                            /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipTrigger, {
+                                asChild: true,
+                                children: /*#__PURE__*/ (0, _jsxruntime.jsxs)(_badge.Badge, {
+                                    variant: obterCorStatus(),
+                                    className: "flex items-center gap-1 cursor-help",
+                                    children: [
+                                        obterIconeStatus(),
+                                        /*#__PURE__*/ (0, _jsxruntime.jsx)("span", {
+                                            className: "text-xs",
+                                            children: obterTextoStatus()
+                                        })
+                                    ]
+                                })
+                            }),
+                            /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipContent, {
+                                children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                    className: "text-sm",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                                            className: "font-medium",
+                                            children: obterTextoStatus()
+                                        }),
+                                        /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                                            className: "text-muted-foreground",
+                                            children: obterDescricaoStatus()
+                                        }),
+                                        /*#__PURE__*/ (0, _jsxruntime.jsxs)("p", {
+                                            className: "text-xs mt-1",
+                                            children: [
+                                                "Intervalo: ",
+                                                formatarIntervalo(intervalo)
+                                            ]
+                                        }),
+                                        status.tentativasReconexao > 0 && /*#__PURE__*/ (0, _jsxruntime.jsxs)("p", {
+                                            className: "text-xs text-yellow-600",
+                                            children: [
+                                                "Tentativas de reconex\xe3o: ",
+                                                status.tentativasReconexao
+                                            ]
+                                        })
+                                    ]
+                                })
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                        className: "flex items-center gap-1",
+                        children: [
+                            onForcarAtualizacao && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_tooltip.Tooltip, {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipTrigger, {
+                                        asChild: true,
+                                        children: /*#__PURE__*/ (0, _jsxruntime.jsx)(_button.Button, {
+                                            variant: "ghost",
+                                            size: "sm",
+                                            onClick: onForcarAtualizacao,
+                                            disabled: carregando,
+                                            className: "h-6 w-6 p-0",
+                                            children: /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.RefreshCw, {
+                                                className: `h-3 w-3 ${carregando ? 'animate-spin' : ''}`
+                                            })
+                                        })
+                                    }),
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipContent, {
+                                        children: /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                                            children: "For\xe7ar atualiza\xe7\xe3o"
+                                        })
+                                    })
+                                ]
+                            }),
+                            onToggleAtivo && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_tooltip.Tooltip, {
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipTrigger, {
+                                        asChild: true,
+                                        children: /*#__PURE__*/ (0, _jsxruntime.jsx)(_button.Button, {
+                                            variant: "ghost",
+                                            size: "sm",
+                                            onClick: ()=>onToggleAtivo(!ativo),
+                                            className: "h-6 w-6 p-0",
+                                            children: ativo ? /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Pause, {
+                                                className: "h-3 w-3"
+                                            }) : /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Play, {
+                                                className: "h-3 w-3"
+                                            })
+                                        })
+                                    }),
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipContent, {
+                                        children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("p", {
+                                            children: [
+                                                ativo ? 'Pausar' : 'Retomar',
+                                                " atualiza\xe7\xe3o autom\xe1tica"
+                                            ]
+                                        })
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                ]
+            })
+        });
+    }
+    // Renderização completa
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_card.Card, {
+        className: className,
+        children: /*#__PURE__*/ (0, _jsxruntime.jsxs)(_card.CardContent, {
+            className: "p-4",
+            children: [
+                /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                    className: "flex items-center justify-between",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+                            className: "flex items-center gap-3",
+                            children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+                                        className: `
+                w-3 h-3 rounded-full flex items-center justify-center
+                ${status.conectado && ativo ? 'bg-green-500' : ''}
+                ${!status.conectado && ativo ? 'bg-red-500' : ''}
+                ${!ativo ? 'bg-gray-400' : ''}
+                ${carregando ? 'bg-blue-500 animate-pulse' : ''}
+              `,
+                                        children: carregando && /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.RefreshCw, {
+                                            className: "h-2 w-2 text-white animate-spin"
+                                        })
+                                    }),
+                                    /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                                className: "flex items-center gap-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxruntime.jsx)("span", {
+                                                        className: "font-medium text-sm",
+                                                        children: obterTextoStatus()
+                                                    }),
+                                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_badge.Badge, {
+                                                        variant: obterCorStatus(),
+                                                        className: "text-xs",
+                                                        children: formatarIntervalo(intervalo)
+                                                    })
+                                                ]
+                                            }),
+                                            /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                                                className: "text-xs text-muted-foreground",
+                                                children: obterDescricaoStatus()
+                                            })
+                                        ]
+                                    })
+                                ]
+                            })
+                        }),
+                        /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                            className: "flex items-center gap-2",
+                            children: [
+                                status.erro && onReconectar && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_button.Button, {
+                                    variant: "outline",
+                                    size: "sm",
+                                    onClick: onReconectar,
+                                    className: "text-xs",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Wifi, {
+                                            className: "h-3 w-3 mr-1"
+                                        }),
+                                        "Reconectar"
+                                    ]
+                                }),
+                                onForcarAtualizacao && /*#__PURE__*/ (0, _jsxruntime.jsxs)(_button.Button, {
+                                    variant: "outline",
+                                    size: "sm",
+                                    onClick: onForcarAtualizacao,
+                                    disabled: carregando,
+                                    className: "text-xs",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.RefreshCw, {
+                                            className: `h-3 w-3 mr-1 ${carregando ? 'animate-spin' : ''}`
+                                        }),
+                                        "Atualizar"
+                                    ]
+                                }),
+                                onToggleAtivo && /*#__PURE__*/ (0, _jsxruntime.jsx)(_button.Button, {
+                                    variant: ativo ? 'secondary' : 'default',
+                                    size: "sm",
+                                    onClick: ()=>onToggleAtivo(!ativo),
+                                    className: "text-xs",
+                                    children: ativo ? /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Pause, {
+                                                className: "h-3 w-3 mr-1"
+                                            }),
+                                            "Pausar"
+                                        ]
+                                    }) : /*#__PURE__*/ (0, _jsxruntime.jsxs)(_jsxruntime.Fragment, {
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Play, {
+                                                className: "h-3 w-3 mr-1"
+                                            }),
+                                            "Retomar"
+                                        ]
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                (status.tentativasReconexao > 0 || status.ultimaAtualizacao) && /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+                    className: "mt-3 pt-3 border-t border-border",
+                    children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                        className: "flex items-center justify-between text-xs text-muted-foreground",
+                        children: [
+                            status.ultimaAtualizacao && /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                className: "flex items-center gap-1",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.Clock, {
+                                        className: "h-3 w-3"
+                                    }),
+                                    /*#__PURE__*/ (0, _jsxruntime.jsxs)("span", {
+                                        children: [
+                                            "\xdaltima atualiza\xe7\xe3o:",
+                                            ' ',
+                                            status.ultimaAtualizacao.toLocaleTimeString('pt-BR')
+                                        ]
+                                    })
+                                ]
+                            }),
+                            status.tentativasReconexao > 0 && /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                                className: "flex items-center gap-1 text-yellow-600",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxruntime.jsx)(_lucidereact.AlertTriangle, {
+                                        className: "h-3 w-3"
+                                    }),
+                                    /*#__PURE__*/ (0, _jsxruntime.jsxs)("span", {
+                                        children: [
+                                            "Tentativas: ",
+                                            status.tentativasReconexao
+                                        ]
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                })
+            ]
+        })
+    });
+}
+function IndicadorStatusSimples({ conectado, carregando, ativo = true, className = '' }) {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipProvider, {
+        children: /*#__PURE__*/ (0, _jsxruntime.jsxs)(_tooltip.Tooltip, {
+            children: [
+                /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipTrigger, {
+                    asChild: true,
+                    children: /*#__PURE__*/ (0, _jsxruntime.jsxs)("div", {
+                        className: `flex items-center gap-1 ${className}`,
+                        children: [
+                            /*#__PURE__*/ (0, _jsxruntime.jsx)("div", {
+                                className: `
+              w-2 h-2 rounded-full
+              ${!ativo ? 'bg-gray-400' : ''}
+              ${ativo && conectado && !carregando ? 'bg-green-500' : ''}
+              ${ativo && !conectado && !carregando ? 'bg-red-500' : ''}
+              ${carregando ? 'bg-blue-500 animate-pulse' : ''}
+            `
+                            }),
+                            /*#__PURE__*/ (0, _jsxruntime.jsx)("span", {
+                                className: "text-xs text-muted-foreground",
+                                children: !ativo ? 'Pausado' : carregando ? 'Atualizando' : conectado ? 'Online' : 'Offline'
+                            })
+                        ]
+                    })
+                }),
+                /*#__PURE__*/ (0, _jsxruntime.jsx)(_tooltip.TooltipContent, {
+                    children: /*#__PURE__*/ (0, _jsxruntime.jsx)("p", {
+                        children: !ativo ? 'Atualização pausada' : carregando ? 'Buscando dados...' : conectado ? 'Conectado e atualizado' : 'Desconectado'
+                    })
+                })
+            ]
+        })
+    });
+}
+const _default = StatusTempoReal;
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcTmVyZXUgSnJcXERvY3VtZW50c1xcRGV2XFxuZXdcXHNyY1xcY29tcG9uZW50c1xcbWV0cmljYXNcXHN0YXR1cy10ZW1wby1yZWFsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCc7XG5cbmltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBCdXR0b24gfSBmcm9tICdAL2NvbXBvbmVudHMvdWkvYnV0dG9uJztcbmltcG9ydCB7IEJhZGdlIH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2JhZGdlJztcbmltcG9ydCB7IENhcmQsIENhcmRDb250ZW50IH0gZnJvbSAnQC9jb21wb25lbnRzL3VpL2NhcmQnO1xuaW1wb3J0IHtcbiAgVG9vbHRpcCxcbiAgVG9vbHRpcENvbnRlbnQsXG4gIFRvb2x0aXBQcm92aWRlcixcbiAgVG9vbHRpcFRyaWdnZXIsXG59IGZyb20gJ0AvY29tcG9uZW50cy91aS90b29sdGlwJztcbmltcG9ydCB7XG4gIFdpZmksXG4gIFdpZmlPZmYsXG4gIFJlZnJlc2hDdyxcbiAgQ2xvY2ssXG4gIEFsZXJ0VHJpYW5nbGUsXG4gIENoZWNrQ2lyY2xlLFxuICBYQ2lyY2xlLFxuICBQYXVzZSxcbiAgUGxheSxcbn0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IFN0YXR1c0NvbmV4YW8gfSBmcm9tICdAL2hvb2tzL3VzZS1tZXRyaWNhcy10ZW1wby1yZWFsJztcbmltcG9ydCB7IGZvcm1hdERpc3RhbmNlVG9Ob3cgfSBmcm9tICdkYXRlLWZucyc7XG5pbXBvcnQgeyBwdEJSIH0gZnJvbSAnZGF0ZS1mbnMvbG9jYWxlJztcblxuLyoqXG4gKiBQcm9wcyBkbyBjb21wb25lbnRlIGRlIHN0YXR1cyBlbSB0ZW1wbyByZWFsXG4gKi9cbmV4cG9ydCBpbnRlcmZhY2UgU3RhdHVzVGVtcG9SZWFsUHJvcHMge1xuICBzdGF0dXM6IFN0YXR1c0NvbmV4YW87XG4gIGNhcnJlZ2FuZG8/OiBib29sZWFuO1xuICBhdGl2bz86IGJvb2xlYW47XG4gIGludGVydmFsbz86IG51bWJlcjtcbiAgb25Gb3JjYXJBdHVhbGl6YWNhbz86ICgpID0+IHZvaWQ7XG4gIG9uUmVjb25lY3Rhcj86ICgpID0+IHZvaWQ7XG4gIG9uVG9nZ2xlQXRpdm8/OiAoYXRpdm86IGJvb2xlYW4pID0+IHZvaWQ7XG4gIGNsYXNzTmFtZT86IHN0cmluZztcbiAgY29tcGFjdG8/OiBib29sZWFuO1xufVxuXG4vKipcbiAqIENvbXBvbmVudGUgcGFyYSBleGliaXIgc3RhdHVzIGRlIGNvbmV4w6NvIGVtIHRlbXBvIHJlYWxcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIFN0YXR1c1RlbXBvUmVhbCh7XG4gIHN0YXR1cyxcbiAgY2FycmVnYW5kbyA9IGZhbHNlLFxuICBhdGl2byA9IHRydWUsXG4gIGludGVydmFsbyA9IDMwMDAwLFxuICBvbkZvcmNhckF0dWFsaXphY2FvLFxuICBvblJlY29uZWN0YXIsXG4gIG9uVG9nZ2xlQXRpdm8sXG4gIGNsYXNzTmFtZSA9ICcnLFxuICBjb21wYWN0byA9IGZhbHNlLFxufTogU3RhdHVzVGVtcG9SZWFsUHJvcHMpIHtcbiAgLy8gRnVuw6fDo28gcGFyYSBvYnRlciBjb3IgZG8gc3RhdHVzXG4gIGNvbnN0IG9idGVyQ29yU3RhdHVzID0gKCkgPT4ge1xuICAgIGlmICghYXRpdm8pIHJldHVybiAnc2Vjb25kYXJ5JztcbiAgICBpZiAoY2FycmVnYW5kbykgcmV0dXJuICdkZWZhdWx0JztcbiAgICBpZiAoc3RhdHVzLmNvbmVjdGFkbykgcmV0dXJuICdzdWNjZXNzJztcbiAgICBpZiAoc3RhdHVzLmVycm8pIHJldHVybiAnZGVzdHJ1Y3RpdmUnO1xuICAgIHJldHVybiAnd2FybmluZyc7XG4gIH07XG5cbiAgLy8gRnVuw6fDo28gcGFyYSBvYnRlciDDrWNvbmUgZG8gc3RhdHVzXG4gIGNvbnN0IG9idGVySWNvbmVTdGF0dXMgPSAoKSA9PiB7XG4gICAgaWYgKCFhdGl2bykgcmV0dXJuIDxQYXVzZSBjbGFzc05hbWU9XCJoLTMgdy0zXCIgLz47XG4gICAgaWYgKGNhcnJlZ2FuZG8pIHJldHVybiA8UmVmcmVzaEN3IGNsYXNzTmFtZT1cImgtMyB3LTMgYW5pbWF0ZS1zcGluXCIgLz47XG4gICAgaWYgKHN0YXR1cy5jb25lY3RhZG8pIHJldHVybiA8V2lmaSBjbGFzc05hbWU9XCJoLTMgdy0zXCIgLz47XG4gICAgaWYgKHN0YXR1cy5lcnJvKSByZXR1cm4gPFdpZmlPZmYgY2xhc3NOYW1lPVwiaC0zIHctM1wiIC8+O1xuICAgIHJldHVybiA8QWxlcnRUcmlhbmdsZSBjbGFzc05hbWU9XCJoLTMgdy0zXCIgLz47XG4gIH07XG5cbiAgLy8gRnVuw6fDo28gcGFyYSBvYnRlciB0ZXh0byBkbyBzdGF0dXNcbiAgY29uc3Qgb2J0ZXJUZXh0b1N0YXR1cyA9ICgpID0+IHtcbiAgICBpZiAoIWF0aXZvKSByZXR1cm4gJ1BhdXNhZG8nO1xuICAgIGlmIChjYXJyZWdhbmRvKSByZXR1cm4gJ0F0dWFsaXphbmRvLi4uJztcbiAgICBpZiAoc3RhdHVzLmNvbmVjdGFkbykgcmV0dXJuICdDb25lY3RhZG8nO1xuICAgIGlmIChzdGF0dXMuZXJybykgcmV0dXJuICdEZXNjb25lY3RhZG8nO1xuICAgIHJldHVybiAnQWd1YXJkYW5kby4uLic7XG4gIH07XG5cbiAgLy8gRnVuw6fDo28gcGFyYSBvYnRlciBkZXNjcmnDp8OjbyBkZXRhbGhhZGFcbiAgY29uc3Qgb2J0ZXJEZXNjcmljYW9TdGF0dXMgPSAoKSA9PiB7XG4gICAgaWYgKCFhdGl2bykge1xuICAgICAgcmV0dXJuICdBdHVhbGl6YcOnw6NvIGF1dG9tw6F0aWNhIHBhdXNhZGEnO1xuICAgIH1cblxuICAgIGlmIChjYXJyZWdhbmRvKSB7XG4gICAgICByZXR1cm4gJ0J1c2NhbmRvIGRhZG9zIGF0dWFsaXphZG9zLi4uJztcbiAgICB9XG5cbiAgICBpZiAoc3RhdHVzLmNvbmVjdGFkbyAmJiBzdGF0dXMudWx0aW1hQXR1YWxpemFjYW8pIHtcbiAgICAgIGNvbnN0IHRlbXBvRGVjb3JyaWRvID0gZm9ybWF0RGlzdGFuY2VUb05vdyhzdGF0dXMudWx0aW1hQXR1YWxpemFjYW8sIHtcbiAgICAgICAgYWRkU3VmZml4OiB0cnVlLFxuICAgICAgICBsb2NhbGU6IHB0QlIsXG4gICAgICB9KTtcbiAgICAgIHJldHVybiBgw5psdGltYSBhdHVhbGl6YcOnw6NvICR7dGVtcG9EZWNvcnJpZG99YDtcbiAgICB9XG5cbiAgICBpZiAoc3RhdHVzLmVycm8pIHtcbiAgICAgIHJldHVybiBgRXJybzogJHtzdGF0dXMuZXJyb31gO1xuICAgIH1cblxuICAgIHJldHVybiAnQWd1YXJkYW5kbyBwcmltZWlyYSBhdHVhbGl6YcOnw6NvJztcbiAgfTtcblxuICAvLyBGdW7Dp8OjbyBwYXJhIGZvcm1hdGFyIGludGVydmFsb1xuICBjb25zdCBmb3JtYXRhckludGVydmFsbyA9IChtczogbnVtYmVyKSA9PiB7XG4gICAgY29uc3Qgc2VndW5kb3MgPSBNYXRoLmZsb29yKG1zIC8gMTAwMCk7XG4gICAgaWYgKHNlZ3VuZG9zIDwgNjApIHJldHVybiBgJHtzZWd1bmRvc31zYDtcbiAgICBjb25zdCBtaW51dG9zID0gTWF0aC5mbG9vcihzZWd1bmRvcyAvIDYwKTtcbiAgICByZXR1cm4gYCR7bWludXRvc31tYDtcbiAgfTtcblxuICAvLyBSZW5kZXJpemHDp8OjbyBjb21wYWN0YVxuICBpZiAoY29tcGFjdG8pIHtcbiAgICByZXR1cm4gKFxuICAgICAgPFRvb2x0aXBQcm92aWRlcj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9e2BmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMiAke2NsYXNzTmFtZX1gfT5cbiAgICAgICAgICA8VG9vbHRpcD5cbiAgICAgICAgICAgIDxUb29sdGlwVHJpZ2dlciBhc0NoaWxkPlxuICAgICAgICAgICAgICA8QmFkZ2VcbiAgICAgICAgICAgICAgICB2YXJpYW50PXtvYnRlckNvclN0YXR1cygpIGFzIGFueX1cbiAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMSBjdXJzb3ItaGVscFwiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICB7b2J0ZXJJY29uZVN0YXR1cygpfVxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHNcIj57b2J0ZXJUZXh0b1N0YXR1cygpfTwvc3Bhbj5cbiAgICAgICAgICAgICAgPC9CYWRnZT5cbiAgICAgICAgICAgIDwvVG9vbHRpcFRyaWdnZXI+XG4gICAgICAgICAgICA8VG9vbHRpcENvbnRlbnQ+XG4gICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbVwiPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cImZvbnQtbWVkaXVtXCI+e29idGVyVGV4dG9TdGF0dXMoKX08L3A+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgICAgICB7b2J0ZXJEZXNjcmljYW9TdGF0dXMoKX1cbiAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3NOYW1lPVwidGV4dC14cyBtdC0xXCI+XG4gICAgICAgICAgICAgICAgICBJbnRlcnZhbG86IHtmb3JtYXRhckludGVydmFsbyhpbnRlcnZhbG8pfVxuICAgICAgICAgICAgICAgIDwvcD5cbiAgICAgICAgICAgICAgICB7c3RhdHVzLnRlbnRhdGl2YXNSZWNvbmV4YW8gPiAwICYmIChcbiAgICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC15ZWxsb3ctNjAwXCI+XG4gICAgICAgICAgICAgICAgICAgIFRlbnRhdGl2YXMgZGUgcmVjb25leMOjbzoge3N0YXR1cy50ZW50YXRpdmFzUmVjb25leGFvfVxuICAgICAgICAgICAgICAgICAgPC9wPlxuICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9Ub29sdGlwQ29udGVudD5cbiAgICAgICAgICA8L1Rvb2x0aXA+XG5cbiAgICAgICAgICB7LyogQm90w7VlcyBkZSBhw6fDo28gKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMVwiPlxuICAgICAgICAgICAge29uRm9yY2FyQXR1YWxpemFjYW8gJiYgKFxuICAgICAgICAgICAgICA8VG9vbHRpcD5cbiAgICAgICAgICAgICAgICA8VG9vbHRpcFRyaWdnZXIgYXNDaGlsZD5cbiAgICAgICAgICAgICAgICAgIDxCdXR0b25cbiAgICAgICAgICAgICAgICAgICAgdmFyaWFudD1cImdob3N0XCJcbiAgICAgICAgICAgICAgICAgICAgc2l6ZT1cInNtXCJcbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17b25Gb3JjYXJBdHVhbGl6YWNhb31cbiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e2NhcnJlZ2FuZG99XG4gICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cImgtNiB3LTYgcC0wXCJcbiAgICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgICAgPFJlZnJlc2hDd1xuICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17YGgtMyB3LTMgJHtjYXJyZWdhbmRvID8gJ2FuaW1hdGUtc3BpbicgOiAnJ31gfVxuICAgICAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICAgICAgPC9Ub29sdGlwVHJpZ2dlcj5cbiAgICAgICAgICAgICAgICA8VG9vbHRpcENvbnRlbnQ+XG4gICAgICAgICAgICAgICAgICA8cD5Gb3LDp2FyIGF0dWFsaXphw6fDo288L3A+XG4gICAgICAgICAgICAgICAgPC9Ub29sdGlwQ29udGVudD5cbiAgICAgICAgICAgICAgPC9Ub29sdGlwPlxuICAgICAgICAgICAgKX1cblxuICAgICAgICAgICAge29uVG9nZ2xlQXRpdm8gJiYgKFxuICAgICAgICAgICAgICA8VG9vbHRpcD5cbiAgICAgICAgICAgICAgICA8VG9vbHRpcFRyaWdnZXIgYXNDaGlsZD5cbiAgICAgICAgICAgICAgICAgIDxCdXR0b25cbiAgICAgICAgICAgICAgICAgICAgdmFyaWFudD1cImdob3N0XCJcbiAgICAgICAgICAgICAgICAgICAgc2l6ZT1cInNtXCJcbiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gb25Ub2dnbGVBdGl2byghYXRpdm8pfVxuICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9XCJoLTYgdy02IHAtMFwiXG4gICAgICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgICAgIHthdGl2byA/IChcbiAgICAgICAgICAgICAgICAgICAgICA8UGF1c2UgY2xhc3NOYW1lPVwiaC0zIHctM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgICkgOiAoXG4gICAgICAgICAgICAgICAgICAgICAgPFBsYXkgY2xhc3NOYW1lPVwiaC0zIHctM1wiIC8+XG4gICAgICAgICAgICAgICAgICAgICl9XG4gICAgICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICAgICA8L1Rvb2x0aXBUcmlnZ2VyPlxuICAgICAgICAgICAgICAgIDxUb29sdGlwQ29udGVudD5cbiAgICAgICAgICAgICAgICAgIDxwPnthdGl2byA/ICdQYXVzYXInIDogJ1JldG9tYXInfSBhdHVhbGl6YcOnw6NvIGF1dG9tw6F0aWNhPC9wPlxuICAgICAgICAgICAgICAgIDwvVG9vbHRpcENvbnRlbnQ+XG4gICAgICAgICAgICAgIDwvVG9vbHRpcD5cbiAgICAgICAgICAgICl9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9Ub29sdGlwUHJvdmlkZXI+XG4gICAgKTtcbiAgfVxuXG4gIC8vIFJlbmRlcml6YcOnw6NvIGNvbXBsZXRhXG4gIHJldHVybiAoXG4gICAgPENhcmQgY2xhc3NOYW1lPXtjbGFzc05hbWV9PlxuICAgICAgPENhcmRDb250ZW50IGNsYXNzTmFtZT1cInAtNFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTNcIj5cbiAgICAgICAgICAgIHsvKiBJbmRpY2Fkb3IgZGUgc3RhdHVzICovfVxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgXG4gICAgICAgICAgICAgICAgdy0zIGgtMyByb3VuZGVkLWZ1bGwgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1jZW50ZXJcbiAgICAgICAgICAgICAgICAke3N0YXR1cy5jb25lY3RhZG8gJiYgYXRpdm8gPyAnYmctZ3JlZW4tNTAwJyA6ICcnfVxuICAgICAgICAgICAgICAgICR7IXN0YXR1cy5jb25lY3RhZG8gJiYgYXRpdm8gPyAnYmctcmVkLTUwMCcgOiAnJ31cbiAgICAgICAgICAgICAgICAkeyFhdGl2byA/ICdiZy1ncmF5LTQwMCcgOiAnJ31cbiAgICAgICAgICAgICAgICAke2NhcnJlZ2FuZG8gPyAnYmctYmx1ZS01MDAgYW5pbWF0ZS1wdWxzZScgOiAnJ31cbiAgICAgICAgICAgICAgYH1cbiAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgIHtjYXJyZWdhbmRvICYmIChcbiAgICAgICAgICAgICAgICAgIDxSZWZyZXNoQ3cgY2xhc3NOYW1lPVwiaC0yIHctMiB0ZXh0LXdoaXRlIGFuaW1hdGUtc3BpblwiIC8+XG4gICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICAgICAgPGRpdj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJmb250LW1lZGl1bSB0ZXh0LXNtXCI+XG4gICAgICAgICAgICAgICAgICAgIHtvYnRlclRleHRvU3RhdHVzKCl9XG4gICAgICAgICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICAgICAgICA8QmFkZ2UgdmFyaWFudD17b2J0ZXJDb3JTdGF0dXMoKSBhcyBhbnl9IGNsYXNzTmFtZT1cInRleHQteHNcIj5cbiAgICAgICAgICAgICAgICAgICAge2Zvcm1hdGFySW50ZXJ2YWxvKGludGVydmFsbyl9XG4gICAgICAgICAgICAgICAgICA8L0JhZGdlPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgICAgICB7b2J0ZXJEZXNjcmljYW9TdGF0dXMoKX1cbiAgICAgICAgICAgICAgICA8L3A+XG4gICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG5cbiAgICAgICAgICB7LyogQm90w7VlcyBkZSBhw6fDo28gKi99XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBnYXAtMlwiPlxuICAgICAgICAgICAge3N0YXR1cy5lcnJvICYmIG9uUmVjb25lY3RhciAmJiAoXG4gICAgICAgICAgICAgIDxCdXR0b25cbiAgICAgICAgICAgICAgICB2YXJpYW50PVwib3V0bGluZVwiXG4gICAgICAgICAgICAgICAgc2l6ZT1cInNtXCJcbiAgICAgICAgICAgICAgICBvbkNsaWNrPXtvblJlY29uZWN0YXJ9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidGV4dC14c1wiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICA8V2lmaSBjbGFzc05hbWU9XCJoLTMgdy0zIG1yLTFcIiAvPlxuICAgICAgICAgICAgICAgIFJlY29uZWN0YXJcbiAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICApfVxuXG4gICAgICAgICAgICB7b25Gb3JjYXJBdHVhbGl6YWNhbyAmJiAoXG4gICAgICAgICAgICAgIDxCdXR0b25cbiAgICAgICAgICAgICAgICB2YXJpYW50PVwib3V0bGluZVwiXG4gICAgICAgICAgICAgICAgc2l6ZT1cInNtXCJcbiAgICAgICAgICAgICAgICBvbkNsaWNrPXtvbkZvcmNhckF0dWFsaXphY2FvfVxuICAgICAgICAgICAgICAgIGRpc2FibGVkPXtjYXJyZWdhbmRvfVxuICAgICAgICAgICAgICAgIGNsYXNzTmFtZT1cInRleHQteHNcIlxuICAgICAgICAgICAgICA+XG4gICAgICAgICAgICAgICAgPFJlZnJlc2hDd1xuICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPXtgaC0zIHctMyBtci0xICR7Y2FycmVnYW5kbyA/ICdhbmltYXRlLXNwaW4nIDogJyd9YH1cbiAgICAgICAgICAgICAgICAvPlxuICAgICAgICAgICAgICAgIEF0dWFsaXphclxuICAgICAgICAgICAgICA8L0J1dHRvbj5cbiAgICAgICAgICAgICl9XG5cbiAgICAgICAgICAgIHtvblRvZ2dsZUF0aXZvICYmIChcbiAgICAgICAgICAgICAgPEJ1dHRvblxuICAgICAgICAgICAgICAgIHZhcmlhbnQ9e2F0aXZvID8gJ3NlY29uZGFyeScgOiAnZGVmYXVsdCd9XG4gICAgICAgICAgICAgICAgc2l6ZT1cInNtXCJcbiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBvblRvZ2dsZUF0aXZvKCFhdGl2byl9XG4gICAgICAgICAgICAgICAgY2xhc3NOYW1lPVwidGV4dC14c1wiXG4gICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICB7YXRpdm8gPyAoXG4gICAgICAgICAgICAgICAgICA8PlxuICAgICAgICAgICAgICAgICAgICA8UGF1c2UgY2xhc3NOYW1lPVwiaC0zIHctMyBtci0xXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgUGF1c2FyXG4gICAgICAgICAgICAgICAgICA8Lz5cbiAgICAgICAgICAgICAgICApIDogKFxuICAgICAgICAgICAgICAgICAgPD5cbiAgICAgICAgICAgICAgICAgICAgPFBsYXkgY2xhc3NOYW1lPVwiaC0zIHctMyBtci0xXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgUmV0b21hclxuICAgICAgICAgICAgICAgICAgPC8+XG4gICAgICAgICAgICAgICAgKX1cbiAgICAgICAgICAgICAgPC9CdXR0b24+XG4gICAgICAgICAgICApfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICB7LyogSW5mb3JtYcOnw7VlcyBhZGljaW9uYWlzICovfVxuICAgICAgICB7KHN0YXR1cy50ZW50YXRpdmFzUmVjb25leGFvID4gMCB8fCBzdGF0dXMudWx0aW1hQXR1YWxpemFjYW8pICYmIChcbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTMgcHQtMyBib3JkZXItdCBib3JkZXItYm9yZGVyXCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiB0ZXh0LXhzIHRleHQtbXV0ZWQtZm9yZWdyb3VuZFwiPlxuICAgICAgICAgICAgICB7c3RhdHVzLnVsdGltYUF0dWFsaXphY2FvICYmIChcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0xXCI+XG4gICAgICAgICAgICAgICAgICA8Q2xvY2sgY2xhc3NOYW1lPVwiaC0zIHctM1wiIC8+XG4gICAgICAgICAgICAgICAgICA8c3Bhbj5cbiAgICAgICAgICAgICAgICAgICAgw5psdGltYSBhdHVhbGl6YcOnw6NvOnsnICd9XG4gICAgICAgICAgICAgICAgICAgIHtzdGF0dXMudWx0aW1hQXR1YWxpemFjYW8udG9Mb2NhbGVUaW1lU3RyaW5nKCdwdC1CUicpfVxuICAgICAgICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICAgICApfVxuXG4gICAgICAgICAgICAgIHtzdGF0dXMudGVudGF0aXZhc1JlY29uZXhhbyA+IDAgJiYgKFxuICAgICAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgdGV4dC15ZWxsb3ctNjAwXCI+XG4gICAgICAgICAgICAgICAgICA8QWxlcnRUcmlhbmdsZSBjbGFzc05hbWU9XCJoLTMgdy0zXCIgLz5cbiAgICAgICAgICAgICAgICAgIDxzcGFuPlRlbnRhdGl2YXM6IHtzdGF0dXMudGVudGF0aXZhc1JlY29uZXhhb308L3NwYW4+XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICl9XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgKX1cbiAgICAgIDwvQ2FyZENvbnRlbnQ+XG4gICAgPC9DYXJkPlxuICApO1xufVxuXG4vKipcbiAqIENvbXBvbmVudGUgZGUgaW5kaWNhZG9yIHNpbXBsZXMgZGUgc3RhdHVzXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBJbmRpY2Fkb3JTdGF0dXNTaW1wbGVzKHtcbiAgY29uZWN0YWRvLFxuICBjYXJyZWdhbmRvLFxuICBhdGl2byA9IHRydWUsXG4gIGNsYXNzTmFtZSA9ICcnLFxufToge1xuICBjb25lY3RhZG86IGJvb2xlYW47XG4gIGNhcnJlZ2FuZG8/OiBib29sZWFuO1xuICBhdGl2bz86IGJvb2xlYW47XG4gIGNsYXNzTmFtZT86IHN0cmluZztcbn0pIHtcbiAgcmV0dXJuIChcbiAgICA8VG9vbHRpcFByb3ZpZGVyPlxuICAgICAgPFRvb2x0aXA+XG4gICAgICAgIDxUb29sdGlwVHJpZ2dlciBhc0NoaWxkPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPXtgZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTEgJHtjbGFzc05hbWV9YH0+XG4gICAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICAgIGNsYXNzTmFtZT17YFxuICAgICAgICAgICAgICB3LTIgaC0yIHJvdW5kZWQtZnVsbFxuICAgICAgICAgICAgICAkeyFhdGl2byA/ICdiZy1ncmF5LTQwMCcgOiAnJ31cbiAgICAgICAgICAgICAgJHthdGl2byAmJiBjb25lY3RhZG8gJiYgIWNhcnJlZ2FuZG8gPyAnYmctZ3JlZW4tNTAwJyA6ICcnfVxuICAgICAgICAgICAgICAke2F0aXZvICYmICFjb25lY3RhZG8gJiYgIWNhcnJlZ2FuZG8gPyAnYmctcmVkLTUwMCcgOiAnJ31cbiAgICAgICAgICAgICAgJHtjYXJyZWdhbmRvID8gJ2JnLWJsdWUtNTAwIGFuaW1hdGUtcHVsc2UnIDogJyd9XG4gICAgICAgICAgICBgfVxuICAgICAgICAgICAgLz5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQteHMgdGV4dC1tdXRlZC1mb3JlZ3JvdW5kXCI+XG4gICAgICAgICAgICAgIHshYXRpdm9cbiAgICAgICAgICAgICAgICA/ICdQYXVzYWRvJ1xuICAgICAgICAgICAgICAgIDogY2FycmVnYW5kb1xuICAgICAgICAgICAgICAgICAgPyAnQXR1YWxpemFuZG8nXG4gICAgICAgICAgICAgICAgICA6IGNvbmVjdGFkb1xuICAgICAgICAgICAgICAgICAgICA/ICdPbmxpbmUnXG4gICAgICAgICAgICAgICAgICAgIDogJ09mZmxpbmUnfVxuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L1Rvb2x0aXBUcmlnZ2VyPlxuICAgICAgICA8VG9vbHRpcENvbnRlbnQ+XG4gICAgICAgICAgPHA+XG4gICAgICAgICAgICB7IWF0aXZvXG4gICAgICAgICAgICAgID8gJ0F0dWFsaXphw6fDo28gcGF1c2FkYSdcbiAgICAgICAgICAgICAgOiBjYXJyZWdhbmRvXG4gICAgICAgICAgICAgICAgPyAnQnVzY2FuZG8gZGFkb3MuLi4nXG4gICAgICAgICAgICAgICAgOiBjb25lY3RhZG9cbiAgICAgICAgICAgICAgICAgID8gJ0NvbmVjdGFkbyBlIGF0dWFsaXphZG8nXG4gICAgICAgICAgICAgICAgICA6ICdEZXNjb25lY3RhZG8nfVxuICAgICAgICAgIDwvcD5cbiAgICAgICAgPC9Ub29sdGlwQ29udGVudD5cbiAgICAgIDwvVG9vbHRpcD5cbiAgICA8L1Rvb2x0aXBQcm92aWRlcj5cbiAgKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgU3RhdHVzVGVtcG9SZWFsO1xuIl0sIm5hbWVzIjpbIkluZGljYWRvclN0YXR1c1NpbXBsZXMiLCJTdGF0dXNUZW1wb1JlYWwiLCJzdGF0dXMiLCJjYXJyZWdhbmRvIiwiYXRpdm8iLCJpbnRlcnZhbG8iLCJvbkZvcmNhckF0dWFsaXphY2FvIiwib25SZWNvbmVjdGFyIiwib25Ub2dnbGVBdGl2byIsImNsYXNzTmFtZSIsImNvbXBhY3RvIiwib2J0ZXJDb3JTdGF0dXMiLCJjb25lY3RhZG8iLCJlcnJvIiwib2J0ZXJJY29uZVN0YXR1cyIsIlBhdXNlIiwiUmVmcmVzaEN3IiwiV2lmaSIsIldpZmlPZmYiLCJBbGVydFRyaWFuZ2xlIiwib2J0ZXJUZXh0b1N0YXR1cyIsIm9idGVyRGVzY3JpY2FvU3RhdHVzIiwidWx0aW1hQXR1YWxpemFjYW8iLCJ0ZW1wb0RlY29ycmlkbyIsImZvcm1hdERpc3RhbmNlVG9Ob3ciLCJhZGRTdWZmaXgiLCJsb2NhbGUiLCJwdEJSIiwiZm9ybWF0YXJJbnRlcnZhbG8iLCJtcyIsInNlZ3VuZG9zIiwiTWF0aCIsImZsb29yIiwibWludXRvcyIsIlRvb2x0aXBQcm92aWRlciIsImRpdiIsIlRvb2x0aXAiLCJUb29sdGlwVHJpZ2dlciIsImFzQ2hpbGQiLCJCYWRnZSIsInZhcmlhbnQiLCJzcGFuIiwiVG9vbHRpcENvbnRlbnQiLCJwIiwidGVudGF0aXZhc1JlY29uZXhhbyIsIkJ1dHRvbiIsInNpemUiLCJvbkNsaWNrIiwiZGlzYWJsZWQiLCJQbGF5IiwiQ2FyZCIsIkNhcmRDb250ZW50IiwiQ2xvY2siLCJ0b0xvY2FsZVRpbWVTdHJpbmciXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7Ozs7Ozs7UUFnVWdCQTtlQUFB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

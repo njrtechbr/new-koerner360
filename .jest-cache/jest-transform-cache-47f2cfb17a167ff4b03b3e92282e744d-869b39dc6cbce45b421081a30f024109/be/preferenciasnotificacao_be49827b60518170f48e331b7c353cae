@@ -1,0 +1,164 @@
+a369a76aca191abb999b2892ffe377d6
+"use strict";
+
+/* istanbul ignore next */
+function cov_u1v7k4hhd() {
+  var path = "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\preferencias-notificacao.ts";
+  var hash = "0dc5432590654909c779059a6fa6072a37f222ea";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\preferencias-notificacao.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 4,
+          column: 3
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 3
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 37
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 30
+        },
+        end: {
+          line: 42,
+          column: 1
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 7,
+            column: 9
+          },
+          end: {
+            line: 7,
+            column: 10
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 20
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      version: 3,
+      sources: ["C:\\Users\\Nereu Jr\\Documents\\Dev\\new\\src\\lib\\types\\preferencias-notificacao.ts"],
+      sourcesContent: ["export interface PreferenciasNotificacao {\n  id: string;\n  usuarioId: string;\n  \n  // Configura\xE7\xF5es gerais\n  notificacoesAtivas: boolean;\n  emailAtivo: boolean;\n  \n  // Configura\xE7\xF5es de timing\n  diasAntecedenciaLembrete: number; // dias antes do prazo\n  horarioEnvio: string; // formato HH:mm\n  incluirFinsDeSemanaSemana: boolean;\n  incluirFeriados: boolean;\n  \n  // Tipos de notifica\xE7\xE3o\n  tiposNotificacao: {\n    avaliacaoPendente: boolean;\n    avaliacaoVencida: boolean;\n    avaliacaoProximaVencimento: boolean;\n    novaAvaliacaoRecebida: boolean;\n    avaliacaoCompletada: boolean;\n    lembretePersonalizado: boolean;\n  };\n  \n  // Configura\xE7\xF5es de urg\xEAncia\n  urgenciaMinima: 'BAIXA' | 'MEDIA' | 'ALTA';\n  \n  // Configura\xE7\xF5es de frequ\xEAncia\n  frequenciaLembretes: {\n    avaliacaoPendente: 'DIARIO' | 'SEMANAL' | 'QUINZENAL' | 'MENSAL' | 'NUNCA';\n    avaliacaoVencida: 'DIARIO' | 'SEMANAL' | 'NUNCA';\n  };\n  \n  // Configura\xE7\xF5es de conte\xFAdo\n  incluirDetalhesAvaliacao: boolean;\n  incluirLinkDireto: boolean;\n  incluirResumoEstatisticas: boolean;\n  \n  // Configura\xE7\xF5es de formato\n  formatoEmail: 'TEXTO' | 'HTML';\n  idiomaNotificacao: 'PT_BR' | 'EN' | 'ES';\n  \n  // Configura\xE7\xF5es avan\xE7adas\n  pausarNotificacoes: {\n    ativo: boolean;\n    dataInicio?: Date;\n    dataFim?: Date;\n    motivo?: string;\n  };\n  \n  // Configura\xE7\xF5es de filtro\n  filtros: {\n    apenasMinhasAvaliacoes: boolean;\n    apenasAvaliacoesQueEuAvalio: boolean;\n    departamentosEspecificos: string[];\n    cargosEspecificos: string[];\n  };\n  \n  // Metadados\n  criadoEm: Date;\n  atualizadoEm: Date;\n  ultimaNotificacaoEnviada?: Date;\n  versao: number;\n}\n\nexport interface PreferenciasNotificacaoInput {\n  notificacoesAtivas?: boolean;\n  emailAtivo?: boolean;\n  diasAntecedenciaLembrete?: number;\n  horarioEnvio?: string;\n  incluirFinsDeSemanaSemana?: boolean;\n  incluirFeriados?: boolean;\n  tiposNotificacao?: Partial<PreferenciasNotificacao['tiposNotificacao']>;\n  urgenciaMinima?: PreferenciasNotificacao['urgenciaMinima'];\n  frequenciaLembretes?: Partial<PreferenciasNotificacao['frequenciaLembretes']>;\n  incluirDetalhesAvaliacao?: boolean;\n  incluirLinkDireto?: boolean;\n  incluirResumoEstatisticas?: boolean;\n  formatoEmail?: PreferenciasNotificacao['formatoEmail'];\n  idiomaNotificacao?: PreferenciasNotificacao['idiomaNotificacao'];\n  pausarNotificacoes?: Partial<PreferenciasNotificacao['pausarNotificacoes']>;\n  filtros?: Partial<PreferenciasNotificacao['filtros']>;\n}\n\nexport interface PreferenciasNotificacaoDefaults {\n  notificacoesAtivas: boolean;\n  emailAtivo: boolean;\n  diasAntecedenciaLembrete: number;\n  horarioEnvio: string;\n  incluirFinsDeSemanaSemana: boolean;\n  incluirFeriados: boolean;\n  tiposNotificacao: PreferenciasNotificacao['tiposNotificacao'];\n  urgenciaMinima: PreferenciasNotificacao['urgenciaMinima'];\n  frequenciaLembretes: PreferenciasNotificacao['frequenciaLembretes'];\n  incluirDetalhesAvaliacao: boolean;\n  incluirLinkDireto: boolean;\n  incluirResumoEstatisticas: boolean;\n  formatoEmail: PreferenciasNotificacao['formatoEmail'];\n  idiomaNotificacao: PreferenciasNotificacao['idiomaNotificacao'];\n  filtros: PreferenciasNotificacao['filtros'];\n}\n\nexport const PREFERENCIAS_DEFAULTS: PreferenciasNotificacaoDefaults = {\n  notificacoesAtivas: true,\n  emailAtivo: true,\n  diasAntecedenciaLembrete: 3,\n  horarioEnvio: '09:00',\n  incluirFinsDeSemanaSemana: false,\n  incluirFeriados: false,\n  tiposNotificacao: {\n    avaliacaoPendente: true,\n    avaliacaoVencida: true,\n    avaliacaoProximaVencimento: true,\n    novaAvaliacaoRecebida: true,\n    avaliacaoCompletada: false,\n    lembretePersonalizado: true,\n  },\n  urgenciaMinima: 'BAIXA',\n  frequenciaLembretes: {\n    avaliacaoPendente: 'SEMANAL',\n    avaliacaoVencida: 'DIARIO',\n  },\n  incluirDetalhesAvaliacao: true,\n  incluirLinkDireto: true,\n  incluirResumoEstatisticas: false,\n  formatoEmail: 'HTML',\n  idiomaNotificacao: 'PT_BR',\n  filtros: {\n    apenasMinhasAvaliacoes: false,\n    apenasAvaliacoesQueEuAvalio: false,\n    departamentosEspecificos: [],\n    cargosEspecificos: [],\n  },\n};"],
+      names: ["PREFERENCIAS_DEFAULTS", "notificacoesAtivas", "emailAtivo", "diasAntecedenciaLembrete", "horarioEnvio", "incluirFinsDeSemanaSemana", "incluirFeriados", "tiposNotificacao", "avaliacaoPendente", "avaliacaoVencida", "avaliacaoProximaVencimento", "novaAvaliacaoRecebida", "avaliacaoCompletada", "lembretePersonalizado", "urgenciaMinima", "frequenciaLembretes", "incluirDetalhesAvaliacao", "incluirLinkDireto", "incluirResumoEstatisticas", "formatoEmail", "idiomaNotificacao", "filtros", "apenasMinhasAvaliacoes", "apenasAvaliacoesQueEuAvalio", "departamentosEspecificos", "cargosEspecificos"],
+      mappings: ";;;;+BAsGaA;;;eAAAA;;;AAAN,MAAMA,wBAAyD;IACpEC,oBAAoB;IACpBC,YAAY;IACZC,0BAA0B;IAC1BC,cAAc;IACdC,2BAA2B;IAC3BC,iBAAiB;IACjBC,kBAAkB;QAChBC,mBAAmB;QACnBC,kBAAkB;QAClBC,4BAA4B;QAC5BC,uBAAuB;QACvBC,qBAAqB;QACrBC,uBAAuB;IACzB;IACAC,gBAAgB;IAChBC,qBAAqB;QACnBP,mBAAmB;QACnBC,kBAAkB;IACpB;IACAO,0BAA0B;IAC1BC,mBAAmB;IACnBC,2BAA2B;IAC3BC,cAAc;IACdC,mBAAmB;IACnBC,SAAS;QACPC,wBAAwB;QACxBC,6BAA6B;QAC7BC,0BAA0B,EAAE;QAC5BC,mBAAmB,EAAE;IACvB;AACF"
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "0dc5432590654909c779059a6fa6072a37f222ea"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_u1v7k4hhd = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+cov_u1v7k4hhd();
+cov_u1v7k4hhd().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/* istanbul ignore next */
+cov_u1v7k4hhd().s[1]++;
+Object.defineProperty(exports, "PREFERENCIAS_DEFAULTS", {
+  enumerable: true,
+  get: function () {
+    /* istanbul ignore next */
+    cov_u1v7k4hhd().f[0]++;
+    cov_u1v7k4hhd().s[2]++;
+    return PREFERENCIAS_DEFAULTS;
+  }
+});
+const PREFERENCIAS_DEFAULTS =
+/* istanbul ignore next */
+(cov_u1v7k4hhd().s[3]++, {
+  notificacoesAtivas: true,
+  emailAtivo: true,
+  diasAntecedenciaLembrete: 3,
+  horarioEnvio: '09:00',
+  incluirFinsDeSemanaSemana: false,
+  incluirFeriados: false,
+  tiposNotificacao: {
+    avaliacaoPendente: true,
+    avaliacaoVencida: true,
+    avaliacaoProximaVencimento: true,
+    novaAvaliacaoRecebida: true,
+    avaliacaoCompletada: false,
+    lembretePersonalizado: true
+  },
+  urgenciaMinima: 'BAIXA',
+  frequenciaLembretes: {
+    avaliacaoPendente: 'SEMANAL',
+    avaliacaoVencida: 'DIARIO'
+  },
+  incluirDetalhesAvaliacao: true,
+  incluirLinkDireto: true,
+  incluirResumoEstatisticas: false,
+  formatoEmail: 'HTML',
+  idiomaNotificacao: 'PT_BR',
+  filtros: {
+    apenasMinhasAvaliacoes: false,
+    apenasAvaliacoesQueEuAvalio: false,
+    departamentosEspecificos: [],
+    cargosEspecificos: []
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJjb3ZfdTF2N2s0aGhkIiwiYWN0dWFsQ292ZXJhZ2UiLCJzIiwiUFJFRkVSRU5DSUFTX0RFRkFVTFRTIiwibm90aWZpY2Fjb2VzQXRpdmFzIiwiZW1haWxBdGl2byIsImRpYXNBbnRlY2VkZW5jaWFMZW1icmV0ZSIsImhvcmFyaW9FbnZpbyIsImluY2x1aXJGaW5zRGVTZW1hbmFTZW1hbmEiLCJpbmNsdWlyRmVyaWFkb3MiLCJ0aXBvc05vdGlmaWNhY2FvIiwiYXZhbGlhY2FvUGVuZGVudGUiLCJhdmFsaWFjYW9WZW5jaWRhIiwiYXZhbGlhY2FvUHJveGltYVZlbmNpbWVudG8iLCJub3ZhQXZhbGlhY2FvUmVjZWJpZGEiLCJhdmFsaWFjYW9Db21wbGV0YWRhIiwibGVtYnJldGVQZXJzb25hbGl6YWRvIiwidXJnZW5jaWFNaW5pbWEiLCJmcmVxdWVuY2lhTGVtYnJldGVzIiwiaW5jbHVpckRldGFsaGVzQXZhbGlhY2FvIiwiaW5jbHVpckxpbmtEaXJldG8iLCJpbmNsdWlyUmVzdW1vRXN0YXRpc3RpY2FzIiwiZm9ybWF0b0VtYWlsIiwiaWRpb21hTm90aWZpY2FjYW8iLCJmaWx0cm9zIiwiYXBlbmFzTWluaGFzQXZhbGlhY29lcyIsImFwZW5hc0F2YWxpYWNvZXNRdWVFdUF2YWxpbyIsImRlcGFydGFtZW50b3NFc3BlY2lmaWNvcyIsImNhcmdvc0VzcGVjaWZpY29zIl0sInNvdXJjZXMiOlsiQzpcXFVzZXJzXFxOZXJldSBKclxcRG9jdW1lbnRzXFxEZXZcXG5ld1xcc3JjXFxsaWJcXHR5cGVzXFxwcmVmZXJlbmNpYXMtbm90aWZpY2FjYW8udHMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGludGVyZmFjZSBQcmVmZXJlbmNpYXNOb3RpZmljYWNhbyB7XG4gIGlkOiBzdHJpbmc7XG4gIHVzdWFyaW9JZDogc3RyaW5nO1xuICBcbiAgLy8gQ29uZmlndXJhw6fDtWVzIGdlcmFpc1xuICBub3RpZmljYWNvZXNBdGl2YXM6IGJvb2xlYW47XG4gIGVtYWlsQXRpdm86IGJvb2xlYW47XG4gIFxuICAvLyBDb25maWd1cmHDp8O1ZXMgZGUgdGltaW5nXG4gIGRpYXNBbnRlY2VkZW5jaWFMZW1icmV0ZTogbnVtYmVyOyAvLyBkaWFzIGFudGVzIGRvIHByYXpvXG4gIGhvcmFyaW9FbnZpbzogc3RyaW5nOyAvLyBmb3JtYXRvIEhIOm1tXG4gIGluY2x1aXJGaW5zRGVTZW1hbmFTZW1hbmE6IGJvb2xlYW47XG4gIGluY2x1aXJGZXJpYWRvczogYm9vbGVhbjtcbiAgXG4gIC8vIFRpcG9zIGRlIG5vdGlmaWNhw6fDo29cbiAgdGlwb3NOb3RpZmljYWNhbzoge1xuICAgIGF2YWxpYWNhb1BlbmRlbnRlOiBib29sZWFuO1xuICAgIGF2YWxpYWNhb1ZlbmNpZGE6IGJvb2xlYW47XG4gICAgYXZhbGlhY2FvUHJveGltYVZlbmNpbWVudG86IGJvb2xlYW47XG4gICAgbm92YUF2YWxpYWNhb1JlY2ViaWRhOiBib29sZWFuO1xuICAgIGF2YWxpYWNhb0NvbXBsZXRhZGE6IGJvb2xlYW47XG4gICAgbGVtYnJldGVQZXJzb25hbGl6YWRvOiBib29sZWFuO1xuICB9O1xuICBcbiAgLy8gQ29uZmlndXJhw6fDtWVzIGRlIHVyZ8OqbmNpYVxuICB1cmdlbmNpYU1pbmltYTogJ0JBSVhBJyB8ICdNRURJQScgfCAnQUxUQSc7XG4gIFxuICAvLyBDb25maWd1cmHDp8O1ZXMgZGUgZnJlcXXDqm5jaWFcbiAgZnJlcXVlbmNpYUxlbWJyZXRlczoge1xuICAgIGF2YWxpYWNhb1BlbmRlbnRlOiAnRElBUklPJyB8ICdTRU1BTkFMJyB8ICdRVUlOWkVOQUwnIHwgJ01FTlNBTCcgfCAnTlVOQ0EnO1xuICAgIGF2YWxpYWNhb1ZlbmNpZGE6ICdESUFSSU8nIHwgJ1NFTUFOQUwnIHwgJ05VTkNBJztcbiAgfTtcbiAgXG4gIC8vIENvbmZpZ3VyYcOnw7VlcyBkZSBjb250ZcO6ZG9cbiAgaW5jbHVpckRldGFsaGVzQXZhbGlhY2FvOiBib29sZWFuO1xuICBpbmNsdWlyTGlua0RpcmV0bzogYm9vbGVhbjtcbiAgaW5jbHVpclJlc3Vtb0VzdGF0aXN0aWNhczogYm9vbGVhbjtcbiAgXG4gIC8vIENvbmZpZ3VyYcOnw7VlcyBkZSBmb3JtYXRvXG4gIGZvcm1hdG9FbWFpbDogJ1RFWFRPJyB8ICdIVE1MJztcbiAgaWRpb21hTm90aWZpY2FjYW86ICdQVF9CUicgfCAnRU4nIHwgJ0VTJztcbiAgXG4gIC8vIENvbmZpZ3VyYcOnw7VlcyBhdmFuw6dhZGFzXG4gIHBhdXNhck5vdGlmaWNhY29lczoge1xuICAgIGF0aXZvOiBib29sZWFuO1xuICAgIGRhdGFJbmljaW8/OiBEYXRlO1xuICAgIGRhdGFGaW0/OiBEYXRlO1xuICAgIG1vdGl2bz86IHN0cmluZztcbiAgfTtcbiAgXG4gIC8vIENvbmZpZ3VyYcOnw7VlcyBkZSBmaWx0cm9cbiAgZmlsdHJvczoge1xuICAgIGFwZW5hc01pbmhhc0F2YWxpYWNvZXM6IGJvb2xlYW47XG4gICAgYXBlbmFzQXZhbGlhY29lc1F1ZUV1QXZhbGlvOiBib29sZWFuO1xuICAgIGRlcGFydGFtZW50b3NFc3BlY2lmaWNvczogc3RyaW5nW107XG4gICAgY2FyZ29zRXNwZWNpZmljb3M6IHN0cmluZ1tdO1xuICB9O1xuICBcbiAgLy8gTWV0YWRhZG9zXG4gIGNyaWFkb0VtOiBEYXRlO1xuICBhdHVhbGl6YWRvRW06IERhdGU7XG4gIHVsdGltYU5vdGlmaWNhY2FvRW52aWFkYT86IERhdGU7XG4gIHZlcnNhbzogbnVtYmVyO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIFByZWZlcmVuY2lhc05vdGlmaWNhY2FvSW5wdXQge1xuICBub3RpZmljYWNvZXNBdGl2YXM/OiBib29sZWFuO1xuICBlbWFpbEF0aXZvPzogYm9vbGVhbjtcbiAgZGlhc0FudGVjZWRlbmNpYUxlbWJyZXRlPzogbnVtYmVyO1xuICBob3JhcmlvRW52aW8/OiBzdHJpbmc7XG4gIGluY2x1aXJGaW5zRGVTZW1hbmFTZW1hbmE/OiBib29sZWFuO1xuICBpbmNsdWlyRmVyaWFkb3M/OiBib29sZWFuO1xuICB0aXBvc05vdGlmaWNhY2FvPzogUGFydGlhbDxQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1sndGlwb3NOb3RpZmljYWNhbyddPjtcbiAgdXJnZW5jaWFNaW5pbWE/OiBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1sndXJnZW5jaWFNaW5pbWEnXTtcbiAgZnJlcXVlbmNpYUxlbWJyZXRlcz86IFBhcnRpYWw8UHJlZmVyZW5jaWFzTm90aWZpY2FjYW9bJ2ZyZXF1ZW5jaWFMZW1icmV0ZXMnXT47XG4gIGluY2x1aXJEZXRhbGhlc0F2YWxpYWNhbz86IGJvb2xlYW47XG4gIGluY2x1aXJMaW5rRGlyZXRvPzogYm9vbGVhbjtcbiAgaW5jbHVpclJlc3Vtb0VzdGF0aXN0aWNhcz86IGJvb2xlYW47XG4gIGZvcm1hdG9FbWFpbD86IFByZWZlcmVuY2lhc05vdGlmaWNhY2FvWydmb3JtYXRvRW1haWwnXTtcbiAgaWRpb21hTm90aWZpY2FjYW8/OiBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1snaWRpb21hTm90aWZpY2FjYW8nXTtcbiAgcGF1c2FyTm90aWZpY2Fjb2VzPzogUGFydGlhbDxQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1sncGF1c2FyTm90aWZpY2Fjb2VzJ10+O1xuICBmaWx0cm9zPzogUGFydGlhbDxQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1snZmlsdHJvcyddPjtcbn1cblxuZXhwb3J0IGludGVyZmFjZSBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb0RlZmF1bHRzIHtcbiAgbm90aWZpY2Fjb2VzQXRpdmFzOiBib29sZWFuO1xuICBlbWFpbEF0aXZvOiBib29sZWFuO1xuICBkaWFzQW50ZWNlZGVuY2lhTGVtYnJldGU6IG51bWJlcjtcbiAgaG9yYXJpb0VudmlvOiBzdHJpbmc7XG4gIGluY2x1aXJGaW5zRGVTZW1hbmFTZW1hbmE6IGJvb2xlYW47XG4gIGluY2x1aXJGZXJpYWRvczogYm9vbGVhbjtcbiAgdGlwb3NOb3RpZmljYWNhbzogUHJlZmVyZW5jaWFzTm90aWZpY2FjYW9bJ3RpcG9zTm90aWZpY2FjYW8nXTtcbiAgdXJnZW5jaWFNaW5pbWE6IFByZWZlcmVuY2lhc05vdGlmaWNhY2FvWyd1cmdlbmNpYU1pbmltYSddO1xuICBmcmVxdWVuY2lhTGVtYnJldGVzOiBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1snZnJlcXVlbmNpYUxlbWJyZXRlcyddO1xuICBpbmNsdWlyRGV0YWxoZXNBdmFsaWFjYW86IGJvb2xlYW47XG4gIGluY2x1aXJMaW5rRGlyZXRvOiBib29sZWFuO1xuICBpbmNsdWlyUmVzdW1vRXN0YXRpc3RpY2FzOiBib29sZWFuO1xuICBmb3JtYXRvRW1haWw6IFByZWZlcmVuY2lhc05vdGlmaWNhY2FvWydmb3JtYXRvRW1haWwnXTtcbiAgaWRpb21hTm90aWZpY2FjYW86IFByZWZlcmVuY2lhc05vdGlmaWNhY2FvWydpZGlvbWFOb3RpZmljYWNhbyddO1xuICBmaWx0cm9zOiBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb1snZmlsdHJvcyddO1xufVxuXG5leHBvcnQgY29uc3QgUFJFRkVSRU5DSUFTX0RFRkFVTFRTOiBQcmVmZXJlbmNpYXNOb3RpZmljYWNhb0RlZmF1bHRzID0ge1xuICBub3RpZmljYWNvZXNBdGl2YXM6IHRydWUsXG4gIGVtYWlsQXRpdm86IHRydWUsXG4gIGRpYXNBbnRlY2VkZW5jaWFMZW1icmV0ZTogMyxcbiAgaG9yYXJpb0VudmlvOiAnMDk6MDAnLFxuICBpbmNsdWlyRmluc0RlU2VtYW5hU2VtYW5hOiBmYWxzZSxcbiAgaW5jbHVpckZlcmlhZG9zOiBmYWxzZSxcbiAgdGlwb3NOb3RpZmljYWNhbzoge1xuICAgIGF2YWxpYWNhb1BlbmRlbnRlOiB0cnVlLFxuICAgIGF2YWxpYWNhb1ZlbmNpZGE6IHRydWUsXG4gICAgYXZhbGlhY2FvUHJveGltYVZlbmNpbWVudG86IHRydWUsXG4gICAgbm92YUF2YWxpYWNhb1JlY2ViaWRhOiB0cnVlLFxuICAgIGF2YWxpYWNhb0NvbXBsZXRhZGE6IGZhbHNlLFxuICAgIGxlbWJyZXRlUGVyc29uYWxpemFkbzogdHJ1ZSxcbiAgfSxcbiAgdXJnZW5jaWFNaW5pbWE6ICdCQUlYQScsXG4gIGZyZXF1ZW5jaWFMZW1icmV0ZXM6IHtcbiAgICBhdmFsaWFjYW9QZW5kZW50ZTogJ1NFTUFOQUwnLFxuICAgIGF2YWxpYWNhb1ZlbmNpZGE6ICdESUFSSU8nLFxuICB9LFxuICBpbmNsdWlyRGV0YWxoZXNBdmFsaWFjYW86IHRydWUsXG4gIGluY2x1aXJMaW5rRGlyZXRvOiB0cnVlLFxuICBpbmNsdWlyUmVzdW1vRXN0YXRpc3RpY2FzOiBmYWxzZSxcbiAgZm9ybWF0b0VtYWlsOiAnSFRNTCcsXG4gIGlkaW9tYU5vdGlmaWNhY2FvOiAnUFRfQlInLFxuICBmaWx0cm9zOiB7XG4gICAgYXBlbmFzTWluaGFzQXZhbGlhY29lczogZmFsc2UsXG4gICAgYXBlbmFzQXZhbGlhY29lc1F1ZUV1QXZhbGlvOiBmYWxzZSxcbiAgICBkZXBhcnRhbWVudG9zRXNwZWNpZmljb3M6IFtdLFxuICAgIGNhcmdvc0VzcGVjaWZpY29zOiBbXSxcbiAgfSxcbn07Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUEyR0U7SUFBQUEsYUFBQSxZQUFBQSxDQUFBO01BQUEsT0FBQUMsY0FBQTtJQUFBO0VBQUE7RUFBQSxPQUFBQSxjQUFBO0FBQUE7QUFBQUQsYUFBQTtBQUFBQSxhQUFBLEdBQUFFLENBQUE7Ozs7OzsrQkFMVzs7Ozs7O1dBQUFDLHFCQUFBOzs7QUFBTixNQUFNQSxxQkFBQTtBQUFBO0FBQUEsQ0FBQUgsYUFBQSxHQUFBRSxDQUFBLE9BQXlEO0VBQ3BFRSxrQkFBQSxFQUFvQjtFQUNwQkMsVUFBQSxFQUFZO0VBQ1pDLHdCQUFBLEVBQTBCO0VBQzFCQyxZQUFBLEVBQWM7RUFDZEMseUJBQUEsRUFBMkI7RUFDM0JDLGVBQUEsRUFBaUI7RUFDakJDLGdCQUFBLEVBQWtCO0lBQ2hCQyxpQkFBQSxFQUFtQjtJQUNuQkMsZ0JBQUEsRUFBa0I7SUFDbEJDLDBCQUFBLEVBQTRCO0lBQzVCQyxxQkFBQSxFQUF1QjtJQUN2QkMsbUJBQUEsRUFBcUI7SUFDckJDLHFCQUFBLEVBQXVCO0VBQ3pCO0VBQ0FDLGNBQUEsRUFBZ0I7RUFDaEJDLG1CQUFBLEVBQXFCO0lBQ25CUCxpQkFBQSxFQUFtQjtJQUNuQkMsZ0JBQUEsRUFBa0I7RUFDcEI7RUFDQU8sd0JBQUEsRUFBMEI7RUFDMUJDLGlCQUFBLEVBQW1CO0VBQ25CQyx5QkFBQSxFQUEyQjtFQUMzQkMsWUFBQSxFQUFjO0VBQ2RDLGlCQUFBLEVBQW1CO0VBQ25CQyxPQUFBLEVBQVM7SUFDUEMsc0JBQUEsRUFBd0I7SUFDeEJDLDJCQUFBLEVBQTZCO0lBQzdCQyx3QkFBQSxFQUEwQixFQUFFO0lBQzVCQyxpQkFBQSxFQUFtQjtFQUNyQjtBQUNGIiwiaWdub3JlTGlzdCI6W119

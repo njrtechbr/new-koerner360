@@ -9,17 +9,19 @@ datasource db {
 }
 
 model Usuario {
-  id                        String      @id @default(cuid())
-  email                     String      @unique
+  id                        String             @id @default(cuid())
+  email                     String             @unique
   nome                      String
   senha                     String
   userType                  TipoUsuario
-  ativo                     Boolean     @default(true)
-  criadoEm                  DateTime    @default(now())
-  atualizadoEm              DateTime    @updatedAt
+  ativo                     Boolean            @default(true)
+  criadoEm                  DateTime           @default(now())
+  atualizadoEm              DateTime           @updatedAt
   expiracaoTokenRecuperacao DateTime?
   tokenRecuperacao          String?
   atendente                 Atendente?
+  avaliacoesFeitas          Avaliacao[]        @relation("UsuarioAvaliador")
+  periodosAvaliacao         PeriodoAvaliacao[] @relation("PeriodoCriador")
 
   @@index([userType])
   @@index([ativo])
@@ -66,22 +68,47 @@ model Atendente {
 }
 
 model Avaliacao {
-  id            String    @id @default(cuid())
-  atendenteId   String
-  nota          Int
+  id            String           @id @default(cuid())
+  avaliadorId   String
+  avaliadoId    String
+  periodoId     String
+  nota          Int              @db.SmallInt // 1-5
   comentario    String?
-  periodo       String
-  dataAvaliacao DateTime  @default(now())
-  avaliadorId   String?
-  criadoEm      DateTime  @default(now())
-  atualizadoEm  DateTime  @updatedAt
-  atendente     Atendente @relation(fields: [atendenteId], references: [id], onDelete: Cascade)
+  status        StatusAvaliacao  @default(PENDENTE)
+  dataAvaliacao DateTime         @default(now())
+  criadoEm      DateTime         @default(now())
+  atualizadoEm  DateTime         @updatedAt
+  avaliador     Usuario          @relation("UsuarioAvaliador", fields: [avaliadorId], references: [id], onDelete: Cascade)
+  avaliado      Atendente        @relation(fields: [avaliadoId], references: [id], onDelete: Cascade)
+  periodo       PeriodoAvaliacao @relation(fields: [periodoId], references: [id], onDelete: Cascade)
 
-  @@unique([atendenteId, periodo])
-  @@index([atendenteId])
-  @@index([periodo])
+  @@unique([avaliadorId, avaliadoId, periodoId])
+  @@index([avaliadorId])
+  @@index([avaliadoId])
+  @@index([periodoId])
+  @@index([status])
   @@index([dataAvaliacao])
   @@map("avaliacoes")
+}
+
+model PeriodoAvaliacao {
+  id          String            @id @default(cuid())
+  nome        String
+  descricao   String?
+  dataInicio  DateTime
+  dataFim     DateTime
+  status      StatusPeriodo     @default(PLANEJADO)
+  criadoEm    DateTime          @default(now())
+  atualizadoEm DateTime         @updatedAt
+  criadoPorId String?
+  avaliacoes  Avaliacao[]
+  criador     Usuario?          @relation("PeriodoCriador", fields: [criadoPorId], references: [id])
+
+  @@index([status])
+  @@index([dataInicio])
+  @@index([dataFim])
+  @@index([criadoPorId])
+  @@map("periodos_avaliacao")
 }
 
 model Feedback {
@@ -252,4 +279,17 @@ enum TipoAlteracao {
   MUDANCA_STATUS
   UPLOAD_DOCUMENTO
   REMOCAO_DOCUMENTO
+}
+
+enum StatusAvaliacao {
+  PENDENTE
+  CONCLUIDA
+  CANCELADA
+}
+
+enum StatusPeriodo {
+  PLANEJADO
+  ATIVO
+  FINALIZADO
+  CANCELADO
 }

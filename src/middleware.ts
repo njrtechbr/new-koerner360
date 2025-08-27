@@ -4,15 +4,12 @@ import { TipoUsuario } from '@prisma/client';
 
 // Definição de rotas protegidas por tipo de usuário
 const ROTAS_POR_TIPO: Record<string, TipoUsuario[]> = {
-  '/dashboard/admin': ['ADMIN'],
-  '/dashboard/gestor': ['ADMIN', 'GESTOR'],
-  '/dashboard/atendente': ['ADMIN', 'GESTOR', 'ATENDENTE'],
+  '/dashboard': ['ADMIN', 'GESTOR', 'ATENDENTE'],
   '/usuarios': ['ADMIN', 'GESTOR'],
   '/atendentes': ['ADMIN', 'GESTOR'],
   '/relatorios': ['ADMIN', 'GESTOR'],
-  '/sistema': ['ADMIN'],
+  '/configuracoes': ['ADMIN'],
   '/feedbacks': ['ADMIN', 'GESTOR', 'ATENDENTE'],
-  '/avaliacoes': ['ADMIN', 'GESTOR', 'ATENDENTE'],
   '/gamificacao': ['ADMIN', 'GESTOR', 'ATENDENTE'],
   // Rotas da API
   '/api/usuarios': ['ADMIN', 'GESTOR', 'ATENDENTE'],
@@ -39,16 +36,9 @@ function podeAcessarRota(pathname: string, userType: string): boolean {
 
 // Função para obter a rota de dashboard baseada no tipo de usuário
 function obterDashboardPorTipo(userType: string): string {
-  switch (userType) {
-    case 'ADMIN':
-      return '/dashboard/admin';
-    case 'GESTOR':
-      return '/dashboard/gestor';
-    case 'ATENDENTE':
-      return '/dashboard/atendente';
-    default:
-      return '/dashboard';
-  }
+  // Todos os tipos de usuário vão para o dashboard principal
+  // A diferenciação de acesso é feita pelos componentes internos
+  return '/dashboard';
 }
 
 // Middleware para proteger rotas que requerem autenticação

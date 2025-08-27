@@ -1,0 +1,66 @@
+9edc6c2171eb563b37b9d0d6e6fb2100
+'use client';
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "Label", {
+    enumerable: true,
+    get: function() {
+        return Label;
+    }
+});
+const _jsxruntime = require("react/jsx-runtime");
+const _react = /*#__PURE__*/ _interop_require_wildcard(require("react"));
+const _reactlabel = /*#__PURE__*/ _interop_require_wildcard(require("@radix-ui/react-label"));
+const _utils = require("../../lib/utils");
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interop_require_wildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {
+        __proto__: null
+    };
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+function Label({ className, ...props }) {
+    return /*#__PURE__*/ (0, _jsxruntime.jsx)(_reactlabel.Root, {
+        "data-slot": "label",
+        className: (0, _utils.cn)('flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50', className),
+        ...props
+    });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcTmVyZXUgSnJcXERvY3VtZW50c1xcRGV2XFxuZXdcXHNyY1xcY29tcG9uZW50c1xcdWlcXGxhYmVsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyIndXNlIGNsaWVudCc7XG5cbmltcG9ydCAqIGFzIFJlYWN0IGZyb20gJ3JlYWN0JztcbmltcG9ydCAqIGFzIExhYmVsUHJpbWl0aXZlIGZyb20gJ0ByYWRpeC11aS9yZWFjdC1sYWJlbCc7XG5cbmltcG9ydCB7IGNuIH0gZnJvbSAnQC9saWIvdXRpbHMnO1xuXG5mdW5jdGlvbiBMYWJlbCh7XG4gIGNsYXNzTmFtZSxcbiAgLi4ucHJvcHNcbn06IFJlYWN0LkNvbXBvbmVudFByb3BzPHR5cGVvZiBMYWJlbFByaW1pdGl2ZS5Sb290Pikge1xuICByZXR1cm4gKFxuICAgIDxMYWJlbFByaW1pdGl2ZS5Sb290XG4gICAgICBkYXRhLXNsb3Q9XCJsYWJlbFwiXG4gICAgICBjbGFzc05hbWU9e2NuKFxuICAgICAgICAnZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgdGV4dC1zbSBsZWFkaW5nLW5vbmUgZm9udC1tZWRpdW0gc2VsZWN0LW5vbmUgZ3JvdXAtZGF0YS1bZGlzYWJsZWQ9dHJ1ZV06cG9pbnRlci1ldmVudHMtbm9uZSBncm91cC1kYXRhLVtkaXNhYmxlZD10cnVlXTpvcGFjaXR5LTUwIHBlZXItZGlzYWJsZWQ6Y3Vyc29yLW5vdC1hbGxvd2VkIHBlZXItZGlzYWJsZWQ6b3BhY2l0eS01MCcsXG4gICAgICAgIGNsYXNzTmFtZVxuICAgICAgKX1cbiAgICAgIHsuLi5wcm9wc31cbiAgICAvPlxuICApO1xufVxuXG5leHBvcnQgeyBMYWJlbCB9O1xuIl0sIm5hbWVzIjpbIkxhYmVsIiwiY2xhc3NOYW1lIiwicHJvcHMiLCJMYWJlbFByaW1pdGl2ZSIsIlJvb3QiLCJkYXRhLXNsb3QiLCJjbiJdLCJtYXBwaW5ncyI6IkFBQUE7Ozs7OytCQXVCU0E7OztlQUFBQTs7OzsrREFyQmM7b0VBQ1M7dUJBRWI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUVuQixTQUFTQSxNQUFNLEVBQ2JDLFNBQVMsRUFDVCxHQUFHQyxPQUM4QztJQUNqRCxxQkFDRSxxQkFBQ0MsWUFBZUMsSUFBSTtRQUNsQkMsYUFBVTtRQUNWSixXQUFXSyxJQUFBQSxTQUFFLEVBQ1gsdU5BQ0FMO1FBRUQsR0FBR0MsS0FBSzs7QUFHZiJ9

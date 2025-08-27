@@ -38,11 +38,11 @@ import {
   RefreshCw,
 } from 'lucide-react';
 import { AuthGuard } from '@/components/auth';
-import { DashboardMetricas } from '@/components/dashboard/dashboard-metricas';
-import { ComparativoAtendentes } from '@/components/dashboard/comparativo-atendentes';
-import { GraficosDesempenho } from '@/components/dashboard/graficos-desempenho';
-import { IndicadoresProdutividade } from '@/components/dashboard/indicadores-produtividade';
-import { ResumoStatus } from '@/components/dashboard/resumo-status';
+import { DashboardMetricas } from '@/components/metricas/dashboard-metricas';
+import { ComparativoAtendentes } from '@/components/metricas/comparativo-atendentes';
+import { GraficosDesempenho } from '@/components/metricas/graficos-desempenho';
+import { IndicadoresProdutividade } from '@/components/metricas/indicadores-produtividade';
+import { ResumoStatus } from '@/components/metricas/resumo-status';
 
 interface DashboardData {
   periodo: {
